@@ -1,0 +1,20 @@
+{
+  "name": "catan-rules-guide",
+  "version": "1.0.0",
+  "description": "An interactive, beautifully illustrated guide to Catan board game rules — simple enough for anyone to learn in minutes.",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve public",
+    "build": "echo 'Static site — no build step needed'",
+    "start": "npx serve public"
+  },
+  "keywords": [
+    "catan",
+    "board-game",
+    "rules",
+    "interactive",
+    "guide"
+  ],
+  "author": "Chris (codebykrishna)",
+  "license": "MIT"
+}
