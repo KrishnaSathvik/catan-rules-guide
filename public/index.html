@@ -189,6 +189,9 @@
 
   .footer { text-align: center; padding: 40px 24px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--sand-dark); margin-top: 20px; }
 
+  /* ── OFFICIAL RULES CARD ── */
+  .official-rules-card { background: linear-gradient(135deg, #e8f4f7, #f0f9f4); }
+
   /* ── ALMANAC ── */
   .almanac-entry { transition: opacity 0.2s, max-height 0.3s; }
   .almanac-entry.hidden { display: none; }
@@ -244,6 +247,7 @@
     .vp-dot { background: #2a2520; border-color: var(--ocean-light); color: var(--ocean-light); }
     .vp-dot.filled { background: var(--ocean); color: white; }
     .footer { border-top-color: #3a3530; }
+    .official-rules-card { background: linear-gradient(135deg, #1a2a2e, #1e2a20); }
     #almanacSearch { background: #2a2520; border-color: #3a3530; color: var(--text); }
     input::placeholder { color: #6a6560; }
   }
@@ -776,7 +780,7 @@
     </div>
   </div>
 
-  <div class="card" style="background: linear-gradient(135deg, #e8f4f7, #f0f9f4); margin-top: 20px;">
+  <div class="card official-rules-card" style="margin-top: 20px;">
     <h3><span class="icon">📘</span> Official Rules Reference</h3>
     <p>This guide covers the most common rules and edge cases based on the Catan 5th Edition rulebook. For the complete official rules, including tournament-specific rulings, download the PDF from the publisher:</p>
     <p><a href="https://www.catan.com/understand-catan/game-rules" target="_blank" rel="noopener" style="color: var(--ocean); font-weight: 600; text-decoration: underline;">📄 Official Catan Rulebooks — catan.com</a></p>
