@@ -3,986 +3,138 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- PRIMARY SEO -->
-<title>Catan Rules Explained Simply — Interactive Guide for Beginners (2026)</title>
-<meta name="description" content="Learn how to play Catan in minutes with this free interactive guide. Covers setup, resources, building costs, trading, the robber, development cards, and winning strategies with visual diagrams and a dice roller.">
-<meta name="keywords" content="Catan rules, how to play Catan, Catan board game rules, Settlers of Catan rules, Catan beginner guide, Catan setup, Catan building costs, Catan trading rules, Catan robber rules, Catan development cards, Catan victory points, board game rules explained">
-<meta name="author" content="codebykrishna">
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<title>Catan Rules Guide — Learn Every Version Simply</title>
+<meta name="description" content="Free interactive guides for Catan base game and all expansions. Visual diagrams, searchable rules, dice tools. Learn Catan, Seafarers, Cities and Knights and more in minutes.">
+<meta name="robots" content="index, follow">
 <link rel="canonical" href="https://catan-rules-guide.vercel.app/">
-
-<!-- OPEN GRAPH (Facebook, LinkedIn, Discord) -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Catan Rules — The Simple Interactive Guide for Beginners">
-<meta property="og:description" content="Learn Catan in minutes! Free interactive guide with visual diagrams, building costs, trading rules, dice roller, and victory point tracker.">
+<meta property="og:title" content="Catan Rules Guide — Learn Every Version Simply">
+<meta property="og:description" content="Free interactive guides for Catan base game and all expansions. Visual diagrams, searchable almanac, dice tools.">
 <meta property="og:url" content="https://catan-rules-guide.vercel.app/">
-<meta property="og:site_name" content="Catan Rules Guide">
-<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://catan-rules-guide.vercel.app/og-image.png">
-<meta property="og:image:width" content="1024">
-<meta property="og:image:height" content="1024">
-<meta property="og:image:alt" content="Catan Rules Guide — Hexagonal C Logo">
-
-<!-- TWITTER CARD -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Catan Rules — The Simple Interactive Guide">
-<meta name="twitter:description" content="Learn Catan in minutes with visual diagrams, building costs, and an interactive dice roller. Free beginner-friendly guide.">
+<meta name="twitter:title" content="Catan Rules Guide — Learn Every Version Simply">
 <meta name="twitter:image" content="https://catan-rules-guide.vercel.app/og-image.png">
-<meta name="twitter:creator" content="@latentengineer_">
-
-<!-- ADDITIONAL SEO -->
 <meta name="theme-color" content="#2a6b7c">
-<meta name="apple-mobile-web-app-title" content="Catan Rules">
-<meta name="application-name" content="Catan Rules Guide">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-
-<!-- STRUCTURED DATA: FAQPage -->
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","name":"Catan Board Game Rules — Simple Guide","description":"A beginner-friendly interactive guide explaining all the rules of the Catan board game with visual diagrams.","mainEntity":[{"@type":"Question","name":"How do you play Catan?","acceptedAnswer":{"@type":"Answer","text":"Catan is a 3-4 player board game where you collect resources (brick, lumber, wool, grain, ore), build roads, settlements, and cities, and trade with other players. Each turn you roll dice to produce resources, trade with others, and build. First player to reach 10 victory points wins."}},{"@type":"Question","name":"What are the building costs in Catan?","acceptedAnswer":{"@type":"Answer","text":"Road costs 1 brick + 1 lumber. Settlement costs 1 brick + 1 lumber + 1 wool + 1 grain (worth 1 VP). City upgrade costs 2 grain + 3 ore (worth 2 VP). Development card costs 1 wool + 1 grain + 1 ore."}},{"@type":"Question","name":"What happens when you roll a 7 in Catan?","acceptedAnswer":{"@type":"Answer","text":"When a 7 is rolled, no one collects resources. Any player with more than 7 cards must discard half. The roller moves the robber to any tile (blocking its production) and steals 1 random resource card from a player adjacent to that tile. Development cards cannot be stolen."}},{"@type":"Question","name":"How do you win Catan?","acceptedAnswer":{"@type":"Answer","text":"The first player to reach 10 victory points on their turn wins. Points come from settlements (1 VP each), cities (2 VP each), Longest Road with 5+ roads (2 VP), Largest Army with 3+ knights (2 VP), and victory point development cards (1 VP each)."}},{"@type":"Question","name":"How does trading work in Catan?","acceptedAnswer":{"@type":"Answer","text":"On your turn you can trade resource cards with other players at any agreed rate. You can also trade with the bank at 4:1 (4 same resources for 1 of any type). Harbors improve this to 3:1 for generic harbors or 2:1 for specific resource harbors."}},{"@type":"Question","name":"What are the development cards in Catan?","acceptedAnswer":{"@type":"Answer","text":"There are 25 development cards: 14 Knights (move robber and steal), 2 Road Building (place 2 free roads), 2 Year of Plenty (take 2 free resources), 2 Monopoly (take all of one resource type from all players), and 5 Victory Point cards (1 VP each, kept secret)."}},{"@type":"Question","name":"How many players can play Catan?","acceptedAnswer":{"@type":"Answer","text":"The base game supports 3-4 players. With the 5-6 Player Extension, up to 6 players can play. A standard game takes about 60-90 minutes."}},{"@type":"Question","name":"Can you play a development card the same turn you bought it in Catan?","acceptedAnswer":{"@type":"Answer","text":"No. Knight and progress cards cannot be played the turn they are purchased. The only exception is Victory Point cards — if buying one gives you 10+ points, you can reveal it immediately to win."}},{"@type":"Question","name":"What happens if someone builds a settlement on your road in Catan?","acceptedAnswer":{"@type":"Answer","text":"An opponent's settlement breaks your continuous road into two segments. Your longest road becomes the longer of the two sides. If you no longer have 5+ continuous road segments, you lose the Longest Road card."}},{"@type":"Question","name":"Can you play a Knight card before rolling the dice in Catan?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can play a Knight before your dice roll. This is a common strategy to move the robber off your tile before rolling so you can collect resources."}},{"@type":"Question","name":"Can you win Catan on someone else's turn?","acceptedAnswer":{"@type":"Answer","text":"No. You can only win during your own turn. If you reach 10 points on another player's turn, the game continues until your turn. You could even lose points before then if someone takes Longest Road from you."}}]}
-</script>
-
-<!-- STRUCTURED DATA: WebPage + Game -->
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"Catan Rules — The Simple Interactive Guide","description":"Learn how to play Catan in minutes with this free interactive guide covering setup, resources, building costs, trading, the robber, development cards, and winning strategies.","url":"https://catan-rules-guide.vercel.app/","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Catan Rules Guide","url":"https://catan-rules-guide.vercel.app/"},"about":{"@type":"Game","name":"Catan","alternateName":["Settlers of Catan","Die Siedler von Catan"],"numberOfPlayers":{"@type":"QuantitativeValue","minValue":3,"maxValue":4},"audience":{"@type":"PeopleAudience","suggestedMinAge":10},"genre":["Strategy","Board Game","Resource Management"]},"datePublished":"2026-03-12","dateModified":"2026-03-12"}
-</script>
-
-<!-- STRUCTURED DATA: BreadcrumbList -->
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Catan Rules Guide","item":"https://catan-rules-guide.vercel.app/"}]}
-</script>
-
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --sand: #f5e6c8;
-    --sand-light: #faf3e6;
-    --sand-dark: #e8d5a8;
-    --ocean: #2a6b7c;
-    --ocean-deep: #1a4a57;
-    --ocean-light: #3a8b9c;
-    --brick: #c45a3c;
-    --lumber: #5a8c3c;
-    --wool: #8bc34a;
-    --grain: #f0c040;
-    --ore: #7a7a8a;
-    --desert: #d4b87a;
-    --text: #2a2520;
-    --text-light: #6a6560;
-    --white: #fffef9;
-    --card-shadow: 0 4px 24px rgba(42,43,37,0.10);
-    --card-shadow-hover: 0 8px 40px rgba(42,43,37,0.16);
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--sand-light); color: var(--text); line-height: 1.7; overflow-x: hidden; }
-
-  .hero {
-    background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean) 40%, var(--ocean-light) 100%);
-    color: var(--white); padding: 60px 24px 40px; text-align: center; position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-    background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(255,255,255,0.04) 0%, transparent 40%);
-    animation: drift 20s ease-in-out infinite;
-  }
-  @keyframes drift { 0%, 100% { transform: translate(0,0) rotate(0deg); } 50% { transform: translate(-3%,2%) rotate(1deg); } }
-  .hero h1 { font-family: 'Crimson Pro', serif; font-size: clamp(2.4rem,6vw,4rem); font-weight: 700; letter-spacing: -0.02em; position: relative; z-index: 1; }
-  .hero h1 span { color: var(--grain); }
-  .hero p { font-size: 1.1rem; opacity: 0.85; margin-top: 8px; position: relative; z-index: 1; }
-  .hero-board { position: relative; z-index: 1; margin: 28px auto 0; max-width: 400px; }
-
-  .nav { background: var(--white); border-bottom: 2px solid var(--sand-dark); padding: 0 24px; position: sticky; top: 0; z-index: 100; overflow-x: auto; -webkit-overflow-scrolling: touch; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-  .nav::-webkit-scrollbar { display: none; }
-  .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 2px; align-items: center; padding: 6px 0; min-width: max-content; }
-  @media (min-width: 1000px) { .nav-inner { justify-content: center; min-width: unset; } }
-  .nav-btn { background: var(--sand-light); border: 1px solid var(--sand-dark); padding: 8px 14px; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--text-light); cursor: pointer; white-space: nowrap; transition: all 0.2s; border-radius: 8px; }
-  .nav-btn:hover { color: var(--ocean); background: rgba(42,107,124,0.08); border-color: var(--ocean-light); }
-  .nav-btn.active { color: var(--white); background: var(--ocean); border-color: var(--ocean); }
-
-  .container { max-width: 820px; margin: 0 auto; padding: 0 24px; }
-  .section { display: none; padding: 40px 0 60px; animation: fadeIn 0.4s ease; }
-  .section.active { display: block; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-  .section-title { font-family: 'Crimson Pro', serif; font-size: 2rem; font-weight: 700; color: var(--ocean-deep); margin-bottom: 8px; }
-  .section-subtitle { color: var(--text-light); font-size: 1rem; margin-bottom: 32px; }
-
-  .card { background: var(--white); border-radius: 16px; padding: 28px; margin-bottom: 20px; box-shadow: var(--card-shadow); border: 1px solid var(--sand-dark); transition: box-shadow 0.3s; }
-  .card:hover { box-shadow: var(--card-shadow-hover); }
-  .card h3 { font-family: 'Crimson Pro', serif; font-size: 1.35rem; font-weight: 700; color: var(--ocean-deep); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-  .card h3 .icon { font-size: 1.5rem; flex-shrink: 0; }
-  .card p { color: var(--text); margin-bottom: 12px; font-size: 0.95rem; }
-  .card p:last-child { margin-bottom: 0; }
-
-  .step-num { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--ocean); color: var(--white); font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
-
-  .illustration { margin: 20px auto; display: flex; justify-content: center; border-radius: 14px; overflow: hidden; }
-  .illustration svg { display: block; max-width: 100%; height: auto; }
-
-  .resource-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
-  .resource-badge { display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 10px; font-size: 0.88rem; font-weight: 600; color: var(--white); }
-  .resource-badge.brick { background: var(--brick); }
-  .resource-badge.lumber { background: var(--lumber); }
-  .resource-badge.wool { background: #6a9e30; }
-  .resource-badge.grain { background: #c49a10; }
-  .resource-badge.ore { background: var(--ore); }
-
-  .res-cards-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 20px 0; }
-  .res-card-visual { width: 80px; height: 110px; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.75rem; box-shadow: 0 3px 12px rgba(0,0,0,0.15); position: relative; overflow: hidden; cursor: default; transition: transform 0.2s; }
-  .res-card-visual:hover { transform: translateY(-4px) scale(1.04); }
-  .res-card-visual .res-icon { font-size: 2rem; margin-bottom: 6px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); }
-  .res-card-visual::before { content: ''; position: absolute; top: -30%; left: -30%; width: 160%; height: 160%; background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.25), transparent 60%); }
-  .res-card-visual span { position: relative; z-index: 1; }
-
-  .cost-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 16px; }
-  .cost-item { background: var(--sand-light); border: 1px solid var(--sand-dark); border-radius: 12px; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-  .cost-item-name { font-weight: 700; font-size: 1rem; display: flex; align-items: center; gap: 8px; }
-  .cost-item-name .emoji { font-size: 1.3rem; }
-  .cost-resources { display: flex; gap: 6px; flex-wrap: wrap; }
-  .cost-pip { min-width: 32px; height: 28px; padding: 0 8px; border-radius: 7px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.72rem; color: white; font-weight: 600; white-space: nowrap; }
-  .cost-points { font-size: 0.8rem; color: var(--text-light); font-weight: 500; }
-
-  .pieces-showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin: 20px 0; }
-  .piece-card { background: var(--sand); border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid var(--sand-dark); }
-  .piece-card svg { margin: 0 auto 10px; display: block; }
-  .piece-card-label { font-weight: 700; font-size: 0.9rem; color: var(--ocean-deep); }
-  .piece-card-desc { font-size: 0.78rem; color: var(--text-light); margin-top: 2px; }
-
-  .toggle-card { background: var(--white); border-radius: 14px; margin-bottom: 12px; box-shadow: var(--card-shadow); border: 1px solid var(--sand-dark); overflow: hidden; }
-  .toggle-header { padding: 18px 24px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; font-weight: 600; font-size: 1rem; transition: background 0.2s; user-select: none; }
-  .toggle-header:hover { background: var(--sand-light); }
-  .toggle-header .arrow { transition: transform 0.3s; font-size: 0.8rem; color: var(--text-light); }
-  .toggle-card.open .toggle-header .arrow { transform: rotate(180deg); }
-  .toggle-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-  .toggle-card.open .toggle-body { max-height: 2000px; }
-  .toggle-content { padding: 0 24px 20px; font-size: 0.93rem; color: var(--text); line-height: 1.75; }
-
-  .dice-demo { display: flex; align-items: center; justify-content: center; gap: 20px; padding: 24px; background: var(--sand); border-radius: 14px; margin: 20px 0; flex-wrap: wrap; }
-  .die { width: 64px; height: 64px; background: var(--white); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 700; box-shadow: 0 3px 12px rgba(0,0,0,0.12); cursor: pointer; transition: transform 0.15s; color: var(--ocean-deep); user-select: none; }
-  .die:active { transform: scale(0.92); }
-  .die.rolling { animation: shake 0.4s; }
-  @keyframes shake { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-12deg) scale(1.08); } 75% { transform: rotate(12deg) scale(1.08); } }
-  .dice-result { font-size: 0.95rem; font-weight: 600; color: var(--ocean-deep); min-width: 60px; text-align: center; }
-  .roll-btn { background: var(--ocean); color: var(--white); border: none; padding: 10px 22px; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: background 0.2s; }
-  .roll-btn:hover { background: var(--ocean-deep); }
-
-  .vp-tracker { display: flex; gap: 6px; margin: 16px 0; flex-wrap: wrap; }
-  .vp-dot { width: 36px; height: 36px; border-radius: 50%; border: 2.5px solid var(--ocean); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: var(--ocean); cursor: pointer; transition: all 0.2s; background: var(--white); }
-  .vp-dot.filled { background: var(--ocean); color: var(--white); }
-  .vp-dot:hover { transform: scale(1.12); }
-
-  .highlight { background: linear-gradient(135deg, #e8f4f7, #f0f9f4); border-left: 4px solid var(--ocean); border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 16px 0; font-size: 0.93rem; }
-  .highlight strong { color: var(--ocean-deep); }
-
-  .prob-chart { margin: 16px 0; }
-  .prob-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
-  .prob-label { width: 28px; text-align: right; font-weight: 700; font-size: 0.85rem; }
-  .prob-bar-bg { flex: 1; height: 22px; background: var(--sand); border-radius: 6px; overflow: hidden; }
-  .prob-bar-fill { height: 100%; border-radius: 6px; transition: width 0.6s ease; }
-  .prob-pct { width: 42px; font-size: 0.78rem; color: var(--text-light); font-weight: 500; }
-
-  .footer { text-align: center; padding: 40px 24px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--sand-dark); margin-top: 20px; }
-
-  /* ── OFFICIAL RULES CARD ── */
-  .official-rules-card { background: linear-gradient(135deg, #e8f4f7, #f0f9f4); }
-
-  /* ── ALMANAC ── */
-  .almanac-entry { transition: opacity 0.2s, max-height 0.3s; }
-  .almanac-entry.hidden { display: none; }
-  .almanac-entry .toggle-card { margin-bottom: 8px; }
-
-  /* ── LOGO ── */
-  .hero-logo { width: 80px; height: 80px; border-radius: 16px; margin: 0 auto 16px; display: block; position: relative; z-index: 1; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
-  .nav-logo { height: 32px; width: 32px; border-radius: 6px; margin-right: 4px; flex-shrink: 0; }
-  .nav-brand { display: flex; align-items: center; gap: 6px; font-family: 'Crimson Pro', serif; font-weight: 700; font-size: 0.95rem; color: var(--ocean-deep); padding: 6px 10px; white-space: nowrap; margin-right: 6px; text-decoration: none; background: var(--sand-light); border: 1px solid var(--sand-dark); border-radius: 8px; }
-
-  @media (max-width: 600px) {
-    .hero { padding: 48px 20px 32px; }
-    .hero-logo { width: 64px; height: 64px; border-radius: 12px; }
-    .card { padding: 22px 18px; }
-    .section { padding: 28px 0 40px; }
-    .die { width: 52px; height: 52px; font-size: 1.5rem; }
-    .res-card-visual { width: 65px; height: 92px; font-size: 0.68rem; }
-    .res-card-visual .res-icon { font-size: 1.6rem; }
-    .pieces-showcase { grid-template-columns: repeat(2, 1fr); }
-    .nav-brand span { display: none; }
-  }
-
-  /* ── DARK MODE ── */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --sand: #2a2520;
-      --sand-light: #1e1a16;
-      --sand-dark: #3a3530;
-      --text: #e8e4de;
-      --text-light: #a8a4a0;
-      --white: #252220;
-      --card-shadow: 0 4px 24px rgba(0,0,0,0.3);
-      --card-shadow-hover: 0 8px 40px rgba(0,0,0,0.4);
-    }
-    body { background: var(--sand-light); color: var(--text); }
-    .nav { background: #1e1a16; border-bottom-color: #3a3530; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
-    .nav-btn { background: #2a2520; border-color: #3a3530; color: var(--text-light); }
-    .nav-btn:hover { background: rgba(42,107,124,0.2); color: var(--ocean-light); }
-    .nav-btn.active { background: var(--ocean); color: white; border-color: var(--ocean); }
-    .nav-brand { background: #2a2520; border-color: #3a3530; color: var(--text); }
-    .card { background: var(--white); border-color: #3a3530; }
-    .card h3 { color: var(--ocean-light); }
-    .section-title { color: var(--ocean-light); }
-    .highlight { background: linear-gradient(135deg, #1a2a2e, #1e2a20); border-left-color: var(--ocean-light); }
-    .highlight strong { color: var(--ocean-light); }
-    .cost-item { background: #2a2520; border-color: #3a3530; }
-    .toggle-header:hover { background: #2a2520; }
-    .dice-demo { background: #2a2520; }
-    .die { background: #3a3530; color: var(--ocean-light); box-shadow: 0 3px 12px rgba(0,0,0,0.3); }
-    .prob-bar-bg { background: #3a3530; }
-    .piece-card { background: #2a2520; border-color: #3a3530; }
-    .piece-card-label { color: var(--ocean-light); }
-    .vp-dot { background: #2a2520; border-color: var(--ocean-light); color: var(--ocean-light); }
-    .vp-dot.filled { background: var(--ocean); color: white; }
-    .footer { border-top-color: #3a3530; }
-    .official-rules-card { background: linear-gradient(135deg, #1a2a2e, #1e2a20); }
-    #almanacSearch { background: #2a2520; border-color: #3a3530; color: var(--text); }
-    input::placeholder { color: #6a6560; }
+  :root { --sand:#f5e6c8;--sand-light:#faf3e6;--sand-dark:#e8d5a8;--ocean:#2a6b7c;--ocean-deep:#1a4a57;--ocean-light:#3a8b9c;--text:#2a2520;--text-light:#6a6560;--white:#fffef9; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'DM Sans',sans-serif;background:var(--sand-light);color:var(--text);line-height:1.7;min-height:100vh;}
+  .hero{background:linear-gradient(135deg,var(--ocean-deep) 0%,var(--ocean) 40%,var(--ocean-light) 100%);color:var(--white);padding:60px 24px 48px;text-align:center;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 30% 50%,rgba(255,255,255,0.06) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(255,255,255,0.04) 0%,transparent 40%);animation:drift 20s ease-in-out infinite;}
+  @keyframes drift{0%,100%{transform:translate(0,0);}50%{transform:translate(-3%,2%);}}
+  .hero-logo{width:80px;height:80px;border-radius:18px;margin:0 auto 16px;display:block;position:relative;z-index:1;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.3));}
+  .hero h1{font-family:'Crimson Pro',serif;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:700;letter-spacing:-0.02em;position:relative;z-index:1;}
+  .hero h1 span{color:#f0c040;}
+  .hero p{font-size:1.05rem;opacity:0.85;margin-top:8px;position:relative;z-index:1;max-width:500px;margin-left:auto;margin-right:auto;}
+  .container{max-width:900px;margin:0 auto;padding:0 24px;}
+  .section-label{font-family:'Crimson Pro',serif;font-size:1.5rem;font-weight:700;color:var(--ocean-deep);margin:40px 0 20px;padding-left:4px;}
+  .guides-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-bottom:20px;}
+  .guide-card{background:var(--white);border-radius:18px;overflow:hidden;box-shadow:0 4px 24px rgba(42,43,37,0.10);border:1px solid var(--sand-dark);transition:transform 0.2s,box-shadow 0.3s;cursor:pointer;text-decoration:none;color:inherit;display:flex;flex-direction:column;}
+  .guide-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(42,43,37,0.16);}
+  .guide-card-hero{height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+  .guide-card-body{padding:22px 24px 24px;flex:1;display:flex;flex-direction:column;}
+  .guide-card-body h2{font-family:'Crimson Pro',serif;font-size:1.4rem;font-weight:700;color:var(--ocean-deep);margin-bottom:6px;}
+  .guide-card-body p{font-size:0.9rem;color:var(--text-light);margin-bottom:14px;flex:1;}
+  .guide-card-tags{display:flex;flex-wrap:wrap;gap:6px;}
+  .tag{display:inline-block;padding:3px 10px;border-radius:6px;font-size:0.72rem;font-weight:600;}
+  .tag-green{background:#e8f5e9;color:#2e7d32;} .tag-blue{background:#e3f2fd;color:#1565c0;} .tag-orange{background:#fff3e0;color:#e65100;} .tag-purple{background:#f3e5f5;color:#7b1fa2;}
+  .guide-card-cta{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-top:1px solid var(--sand-dark);font-size:0.88rem;font-weight:600;color:var(--ocean);}
+  .guide-card-cta span{font-size:1.1rem;transition:transform 0.2s;}
+  .guide-card:hover .guide-card-cta span{transform:translateX(4px);}
+  .coming-soon{background:var(--sand);border:2px dashed var(--sand-dark);border-radius:18px;padding:32px 24px;text-align:center;color:var(--text-light);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;}
+  .coming-soon h3{font-family:'Crimson Pro',serif;font-size:1.2rem;color:var(--text);margin-bottom:4px;}
+  .coming-soon p{font-size:0.85rem;}
+  .footer{text-align:center;padding:40px 24px;color:var(--text-light);font-size:0.82rem;border-top:1px solid var(--sand-dark);margin-top:40px;}
+  @media(max-width:600px){.hero{padding:48px 20px 36px;}.guides-grid{grid-template-columns:1fr;}}
+  @media(prefers-color-scheme:dark){
+    :root{--sand:#2a2520;--sand-light:#1e1a16;--sand-dark:#3a3530;--text:#e8e4de;--text-light:#a8a4a0;--white:#252220;}
+    .guide-card{border-color:#3a3530;}.guide-card-body h2{color:var(--ocean-light);}.guide-card-cta{border-top-color:#3a3530;color:var(--ocean-light);}
+    .coming-soon{background:#2a2520;border-color:#3a3530;}.coming-soon h3{color:var(--text);}
+    .tag-green{background:#1b3a1e;color:#81c784;}.tag-blue{background:#1a2a3a;color:#64b5f6;}.tag-orange{background:#3a2510;color:#ffb74d;}.tag-purple{background:#2a1a2e;color:#ce93d8;}
+    .section-label{color:var(--ocean-light);}.footer{border-top-color:#3a3530;}
   }
 </style>
 </head>
 <body>
-
-<!-- ═══ HERO ═══ -->
 <header class="hero">
-  <img src="/logo.png" alt="Catan Rules Guide — Hexagonal C Logo" class="hero-logo" width="80" height="80">
-  <h1>The Island of <span>Catan</span></h1>
-  <p>A simple, interactive guide to learn the game in minutes</p>
-  <div class="hero-board">
-    <svg viewBox="0 0 360 310" width="360" height="310" xmlns="http://www.w3.org/2000/svg">
-      <defs><filter id="hs"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.2"/></filter></defs>
-      <!-- Row 1 -->
-      <g transform="translate(90,10)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#5a8c3c" stroke="#4a7a2e" stroke-width="1.5"/><text x="30" y="28" text-anchor="middle" fill="white" font-size="16">🌲</text><circle cx="30" cy="45" r="11" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="11" font-weight="700">6</text></g>
-      <g transform="translate(150,10)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#c45a3c" stroke="#a84830" stroke-width="1.5"/><text x="30" y="28" text-anchor="middle" fill="white" font-size="16">🧱</text><circle cx="30" cy="45" r="11" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="11" font-weight="700">8</text></g>
-      <g transform="translate(210,10)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#8bc34a" stroke="#6fa030" stroke-width="1.5"/><text x="30" y="28" text-anchor="middle" fill="white" font-size="16">🐑</text><circle cx="30" cy="45" r="11" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="11" font-weight="700">5</text></g>
-      <!-- Row 2 -->
-      <g transform="translate(60,75)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#f0c040" stroke="#d0a020" stroke-width="1.5"/><text x="30" y="28" text-anchor="middle" fill="white" font-size="16">🌾</text><circle cx="30" cy="45" r="11" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="11" font-weight="700">9</text></g>
-      <g transform="translate(120,75)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#7a7a8a" stroke="#606070" stroke-width="1.5"/><text x="30" y="28" text-anchor="middle" fill="white" font-size="16">⛏️</text><circle cx="30" cy="45" r="11" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="11" font-weight="700">10</text></g>
-      <g transform="translate(180,75)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#5a8c3c" stroke="#4a7a2e" stroke-width="1.5"/><text x="30" y="28" text-anchor="middle" fill="white" font-size="16">🌲</text><circle cx="30" cy="45" r="11" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="11" font-weight="700">4</text></g>
-      <g transform="translate(240,75)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#c45a3c" stroke="#a84830" stroke-width="1.5"/><text x="30" y="28" text-anchor="middle" fill="white" font-size="16">🧱</text><circle cx="30" cy="45" r="11" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="11" font-weight="700">3</text></g>
-      <!-- Row 3 -->
-      <g transform="translate(30,140)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#8bc34a" stroke="#6fa030" stroke-width="1.5"/><text x="30" y="28" text-anchor="middle" fill="white" font-size="16">🐑</text><circle cx="30" cy="45" r="11" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="11" font-weight="700">11</text></g>
-      <g transform="translate(90,140)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#f0c040" stroke="#d0a020" stroke-width="1.5"/><text x="30" y="28" text-anchor="middle" fill="white" font-size="16">🌾</text><circle cx="30" cy="45" r="11" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="11" font-weight="700">6</text></g>
-      <g transform="translate(150,140)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#d4b87a" stroke="#b89a5a" stroke-width="1.5"/><text x="30" y="28" text-anchor="middle" font-size="16">🏜️</text><text x="30" y="52" text-anchor="middle" fill="#8a7050" font-size="8" font-weight="600">ROBBER</text></g>
-      <g transform="translate(210,140)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#7a7a8a" stroke="#606070" stroke-width="1.5"/><text x="30" y="28" text-anchor="middle" fill="white" font-size="16">⛏️</text><circle cx="30" cy="45" r="11" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="11" font-weight="700">8</text></g>
-      <g transform="translate(270,140)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#5a8c3c" stroke="#4a7a2e" stroke-width="1.5"/><text x="30" y="28" text-anchor="middle" fill="white" font-size="16">🌲</text><circle cx="30" cy="45" r="11" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="11" font-weight="700">5</text></g>
-      <!-- Row 4 -->
-      <g transform="translate(60,205)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#f0c040" stroke="#d0a020" stroke-width="1.5"/><text x="30" y="28" text-anchor="middle" fill="white" font-size="16">🌾</text><circle cx="30" cy="45" r="11" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="11" font-weight="700">4</text></g>
-      <g transform="translate(120,205)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#c45a3c" stroke="#a84830" stroke-width="1.5"/><text x="30" y="28" text-anchor="middle" fill="white" font-size="16">🧱</text><circle cx="30" cy="45" r="11" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="11" font-weight="700">11</text></g>
-      <g transform="translate(180,205)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#8bc34a" stroke="#6fa030" stroke-width="1.5"/><text x="30" y="28" text-anchor="middle" fill="white" font-size="16">🐑</text><circle cx="30" cy="45" r="11" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="11" font-weight="700">12</text></g>
-      <g transform="translate(240,205)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#7a7a8a" stroke="#606070" stroke-width="1.5"/><text x="30" y="28" text-anchor="middle" fill="white" font-size="16">⛏️</text><circle cx="30" cy="45" r="11" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="11" font-weight="700">9</text></g>
-      <!-- Sample pieces -->
-      <g transform="translate(147,72)"><polygon points="8,0 16,6 16,16 0,16 0,6" fill="#e67e22" stroke="#c56a12" stroke-width="1.5"/></g>
-      <g transform="translate(207,137)"><polygon points="8,0 16,6 16,16 0,16 0,6" fill="#3498db" stroke="#2176ad" stroke-width="1.5"/></g>
-      <rect x="120" y="72" width="26" height="5" rx="2" fill="#e67e22" transform="rotate(-30 133 74.5)"/>
-      <rect x="222" y="144" width="26" height="5" rx="2" fill="#3498db" transform="rotate(-30 235 146.5)"/>
-    </svg>
-  </div>
+  <img src="/logo.png" alt="Catan Rules Guide" class="hero-logo" width="80" height="80">
+  <h1>Catan <span>Rules Guide</span></h1>
+  <p>Free interactive guides for the base game and every expansion. Pick one to start learning.</p>
 </header>
-
-<!-- NAV -->
-<nav class="nav"><div class="nav-inner">
-  <a href="/" class="nav-brand"><img src="/favicon-32x32.png" alt="C" class="nav-logo" width="32" height="32"><span>Catan Rules</span></a>
-  <button class="nav-btn active" data-tab="overview">Overview</button>
-  <button class="nav-btn" data-tab="setup">Setup</button>
-  <button class="nav-btn" data-tab="turn">Your Turn</button>
-  <button class="nav-btn" data-tab="trading">Trading</button>
-  <button class="nav-btn" data-tab="building">Building</button>
-  <button class="nav-btn" data-tab="robber">The Robber</button>
-  <button class="nav-btn" data-tab="devcards">Development Cards</button>
-  <button class="nav-btn" data-tab="winning">Winning</button>
-  <button class="nav-btn" data-tab="edgecases">Edge Cases</button>
-  <button class="nav-btn" data-tab="almanac">Almanac</button>
-  <button class="nav-btn" data-tab="dice">Dice Tool</button>
-</div></nav>
-
-<main class="container">
-
-<!-- ═══ OVERVIEW ═══ -->
-<section id="overview" class="section active">
-  <h2 class="section-title">What is Catan?</h2>
-  <p class="section-subtitle">The 2-minute version of everything you need to know</p>
-  <div class="card">
-    <h3><span class="icon">🏝️</span> The Big Idea</h3>
-    <p>You and your friends (3–4 players) are settlers on a new island. You collect resources, build roads and towns, and trade with each other. <strong>First player to 10 victory points wins!</strong></p>
-  </div>
-  <div class="card">
-    <h3><span class="icon">🎯</span> Quick Facts</h3>
-    <p><strong>Players:</strong> 3–4 (6 with expansion) &nbsp;|&nbsp; <strong>Time:</strong> 60–90 min &nbsp;|&nbsp; <strong>Age:</strong> 10+ &nbsp;|&nbsp; <strong>Goal:</strong> First to 10 VP</p>
-  </div>
-  <div class="card">
-    <h3><span class="icon">🃏</span> The 5 Resource Cards</h3>
-    <p>Everything revolves around these five resources. You collect them from the land tiles next to your settlements.</p>
-    <div class="res-cards-row">
-      <div class="res-card-visual" style="background: linear-gradient(145deg, #c45a3c, #a84830);"><span class="res-icon">🧱</span><span>BRICK</span><span style="font-size:0.65rem;opacity:0.8;margin-top:2px;">Hills</span></div>
-      <div class="res-card-visual" style="background: linear-gradient(145deg, #5a8c3c, #4a7a2e);"><span class="res-icon">🌲</span><span>LUMBER</span><span style="font-size:0.65rem;opacity:0.8;margin-top:2px;">Forest</span></div>
-      <div class="res-card-visual" style="background: linear-gradient(145deg, #6a9e30, #558a20);"><span class="res-icon">🐑</span><span>WOOL</span><span style="font-size:0.65rem;opacity:0.8;margin-top:2px;">Pasture</span></div>
-      <div class="res-card-visual" style="background: linear-gradient(145deg, #b8860b, #8b6508);"><span class="res-icon">🌾</span><span>GRAIN</span><span style="font-size:0.65rem;opacity:0.8;margin-top:2px;">Fields</span></div>
-      <div class="res-card-visual" style="background: linear-gradient(145deg, #7a7a8a, #606070);"><span class="res-icon">⛏️</span><span>ORE</span><span style="font-size:0.65rem;opacity:0.8;margin-top:2px;">Mountains</span></div>
-    </div>
-  </div>
-  <div class="card">
-    <h3><span class="icon">🔄</span> The Core Loop</h3>
-    <p>Every turn follows the same simple pattern:</p>
-    <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px;">
-      <div style="display:flex;align-items:center;gap:12px;"><span class="step-num">1</span><span><strong>Roll dice</strong> — everyone collects resources</span></div>
-      <div style="display:flex;align-items:center;gap:12px;"><span class="step-num">2</span><span><strong>Trade</strong> — swap with players or the bank</span></div>
-      <div style="display:flex;align-items:center;gap:12px;"><span class="step-num">3</span><span><strong>Build</strong> — spend resources on roads, settlements, cities, or dev cards</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ SETUP ═══ -->
-<section id="setup" class="section">
-  <h2 class="section-title">Setting Up the Game</h2>
-  <p class="section-subtitle">Get the board ready in a few minutes</p>
-  <div class="card">
-    <h3><span class="icon">📦</span> What's in the Box</h3>
-    <div class="pieces-showcase">
-      <div class="piece-card">
-        <svg width="60" height="54" viewBox="0 0 60 54"><polygon points="30,2 56,15 56,40 30,52 4,40 4,15" fill="#5a8c3c" stroke="#4a7a2e" stroke-width="1.5"/><text x="30" y="32" text-anchor="middle" fill="white" font-size="14">🌲</text></svg>
-        <div class="piece-card-label">19 Hex Tiles</div><div class="piece-card-desc">The island terrain</div>
+<div class="container">
+  <div class="section-label">📘 Start Here</div>
+  <div class="guides-grid">
+    <a href="/base" class="guide-card">
+      <div class="guide-card-hero" style="background:linear-gradient(135deg,#1a4a57,#2a6b7c,#3a8b9c);">
+        <svg viewBox="0 0 200 120" width="200" height="120">
+          <g transform="translate(40,10)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#5a8c3c" stroke="#4a7a2e" stroke-width="1.5"/><circle cx="30" cy="40" r="10" fill="white" opacity="0.9"/><text x="30" y="44" text-anchor="middle" fill="#333" font-size="10" font-weight="700">8</text></g>
+          <g transform="translate(100,10)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#c45a3c" stroke="#a84830" stroke-width="1.5"/><circle cx="30" cy="40" r="10" fill="white" opacity="0.9"/><text x="30" y="44" text-anchor="middle" fill="#333" font-size="10" font-weight="700">6</text></g>
+          <g transform="translate(70,48)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#f0c040" stroke="#d0a020" stroke-width="1.5"/><circle cx="30" cy="40" r="10" fill="white" opacity="0.9"/><text x="30" y="44" text-anchor="middle" fill="#333" font-size="10" font-weight="700">9</text></g>
+          <g transform="translate(93,5)"><polygon points="7,0 14,5 14,14 0,14 0,5" fill="#e67e22" stroke="#c56a12" stroke-width="1.5"/></g>
+        </svg>
       </div>
-      <div class="piece-card">
-        <svg width="60" height="50" viewBox="0 0 60 50"><circle cx="30" cy="22" r="18" fill="white" stroke="#ccc" stroke-width="1.5"/><text x="30" y="27" text-anchor="middle" fill="#333" font-size="16" font-weight="700">8</text><text x="30" y="37" text-anchor="middle" fill="#c45a3c" font-size="7">●●●●●</text></svg>
-        <div class="piece-card-label">18 Number Tokens</div><div class="piece-card-desc">Go on the tiles</div>
+      <div class="guide-card-body">
+        <h2>🏝️ Catan — Base Game</h2>
+        <p>The complete rules for the original game. Setup, resources, trading, robber, development cards, building costs, winning — plus a searchable Almanac and interactive dice roller.</p>
+        <div class="guide-card-tags">
+          <span class="tag tag-green">Beginner Friendly</span>
+          <span class="tag tag-blue">3–4 Players</span>
+          <span class="tag tag-orange">10 VP to Win</span>
+        </div>
       </div>
-      <div class="piece-card">
-        <svg width="60" height="50" viewBox="0 0 60 50"><rect x="10" y="5" width="40" height="40" rx="4" fill="#f0c040" stroke="#d0a020" stroke-width="1.5"/><text x="30" y="32" text-anchor="middle" font-size="20">🌾</text></svg>
-        <div class="piece-card-label">95 Resource Cards</div><div class="piece-card-desc">5 types × 19 each</div>
+      <div class="guide-card-cta">Read the Base Game Guide <span>→</span></div>
+    </a>
+  </div>
+  <div class="section-label">⚓ Expansions</div>
+  <div class="guides-grid">
+    <a href="/seafarers" class="guide-card">
+      <div class="guide-card-hero" style="background:linear-gradient(135deg,#0e3650,#1a5276,#2980b9);">
+        <svg viewBox="0 0 200 120" width="200" height="120">
+          <g transform="translate(20,30)"><polygon points="25,0 50,14 50,44 25,58 0,44 0,14" fill="#5a8c3c" stroke="#4a7a2e" stroke-width="1.2"/></g>
+          <g transform="translate(70,30)"><polygon points="25,0 50,14 50,44 25,58 0,44 0,14" fill="#3498db" stroke="#2980b9" stroke-width="1" opacity="0.5"/><text x="25" y="34" text-anchor="middle" fill="white" font-size="10" opacity="0.7">🌊</text></g>
+          <g transform="translate(120,30)"><polygon points="25,0 50,14 50,44 25,58 0,44 0,14" fill="#d4a017" stroke="#b8860b" stroke-width="1.2"/><text x="25" y="22" text-anchor="middle" fill="white" font-size="7">GOLD</text></g>
+          <line x1="65" y1="55" x2="85" y2="50" stroke="#e67e22" stroke-width="3" stroke-linecap="round"/>
+          <line x1="88" y1="49" x2="115" y2="49" stroke="#e67e22" stroke-width="3" stroke-linecap="round"/>
+          <ellipse cx="95" cy="72" rx="12" ry="8" fill="#2c3e50" opacity="0.8"/><text x="95" y="76" text-anchor="middle" fill="white" font-size="8">☠️</text>
+        </svg>
       </div>
-      <div class="piece-card">
-        <svg width="60" height="50" viewBox="0 0 60 50"><rect x="10" y="5" width="40" height="40" rx="4" fill="#2a6b7c" stroke="#1a4a57" stroke-width="1.5"/><text x="30" y="32" text-anchor="middle" font-size="18">⚔️</text></svg>
-        <div class="piece-card-label">25 Development Cards</div><div class="piece-card-desc">Knights + specials</div>
+      <div class="guide-card-body">
+        <h2>⛵ Seafarers</h2>
+        <p>Ships, pirate, gold hexes, fog tiles, and 9 unique scenarios. The simplest expansion — explore new islands across the ocean.</p>
+        <div class="guide-card-tags">
+          <span class="tag tag-green">Easy Expansion</span>
+          <span class="tag tag-blue">3–4 Players</span>
+          <span class="tag tag-orange">12–14 VP</span>
+        </div>
       </div>
-      <div class="piece-card">
-        <svg width="60" height="50" viewBox="0 0 60 50"><polygon points="20,8 40,8 48,14 48,30 20,30 12,14" fill="#e67e22" stroke="#c56a12" stroke-width="1.5"/><polygon points="20,30 48,30 48,40 20,40" fill="#d35400" stroke="#c56a12" stroke-width="1"/></svg>
-        <div class="piece-card-label">Game Pieces</div><div class="piece-card-desc">5 settlements, 4 cities, 15 roads each</div>
-      </div>
-      <div class="piece-card">
-        <svg width="60" height="50" viewBox="0 0 60 50"><rect x="8" y="6" width="18" height="18" rx="3" fill="white" stroke="#aaa" stroke-width="1.5"/><circle cx="17" cy="15" r="2.5" fill="#c45a3c"/><rect x="34" y="6" width="18" height="18" rx="3" fill="white" stroke="#aaa" stroke-width="1.5"/><circle cx="39" cy="11" r="2" fill="#c45a3c"/><circle cx="47" cy="11" r="2" fill="#c45a3c"/><circle cx="39" cy="19" r="2" fill="#c45a3c"/><circle cx="47" cy="19" r="2" fill="#c45a3c"/><ellipse cx="30" cy="38" rx="14" ry="8" fill="#333"/><text x="30" y="41" text-anchor="middle" fill="white" font-size="7" font-weight="700">ROBBER</text></svg>
-        <div class="piece-card-label">2 Dice + Robber</div><div class="piece-card-desc">Plus 2 special cards</div>
-      </div>
+      <div class="guide-card-cta">Read the Seafarers Guide <span>→</span></div>
+    </a>
+    <div class="coming-soon">
+      <h3>⚔️ Cities & Knights</h3>
+      <p>Commodities, barbarians, city improvements, progress cards. Coming soon.</p>
+    </div>
+    <div class="coming-soon">
+      <h3>🐫 Traders & Barbarians</h3>
+      <p>Rivers, fishermen, caravans, and 2-player variant. Coming soon.</p>
+    </div>
+    <div class="coming-soon">
+      <h3>🏴‍☠️ Explorers & Pirates</h3>
+      <p>5-scenario campaign with cargo ships and missions. Coming soon.</p>
     </div>
   </div>
-  <div class="card">
-    <h3><span class="icon">🗺️</span> Build the Board</h3>
-    <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px;">
-      <div style="display:flex;align-items:flex-start;gap:12px;"><span class="step-num">1</span><span>Snap the 6 blue sea frame pieces together into a hexagon border</span></div>
-      <div style="display:flex;align-items:flex-start;gap:12px;"><span class="step-num">2</span><span>Place 19 terrain tiles inside randomly (or use the beginner layout)</span></div>
-      <div style="display:flex;align-items:flex-start;gap:12px;"><span class="step-num">3</span><span>Put number tokens on each tile (skip the desert). <strong>Standard method:</strong> place tokens in alphabetical order (A, B, C...) starting from a corner and spiraling inward — this is the official circular pattern</span></div>
-      <div style="display:flex;align-items:flex-start;gap:12px;"><span class="step-num">4</span><span>Place the robber pawn on the desert tile</span></div>
-      <div style="display:flex;align-items:flex-start;gap:12px;"><span class="step-num">5</span><span>Sort resource cards into 5 face-up stacks (the "bank"), shuffle dev cards face-down</span></div>
-    </div>
-    <div class="illustration" style="margin-top:20px;">
-      <svg viewBox="0 0 400 110" width="400" height="110">
-        <rect x="10" y="30" width="80" height="40" rx="8" fill="#3a8b9c" stroke="#2a6b7c" stroke-width="2"/><text x="50" y="55" text-anchor="middle" fill="white" font-size="11" font-weight="600">SEA FRAME</text>
-        <text x="100" y="55" font-size="20" fill="rgba(255,255,255,0.4)">→</text>
-        <g transform="translate(120,15)"><polygon points="25,0 50,14 50,42 25,56 0,42 0,14" fill="#5a8c3c" stroke="#4a7a2e" stroke-width="1"/><polygon points="55,14 80,28 80,56 55,70 30,56 30,28" fill="#c45a3c" stroke="#a84830" stroke-width="1"/><polygon points="25,30 50,44 50,72 25,86 0,72 0,44" fill="#f0c040" stroke="#d0a020" stroke-width="1"/></g>
-        <text x="235" y="55" font-size="20" fill="rgba(0,0,0,0.15)">→</text>
-        <g transform="translate(260,15)"><polygon points="25,0 50,14 50,42 25,56 0,42 0,14" fill="#5a8c3c" stroke="#4a7a2e" stroke-width="1"/><circle cx="25" cy="28" r="10" fill="white" opacity="0.9"/><text x="25" y="32" text-anchor="middle" fill="#c45a3c" font-size="12" font-weight="700">6</text><polygon points="70,0 95,14 95,42 70,56 45,42 45,14" fill="#c45a3c" stroke="#a84830" stroke-width="1"/><circle cx="70" cy="28" r="10" fill="white" opacity="0.9"/><text x="70" y="32" text-anchor="middle" fill="#333" font-size="12" font-weight="700">9</text></g>
-        <text x="55" y="100" text-anchor="middle" fill="#888" font-size="9">① Frame</text><text x="175" y="100" text-anchor="middle" fill="#888" font-size="9">② Tiles</text><text x="325" y="100" text-anchor="middle" fill="#888" font-size="9">③ Numbers</text>
-      </svg>
-    </div>
-  </div>
-  <div class="card">
-    <h3><span class="icon">🏠</span> Place Starting Settlements</h3>
-    <p>Each player picks a color and takes <strong>5 settlements, 4 cities, and 15 roads.</strong></p>
-    <div class="illustration">
-      <svg viewBox="0 0 380 95" width="380" height="95">
-        <polygon points="60,10 90,25 90,55 60,70 30,55 30,25" fill="#5a8c3c" stroke="#4a7a2e" stroke-width="1.5" opacity="0.7"/>
-        <polygon points="120,10 150,25 150,55 120,70 90,55 90,25" fill="#f0c040" stroke="#d0a020" stroke-width="1.5" opacity="0.7"/>
-        <polygon points="180,10 210,25 210,55 180,70 150,55 150,25" fill="#8bc34a" stroke="#6fa030" stroke-width="1.5" opacity="0.7"/>
-        <g transform="translate(83,16)"><polygon points="7,0 14,5 14,14 0,14 0,5" fill="#e67e22" stroke="#c56a12" stroke-width="1.5"/><text x="7" y="-3" text-anchor="middle" fill="#e67e22" font-size="8" font-weight="700">P1</text></g>
-        <line x1="90" y1="30" x2="90" y2="55" stroke="#e67e22" stroke-width="4" stroke-linecap="round"/>
-        <g transform="translate(143,16)"><polygon points="7,0 14,5 14,14 0,14 0,5" fill="#3498db" stroke="#2176ad" stroke-width="1.5"/><text x="7" y="-3" text-anchor="middle" fill="#3498db" font-size="8" font-weight="700">P2</text></g>
-        <line x1="150" y1="30" x2="150" y2="55" stroke="#3498db" stroke-width="4" stroke-linecap="round"/>
-        <line x1="97" y1="20" x2="143" y2="20" stroke="#c0392b" stroke-width="1" stroke-dasharray="4,3"/>
-        <text x="120" y="84" text-anchor="middle" fill="#c0392b" font-size="8" font-weight="600">↕ Must be 2+ intersections apart (Distance Rule)</text>
-        <g transform="translate(240,12)"><rect width="130" height="65" rx="8" fill="var(--sand)" stroke="var(--sand-dark)" stroke-width="1"/><polygon points="14,12 22,16 22,24 14,28 6,24 6,16" fill="#e67e22"/><text x="30" y="23" fill="#333" font-size="9">= Settlement</text><line x1="6" y1="40" x2="22" y2="40" stroke="#e67e22" stroke-width="4" stroke-linecap="round"/><text x="30" y="43" fill="#333" font-size="9">= Road</text><text x="65" y="58" text-anchor="middle" fill="#888" font-size="7">On intersections &amp; edges</text></g>
-      </svg>
-    </div>
-    <div class="highlight">
-      <strong>Who goes first:</strong> Each player rolls both dice — highest roll goes first.<br>
-      <strong>Round 1:</strong> Starting with the first player, each places 1 settlement + 1 road, going clockwise.<br>
-      <strong>Round 2:</strong> In <em>reverse</em> order (last player goes first), each places their 2nd settlement + road. Collect 1 resource card from each tile touching your 2nd settlement.
-    </div>
-  </div>
-</section>
-
-<!-- ═══ YOUR TURN ═══ -->
-<section id="turn" class="section">
-  <h2 class="section-title">Your Turn</h2>
-  <p class="section-subtitle">Three simple phases every turn</p>
-  <div class="card">
-    <h3><span class="step-num">1</span> Roll for Resources</h3>
-    <p>Roll both dice and add the numbers together. Every terrain tile with a matching number token produces resources for <strong>all players</strong> who have a settlement or city touching that tile. Each settlement earns 1 resource card, and each city (an upgraded settlement — see Building tab) earns 2.</p>
-    <div class="illustration" style="background: var(--sand); border-radius: 14px; padding: 16px;">
-      <svg viewBox="0 0 360 90" width="360" height="90">
-        <rect x="20" y="10" width="55" height="55" rx="10" fill="white" stroke="#ccc" stroke-width="2"/><circle cx="35" cy="25" r="4" fill="#c45a3c"/><circle cx="60" cy="25" r="4" fill="#c45a3c"/><circle cx="47.5" cy="37.5" r="4" fill="#c45a3c"/><circle cx="35" cy="50" r="4" fill="#c45a3c"/><circle cx="60" cy="50" r="4" fill="#c45a3c"/>
-        <rect x="85" y="10" width="55" height="55" rx="10" fill="white" stroke="#ccc" stroke-width="2"/><circle cx="100" cy="25" r="4" fill="#c45a3c"/><circle cx="125" cy="50" r="4" fill="#c45a3c"/><circle cx="112.5" cy="37.5" r="4" fill="#c45a3c"/>
-        <text x="155" y="45" fill="#666" font-size="20" font-weight="700">=</text>
-        <circle cx="185" cy="37" r="22" fill="#c45a3c"/><text x="185" y="44" text-anchor="middle" fill="white" font-size="20" font-weight="700">8</text>
-        <text x="218" y="42" fill="#888" font-size="16">→</text>
-        <polygon points="260,10 285,24 285,52 260,66 235,52 235,24" fill="#5a8c3c" stroke="#4a7a2e" stroke-width="1.5"/><circle cx="260" cy="40" r="10" fill="white" opacity="0.9"/><text x="260" y="44" text-anchor="middle" fill="#c45a3c" font-size="11" font-weight="700">8</text>
-        <rect x="300" y="18" width="36" height="46" rx="4" fill="#5a8c3c" stroke="#4a7a2e" stroke-width="1.5"/><text x="318" y="46" text-anchor="middle" fill="white" font-size="16">🌲</text>
-        <text x="318" y="78" text-anchor="middle" fill="#888" font-size="8">Everyone collects!</text>
-      </svg>
-    </div>
-  </div>
-  <div class="card">
-    <h3><span class="step-num">2</span> Trade</h3>
-    <p>Propose trades to other players, or trade with the bank at 4:1. Harbors give better rates (3:1 or 2:1).</p>
-    <div class="illustration" style="background: var(--sand); border-radius: 14px; padding: 16px;">
-      <svg viewBox="0 0 300 65" width="300" height="65">
-        <rect x="10" y="8" width="30" height="42" rx="4" fill="#5a8c3c" stroke="#4a7a2e" stroke-width="1"/><text x="25" y="34" text-anchor="middle" fill="white" font-size="14">🌲</text>
-        <rect x="44" y="8" width="30" height="42" rx="4" fill="#5a8c3c" stroke="#4a7a2e" stroke-width="1"/><text x="59" y="34" text-anchor="middle" fill="white" font-size="14">🌲</text>
-        <text x="93" y="30" fill="#c45a3c" font-size="16" font-weight="700">⇄</text>
-        <rect x="112" y="8" width="30" height="42" rx="4" fill="#7a7a8a" stroke="#606070" stroke-width="1"/><text x="127" y="34" text-anchor="middle" fill="white" font-size="14">⛏️</text>
-        <text x="80" y="60" text-anchor="middle" fill="#888" font-size="8">Player trade</text>
-        <line x1="158" y1="5" x2="158" y2="55" stroke="#ddd" stroke-width="1" stroke-dasharray="3,3"/>
-        <rect x="172" y="8" width="18" height="28" rx="3" fill="#6a9e30"/><rect x="192" y="8" width="18" height="28" rx="3" fill="#6a9e30"/><rect x="212" y="8" width="18" height="28" rx="3" fill="#6a9e30"/><rect x="232" y="8" width="18" height="28" rx="3" fill="#6a9e30"/>
-        <text x="256" y="26" fill="#c45a3c" font-size="12" font-weight="700">→</text>
-        <rect x="268" y="8" width="18" height="28" rx="3" fill="#c45a3c"/><text x="277" y="26" text-anchor="middle" fill="white" font-size="8">🧱</text>
-        <text x="225" y="52" text-anchor="middle" fill="#888" font-size="8">Bank: 4 same → 1 any</text>
-      </svg>
-    </div>
-  </div>
-  <div class="card">
-    <h3><span class="step-num">3</span> Build</h3>
-    <p>Spend resources to build. You can build as many items as you can afford! See the <strong>Building</strong> tab for costs.</p>
-  </div>
-  <div class="card" style="background: var(--sand-light);"><h3><span class="icon">⏭️</span> Then Pass the Dice</h3><p>Pass dice left. Next player rolls — cycle continues!</p></div>
-</section>
-
-<!-- ═══ BUILDING ═══ -->
-<section id="building" class="section">
-  <h2 class="section-title">Building</h2>
-  <p class="section-subtitle">Spend resources to grow your settlement network</p>
-
-  <div class="card">
-    <h3><span class="icon">📏</span> Building Rules</h3>
-    <p>Building is the third phase of your turn (after rolling and trading). You can <strong>build as many items as you can afford</strong> in a single turn — there is no limit as long as you have the resources and available pieces.</p>
-    <p><strong>Distance Rule:</strong> Settlements must be at least 2 intersections away from any other settlement or city. This is the most important placement rule in the game.</p>
-    <p><strong>Piece limits per player:</strong> 15 roads, 5 settlements, 4 cities. If you run out, you must upgrade a settlement to a city before building a new one.</p>
-  </div>
-
-  <div class="card">
-    <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;">
-      <svg width="80" height="24" viewBox="0 0 80 24" style="flex-shrink:0;"><rect x="5" y="7" width="70" height="10" rx="5" fill="#e67e22" stroke="#c56a12" stroke-width="1.5"/></svg>
-      <div><h3 style="margin:0;font-family:'Crimson Pro',serif;font-size:1.25rem;color:var(--ocean-deep);">🛤️ Road</h3><span style="font-size:0.82rem;color:var(--text-light);">0 Victory Points — expands your network</span></div>
-    </div>
-    <div class="cost-resources" style="margin-bottom:12px;">
-      <div class="cost-pip" style="background:var(--brick);">🧱 Brick</div>
-      <div class="cost-pip" style="background:var(--lumber);">🌲 Lumber</div>
-    </div>
-    <p>Must connect to one of your existing roads, settlements, or cities. Only 1 road per edge. Roads are needed to reach new settlement locations and compete for Longest Road (2 VP for 5+ continuous segments).</p>
-  </div>
-
-  <div class="card">
-    <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;">
-      <svg width="50" height="42" viewBox="0 0 50 42" style="flex-shrink:0;"><polygon points="25,2 48,14 48,38 2,38 2,14" fill="#e67e22" stroke="#c56a12" stroke-width="2"/><rect x="18" y="24" width="14" height="14" fill="#c56a12" rx="1"/></svg>
-      <div><h3 style="margin:0;font-family:'Crimson Pro',serif;font-size:1.25rem;color:var(--ocean-deep);">🏠 Settlement</h3><span style="font-size:0.82rem;color:var(--text-light);">1 Victory Point — produces 1 resource per adjacent tile</span></div>
-    </div>
-    <div class="cost-resources" style="margin-bottom:12px;">
-      <div class="cost-pip" style="background:var(--brick);">🧱 Brick</div>
-      <div class="cost-pip" style="background:var(--lumber);">🌲 Lumber</div>
-      <div class="cost-pip" style="background:#6a9e30;">🐑 Wool</div>
-      <div class="cost-pip" style="background:#c49a10;">🌾 Grain</div>
-    </div>
-    <p>Must be placed on an intersection connected to your road network. Must follow the Distance Rule (2+ intersections from any other settlement or city). Each settlement produces 1 resource card when an adjacent tile's number is rolled.</p>
-  </div>
-
-  <div class="card">
-    <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;">
-      <svg width="50" height="48" viewBox="0 0 50 48" style="flex-shrink:0;"><rect x="5" y="10" width="40" height="35" fill="#e67e22" stroke="#c56a12" stroke-width="2" rx="2"/><polygon points="5,10 25,0 45,10" fill="#d35400" stroke="#c56a12" stroke-width="1.5"/><rect x="15" y="18" width="8" height="8" fill="#c56a12" rx="1"/><rect x="27" y="18" width="8" height="8" fill="#c56a12" rx="1"/><rect x="18" y="32" width="14" height="13" fill="#c56a12" rx="1"/></svg>
-      <div><h3 style="margin:0;font-family:'Crimson Pro',serif;font-size:1.25rem;color:var(--ocean-deep);">🏙️ City (Upgrade)</h3><span style="font-size:0.82rem;color:var(--text-light);">2 Victory Points — produces 2 resources per adjacent tile</span></div>
-    </div>
-    <div class="cost-resources" style="margin-bottom:12px;">
-      <div class="cost-pip" style="background:#c49a10;">🌾 Grain</div>
-      <div class="cost-pip" style="background:#c49a10;">🌾 Grain</div>
-      <div class="cost-pip" style="background:var(--ore);">⛏️ Ore</div>
-      <div class="cost-pip" style="background:var(--ore);">⛏️ Ore</div>
-      <div class="cost-pip" style="background:var(--ore);">⛏️ Ore</div>
-    </div>
-    <p>You cannot build a city directly — you must <strong>upgrade an existing settlement</strong>. The settlement returns to your supply and can be placed elsewhere later. Each city produces 2 resource cards instead of 1 when adjacent tiles are rolled.</p>
-  </div>
-
-  <div class="card">
-    <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;">
-      <svg width="45" height="52" viewBox="0 0 45 52" style="flex-shrink:0;"><rect x="5" y="3" width="35" height="45" rx="4" fill="#2a6b7c" stroke="#1a4a57" stroke-width="2"/><text x="22.5" y="22" text-anchor="middle" fill="white" font-size="12">?</text><text x="22.5" y="36" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="6">CARD</text></svg>
-      <div><h3 style="margin:0;font-family:'Crimson Pro',serif;font-size:1.25rem;color:var(--ocean-deep);">🃏 Development Card</h3><span style="font-size:0.82rem;color:var(--text-light);">Special abilities or hidden Victory Points</span></div>
-    </div>
-    <div class="cost-resources" style="margin-bottom:12px;">
-      <div class="cost-pip" style="background:#6a9e30;">🐑 Wool</div>
-      <div class="cost-pip" style="background:#c49a10;">🌾 Grain</div>
-      <div class="cost-pip" style="background:var(--ore);">⛏️ Ore</div>
-    </div>
-    <p>Draw the top card from the face-down development card deck. Keep it hidden. There are 25 total: knights, progress cards, and victory point cards. See the <strong>Development Cards</strong> tab for details on each type.</p>
-  </div>
-</section>
-
-<!-- ═══ TRADING ═══ -->
-<section id="trading" class="section">
-  <h2 class="section-title">Trading</h2>
-  <p class="section-subtitle">The heart of Catan is making deals</p>
-  <div class="card">
-    <h3><span class="icon">🤝</span> Domestic Trade (with Players)</h3>
-    <p>On your turn, propose any trade to any player. If they agree, swap cards. Only the active player initiates trades.</p>
-    <div class="highlight">
-      <strong>Rules:</strong> No free gifts (you must receive something back). No trading development cards — only resource cards. You also <strong>cannot trade identical resources</strong> (e.g., 3 wheat for 1 wheat is not allowed).
-    </div>
-  </div>
-  <div class="card">
-    <h3><span class="icon">🏦</span> Maritime Trade (with the Bank)</h3>
-    <div class="illustration" style="background: var(--sand); border-radius: 14px; padding: 16px;">
-      <svg viewBox="0 0 340 95" width="340" height="95">
-        <g transform="translate(10,8)"><rect width="90" height="75" rx="10" fill="white" stroke="#ddd" stroke-width="1.5"/><text x="45" y="20" text-anchor="middle" fill="#c45a3c" font-size="20" font-weight="700">4:1</text><text x="45" y="36" text-anchor="middle" fill="#666" font-size="8">DEFAULT</text><text x="45" y="52" text-anchor="middle" fill="#888" font-size="8">Give 4 same type</text><text x="45" y="63" text-anchor="middle" fill="#888" font-size="8">Get 1 different type</text></g>
-        <g transform="translate(120,8)"><rect width="90" height="75" rx="10" fill="white" stroke="#3a8b9c" stroke-width="2"/><text x="45" y="20" text-anchor="middle" fill="#2a6b7c" font-size="20" font-weight="700">3:1</text><text x="45" y="36" text-anchor="middle" fill="#2a6b7c" font-size="8" font-weight="600">GENERIC HARBOR</text><text x="45" y="52" text-anchor="middle" fill="#888" font-size="8">Give 3 same type</text><text x="45" y="63" text-anchor="middle" fill="#888" font-size="8">Get 1 different type</text></g>
-        <g transform="translate(230,8)"><rect width="100" height="75" rx="10" fill="white" stroke="#f0c040" stroke-width="2"/><text x="50" y="20" text-anchor="middle" fill="#c49a10" font-size="20" font-weight="700">2:1</text><text x="50" y="36" text-anchor="middle" fill="#c49a10" font-size="8" font-weight="600">SPECIAL HARBOR</text><text x="50" y="52" text-anchor="middle" fill="#888" font-size="8">Give 2 of shown type</text><text x="50" y="63" text-anchor="middle" fill="#888" font-size="8">Get 1 different type</text></g>
-      </svg>
-    </div>
-  </div>
-  <div class="card" style="background:var(--sand-light);">
-    <h3><span class="icon">🔄</span> Combined Trade/Build Phase</h3>
-    <p><strong>Note:</strong> In the base game (5th Edition), you must complete all trading before building. However, many groups and the 6th Edition rules allow trading and building in any order during your turn. Check which version your group prefers before starting.</p>
-  </div>
-</section>
-
-<!-- ═══ ROBBER ═══ -->
-<section id="robber" class="section">
-  <h2 class="section-title">The Robber</h2>
-  <p class="section-subtitle">What happens when someone rolls a 7</p>
-  <div class="card">
-    <h3><span class="icon">🦹</span> Rolling a 7</h3>
-    <div class="illustration" style="background: var(--sand); border-radius: 14px; padding: 16px;">
-      <svg viewBox="0 0 320 115" width="320" height="115">
-        <circle cx="50" cy="30" r="18" fill="#333"/><text x="50" y="36" text-anchor="middle" fill="white" font-size="18">🦹</text>
-        <ellipse cx="50" cy="65" rx="22" ry="14" fill="#333"/><text x="50" y="69" text-anchor="middle" fill="white" font-size="8" font-weight="700">ROBBER</text>
-        <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c0392b"/></marker></defs>
-        <line x1="76" y1="50" x2="110" y2="50" stroke="#c0392b" stroke-width="2" marker-end="url(#ar)"/>
-        <g transform="translate(115,16)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#5a8c3c" stroke="#4a7a2e" stroke-width="1.5"/><circle cx="30" cy="36" r="12" fill="white" opacity="0.9"/><text x="30" y="40" text-anchor="middle" fill="#c45a3c" font-size="12" font-weight="700">8</text><line x1="10" y1="10" x2="50" y2="58" stroke="#c0392b" stroke-width="3" opacity="0.6"/><line x1="50" y1="10" x2="10" y2="58" stroke="#c0392b" stroke-width="3" opacity="0.6"/></g>
-        <text x="145" y="98" text-anchor="middle" fill="#c0392b" font-size="8" font-weight="600">No resources!</text>
-        <g transform="translate(210,12)"><rect width="95" height="82" rx="10" fill="white" stroke="#ddd" stroke-width="1"/><text x="48" y="20" text-anchor="middle" fill="#333" font-size="9" font-weight="700">Also steal 1 resource</text><text x="48" y="32" text-anchor="middle" fill="#888" font-size="8">card from adj. player</text><rect x="20" y="40" width="24" height="34" rx="4" fill="#2a6b7c" stroke="#1a4a57" stroke-width="1.5"/><text x="32" y="60" text-anchor="middle" fill="white" font-size="14">?</text><text x="62" y="60" text-anchor="middle" fill="#c0392b" font-size="16">→😈</text></g>
-      </svg>
-    </div>
-    <p>When a 7 is rolled, <strong>no one collects resources.</strong> Three things happen:</p>
-    <div style="display:flex;flex-direction:column;gap:12px;margin-top:12px;">
-      <div style="display:flex;align-items:flex-start;gap:12px;"><span class="step-num">1</span><span><strong>Discard:</strong> Anyone with 8+ cards must discard half (rounded down)</span></div>
-      <div style="display:flex;align-items:flex-start;gap:12px;"><span class="step-num">2</span><span><strong>Move Robber:</strong> You <strong>must</strong> place the robber on a different tile — that tile is now blocked</span></div>
-      <div style="display:flex;align-items:flex-start;gap:12px;"><span class="step-num">3</span><span><strong>Steal:</strong> You <strong>must</strong> take 1 random <strong>resource</strong> card from a player adjacent to the robber's new tile (development cards cannot be stolen)</span></div>
-    </div>
-    <div class="highlight" style="margin-top:16px;"><strong>The blocked tile produces NO resources</strong> until the robber is moved again!</div>
-  </div>
-</section>
-
-<!-- ═══ DEV CARDS ═══ -->
-<section id="devcards" class="section">
-  <h2 class="section-title">Development Cards</h2>
-  <p class="section-subtitle">25 cards with powerful abilities — cost: 1 Wool + 1 Grain + 1 Ore</p>
-  <div class="illustration" style="margin-bottom: 24px;">
-    <svg viewBox="0 0 380 115" width="380" height="115">
-      <g transform="translate(30,10) rotate(-12,40,80)"><rect width="58" height="82" rx="6" fill="#2a6b7c" stroke="#1a4a57" stroke-width="1.5"/><text x="29" y="38" text-anchor="middle" fill="white" font-size="22">⚔️</text><text x="29" y="56" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="7" font-weight="600">KNIGHT</text><text x="29" y="70" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7">×14</text></g>
-      <g transform="translate(90,5) rotate(-4,40,80)"><rect width="58" height="82" rx="6" fill="#27ae60" stroke="#1e8449" stroke-width="1.5"/><text x="29" y="38" text-anchor="middle" fill="white" font-size="22">🛤️</text><text x="29" y="56" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="7" font-weight="600">ROAD BUILD</text><text x="29" y="70" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7">×2</text></g>
-      <g transform="translate(150,3)"><rect width="58" height="82" rx="6" fill="#8e44ad" stroke="#6c3483" stroke-width="1.5"/><text x="29" y="38" text-anchor="middle" fill="white" font-size="22">🎁</text><text x="29" y="56" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="7" font-weight="600">YEAR PLENTY</text><text x="29" y="70" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7">×2</text></g>
-      <g transform="translate(210,5) rotate(4,40,80)"><rect width="58" height="82" rx="6" fill="#c0392b" stroke="#96281b" stroke-width="1.5"/><text x="29" y="38" text-anchor="middle" fill="white" font-size="22">💰</text><text x="29" y="56" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="7" font-weight="600">MONOPOLY</text><text x="29" y="70" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7">×2</text></g>
-      <g transform="translate(270,10) rotate(12,40,80)"><rect width="58" height="82" rx="6" fill="#f39c12" stroke="#d68910" stroke-width="1.5"/><text x="29" y="38" text-anchor="middle" fill="white" font-size="22">⭐</text><text x="29" y="56" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="7" font-weight="600">VICTORY PT</text><text x="29" y="70" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="7">×5</text></g>
-    </svg>
-  </div>
-  <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>⚔️ Knight Cards (14) — Most Common</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Move the robber and steal 1 resource card from an adjacent player. Play 3 knights to claim <strong>Largest Army</strong> (2 VP). Another player needs more knights to take it.</div></div></div>
-  <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🛤️ Road Building (2)</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Place 2 roads for free. Must follow normal rules. Great surprise for Longest Road!</div></div></div>
-  <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🎁 Year of Plenty (2)</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Take any 2 resource cards from the bank for free. Same or different type.</div></div></div>
-  <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>💰 Monopoly (2)</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Name a resource. <strong>Every other player gives you ALL cards of that type.</strong> Devastating when timed right!</div></div></div>
-  <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>⭐ Victory Point Cards (5)</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Each worth 1 VP. Keep them secret! Reveal only when declaring victory. Can be revealed the turn you buy them if they win the game.</div></div></div>
-  <div class="card" style="margin-top:16px;">
-    <h3><span class="icon">📜</span> Important Rules</h3>
-    <p><strong>When to play:</strong> You may play a development card before rolling for production, or at any time during your trading/building phase.</p>
-    <p>Play <strong>only 1 development card per turn</strong> (exception: Victory Point cards, which are revealed, not "played").</p>
-    <p><strong>Can't play a card the same turn you bought it</strong> (exception: VP cards that give you 10+ points to win).</p>
-    <p>Development cards <strong>cannot be traded</strong> with other players.</p>
-  </div>
-</section>
-
-<!-- ═══ WINNING ═══ -->
-<section id="winning" class="section">
-  <h2 class="section-title">How to Win</h2>
-  <p class="section-subtitle">First to 10+ victory points on YOUR turn wins!</p>
-  <div class="card">
-    <h3><span class="icon">🏆</span> Victory Points Breakdown</h3>
-    <div class="illustration" style="background: var(--sand); border-radius: 14px; padding: 16px;">
-      <svg viewBox="0 0 360 75" width="360" height="75">
-        <g transform="translate(15,8)"><polygon points="20,2 38,10 38,30 2,30 2,10" fill="#e67e22" stroke="#c56a12" stroke-width="1.5"/><text x="20" y="46" text-anchor="middle" fill="#333" font-size="8" font-weight="700">Settlement</text><text x="20" y="58" text-anchor="middle" fill="#2a6b7c" font-size="12" font-weight="700">1 VP</text></g>
-        <g transform="translate(80,3)"><rect x="4" y="8" width="32" height="27" fill="#e67e22" stroke="#c56a12" stroke-width="1.5" rx="2"/><polygon points="4,8 20,0 36,8" fill="#d35400" stroke="#c56a12" stroke-width="1"/><text x="20" y="48" text-anchor="middle" fill="#333" font-size="8" font-weight="700">City</text><text x="20" y="60" text-anchor="middle" fill="#2a6b7c" font-size="12" font-weight="700">2 VP</text></g>
-        <g transform="translate(140,10)"><rect x="0" y="5" width="50" height="6" rx="3" fill="#e67e22" stroke="#c56a12" stroke-width="1"/><rect x="10" y="11" width="6" height="12" rx="3" fill="#e67e22" stroke="#c56a12" stroke-width="1"/><rect x="10" y="20" width="40" height="6" rx="3" fill="#e67e22" stroke="#c56a12" stroke-width="1"/><text x="25" y="46" text-anchor="middle" fill="#333" font-size="7" font-weight="700">Longest Road</text><text x="25" y="58" text-anchor="middle" fill="#2a6b7c" font-size="12" font-weight="700">2 VP</text></g>
-        <g transform="translate(215,3)"><rect width="48" height="32" rx="5" fill="#2a6b7c" stroke="#1a4a57" stroke-width="1.5"/><text x="24" y="14" text-anchor="middle" fill="white" font-size="8">⚔️⚔️⚔️</text><text x="24" y="26" text-anchor="middle" fill="white" font-size="6" font-weight="600">ARMY</text><text x="24" y="48" text-anchor="middle" fill="#333" font-size="7" font-weight="700">Largest Army</text><text x="24" y="60" text-anchor="middle" fill="#2a6b7c" font-size="12" font-weight="700">2 VP</text></g>
-        <g transform="translate(288,3)"><rect x="2" y="2" width="36" height="30" rx="4" fill="#f39c12" stroke="#d68910" stroke-width="1.5"/><text x="20" y="22" text-anchor="middle" fill="white" font-size="14">⭐</text><text x="20" y="48" text-anchor="middle" fill="#333" font-size="7" font-weight="700">VP Card</text><text x="20" y="60" text-anchor="middle" fill="#2a6b7c" font-size="12" font-weight="700">1 VP</text></g>
-      </svg>
-    </div>
-  </div>
-  <div class="card">
-    <h3><span class="icon">🎯</span> Track Your Points</h3>
-    <p>Click circles to track VP. Reach 10 to win!</p>
-    <div class="vp-tracker" id="vpTracker"></div>
-    <p id="vpMessage" style="margin-top:10px;font-weight:600;color:var(--ocean-deep);"></p>
-  </div>
-  <div class="card">
-    <h3><span class="icon">💡</span> Example Winning Combos</h3>
-    <p><strong>A:</strong> 3 settlements (3) + 2 cities (4) + Longest Road (2) + 1 VP card (1) = <strong>10</strong></p>
-    <p><strong>B:</strong> 2 settlements (2) + 3 cities (6) + Largest Army (2) = <strong>10</strong></p>
-    <p><strong>C:</strong> 4 settlements (4) + 1 city (2) + Longest Road (2) + 2 VP cards (2) = <strong>10</strong></p>
-  </div>
-</section>
-
-<!-- ═══ EDGE CASES ═══ -->
-<section id="edgecases" class="section">
-  <h2 class="section-title">Edge Cases & Tricky Rules</h2>
-  <p class="section-subtitle">The weird situations that cause arguments — settled here</p>
-
-  <div class="toggle-card open">
-    <div class="toggle-header" onclick="toggleCard(this)">
-      <span>🦹 Robber: What if the player you target has no cards?</span>
-      <span class="arrow">▼</span>
-    </div>
-    <div class="toggle-body">
-      <div class="toggle-content">You get nothing. You <strong>must</strong> still move the robber to a new hex and choose a player adjacent to it, but if that player has zero resource cards, you simply don't steal anything. You cannot choose to leave the robber in place — it must always move to a different tile.</div>
-    </div>
-  </div>
-
-  <div class="toggle-card open">
-    <div class="toggle-header" onclick="toggleCard(this)">
-      <span>🃏 Can I play a dev card the same turn I bought it?</span>
-      <span class="arrow">▼</span>
-    </div>
-    <div class="toggle-body">
-      <div class="toggle-content"><strong>No</strong> — with one exception. Knight and progress cards (Road Building, Year of Plenty, Monopoly) cannot be played on the same turn you purchased them. The only exception: if you buy a <strong>Victory Point card</strong> and it gives you 10+ points, you can reveal it immediately to win.</div>
-    </div>
-  </div>
-
-  <div class="toggle-card open">
-    <div class="toggle-header" onclick="toggleCard(this)">
-      <span>🛤️ How does Longest Road break when someone builds a settlement on it?</span>
-      <span class="arrow">▼</span>
-    </div>
-    <div class="toggle-body">
-      <div class="toggle-content">If an opponent builds a settlement on an intersection along your continuous road, it <strong>breaks your road</strong>. Your longest road is now the longer of the two segments on either side of that settlement. If this causes you to no longer have the longest road (at least 5), you lose the Longest Road card. If no one has 5+ roads after the break, the card is set aside until someone qualifies again.</div>
-    </div>
-  </div>
-
-  <div class="toggle-card open">
-    <div class="toggle-header" onclick="toggleCard(this)">
-      <span>🏠 What if I've built all 5 settlements?</span>
-      <span class="arrow">▼</span>
-    </div>
-    <div class="toggle-body">
-      <div class="toggle-content">You <strong>must upgrade</strong> one of your existing settlements to a city before you can build another settlement. When you upgrade, the settlement piece returns to your supply and can be placed elsewhere on a future turn (following normal building rules).</div>
-    </div>
-  </div>
-
-  <div class="toggle-card open">
-    <div class="toggle-header" onclick="toggleCard(this)">
-      <span>🎲 What if the bank runs out of a resource?</span>
-      <span class="arrow">▼</span>
-    </div>
-    <div class="toggle-body">
-      <div class="toggle-content">If there aren't enough resource cards in the bank to pay <strong>all</strong> players who are owed that resource, then <strong>no one</strong> receives that resource for that roll. Players who are owed other resource types from the same roll still collect those normally.</div>
-    </div>
-  </div>
-
-  <div class="toggle-card open">
-    <div class="toggle-header" onclick="toggleCard(this)">
-      <span>🤝 Can I trade on someone else's turn?</span>
-      <span class="arrow">▼</span>
-    </div>
-    <div class="toggle-body">
-      <div class="toggle-content"><strong>No.</strong> Only the active player (the one who rolled the dice) can initiate and complete trades. Other players can propose offers to the active player, but they cannot trade with each other. Maritime (bank) trades can also only be done by the active player.</div>
-    </div>
-  </div>
-
-  <div class="toggle-card open">
-    <div class="toggle-header" onclick="toggleCard(this)">
-      <span>⚔️ Largest Army: what if two players tie?</span>
-      <span class="arrow">▼</span>
-    </div>
-    <div class="toggle-body">
-      <div class="toggle-content">If you hold Largest Army, you keep it until another player plays <strong>more</strong> knight cards than you — not equal, more. A tie does not transfer the card. The same rule applies to Longest Road. Example: you have 3 knights and hold Largest Army. Your opponent also plays their 3rd knight. You keep the card — they need 4 to take it.</div>
-    </div>
-  </div>
-
-  <div class="toggle-card open">
-    <div class="toggle-header" onclick="toggleCard(this)">
-      <span>🏙️ Does a city count as a settlement for the Distance Rule?</span>
-      <span class="arrow">▼</span>
-    </div>
-    <div class="toggle-body">
-      <div class="toggle-content"><strong>Yes.</strong> A city occupies the same intersection as the settlement it replaced. The Distance Rule still applies — no one can build a new settlement within 2 intersections of any settlement <em>or</em> city.</div>
-    </div>
-  </div>
-
-  <div class="toggle-card open">
-    <div class="toggle-header" onclick="toggleCard(this)">
-      <span>🎲 Can I play a Knight before rolling the dice?</span>
-      <span class="arrow">▼</span>
-    </div>
-    <div class="toggle-body">
-      <div class="toggle-content"><strong>Yes!</strong> You can play a Knight card before your dice roll. This is actually a common strategy — move the robber off your tile before rolling, so you collect resources if that number comes up. You still cannot play a dev card you bought this same turn.</div>
-    </div>
-  </div>
-
-  <div class="toggle-card open">
-    <div class="toggle-header" onclick="toggleCard(this)">
-      <span>🔢 Rolling a 7: do you discard before or after moving the robber?</span>
-      <span class="arrow">▼</span>
-    </div>
-    <div class="toggle-body">
-      <div class="toggle-content">Discarding happens <strong>first</strong>. The order is: (1) all players with 8+ cards discard half, (2) the active player moves the robber, (3) the active player steals one <strong>resource</strong> card from an adjacent player (dev cards cannot be stolen). This order matters because the discard may change who has cards to steal.</div>
-    </div>
-  </div>
-
-  <div class="toggle-card open">
-    <div class="toggle-header" onclick="toggleCard(this)">
-      <span>🏗️ Can I build a settlement on someone else's road?</span>
-      <span class="arrow">▼</span>
-    </div>
-    <div class="toggle-body">
-      <div class="toggle-content"><strong>Yes</strong>, as long as your own road also connects to that intersection and the Distance Rule is satisfied. You don't need the other player's permission. This can also break their Longest Road!</div>
-    </div>
-  </div>
-
-  <div class="toggle-card open">
-    <div class="toggle-header" onclick="toggleCard(this)">
-      <span>🙈 Do I have to reveal how many cards I have?</span>
-      <span class="arrow">▼</span>
-    </div>
-    <div class="toggle-body">
-      <div class="toggle-content"><strong>Yes — the number, but not the types.</strong> The quantity of resource cards in your hand is public information. If a player asks how many cards you have, you must answer honestly. However, you do not have to reveal <em>which</em> resources they are. Development cards in your hand are always kept hidden.</div>
-    </div>
-  </div>
-
-  <div class="toggle-card open">
-    <div class="toggle-header" onclick="toggleCard(this)">
-      <span>🏆 What if I reach 10 points on someone else's turn?</span>
-      <span class="arrow">▼</span>
-    </div>
-    <div class="toggle-body">
-      <div class="toggle-content">You do <strong>not</strong> win yet. You can only win during <strong>your own turn</strong>. The game continues until it's your turn and you still have 10+ points. This can happen if, for example, someone takes Longest Road from you before your next turn.</div>
-    </div>
-  </div>
-
-  <div class="card official-rules-card" style="margin-top: 20px;">
-    <h3><span class="icon">📘</span> Official Rules Reference</h3>
-    <p>This guide covers the most common rules and edge cases based on the Catan 5th Edition rulebook. For the complete official rules, including tournament-specific rulings, download the PDF from the publisher:</p>
-    <p><a href="https://www.catan.com/understand-catan/game-rules" target="_blank" rel="noopener" style="color: var(--ocean); font-weight: 600; text-decoration: underline;">📄 Official Catan Rulebooks — catan.com</a></p>
-    <p style="font-size:0.85rem; color: var(--text-light); margin-top: 8px;">This is an unofficial fan-made guide and is not affiliated with or endorsed by Catan GmbH or Catan Studio.</p>
-  </div>
-</section>
-
-<!-- ═══ ALMANAC ═══ -->
-<section id="almanac" class="section">
-  <h2 class="section-title">Almanac</h2>
-  <p class="section-subtitle">Searchable A–Z keyword reference — settle disputes mid-game</p>
-
-  <div class="card" style="position:sticky;top:52px;z-index:10;background:var(--white);">
-    <input type="text" id="almanacSearch" placeholder="Search rules... (e.g. robber, city, harbor, longest road)" style="width:100%;padding:12px 16px;border:2px solid var(--sand-dark);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.2s;background:var(--sand-light);" onfocus="this.style.borderColor='var(--ocean)'" onblur="this.style.borderColor='var(--sand-dark)'">
-    <p id="almanacCount" style="margin-top:8px;font-size:0.82rem;color:var(--text-light);"></p>
-  </div>
-
-  <div id="almanacEntries">
-
-    <div class="almanac-entry" data-keys="building build construction order phase">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🏗️ Building</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Building is the third phase of your turn (after rolling and trading). You may build as many items as you can afford in a single turn: roads, settlements, cities, or development cards. All pieces must follow placement rules. You cannot build more pieces than exist in your supply (15 roads, 5 settlements, 4 cities). The "first trade, then build" order is observed in the base game.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="city cities upgrade production victory points">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🏙️ City</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">A city replaces an existing settlement (costs 2 grain + 3 ore). It is worth <strong>2 victory points</strong> and produces <strong>2 resource cards</strong> from each adjacent hex when that number is rolled. You cannot build a city directly on an empty intersection — only upgrade. Max 4 cities per player. The replaced settlement returns to your supply.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="desert hex tile robber start">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🏜️ Desert</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">The desert hex produces no resources and has no number token. The robber starts the game on this hex. If you build a settlement adjacent to the desert, you gain nothing from that side. The desert is always part of the standard 19-tile board.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="development card dev cards buy purchase knight progress victory point">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🃏 Development Cards</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Cost: 1 wool + 1 grain + 1 ore. Draw from the face-down deck. There are 25 cards: 14 knights, 2 road building, 2 year of plenty, 2 monopoly, 5 victory points. You may play <strong>1 dev card per turn</strong> (before or after rolling). You <strong>cannot play a card the turn you buy it</strong> (exception: VP cards that win the game). Dev cards cannot be traded or stolen. When the deck is empty, no more can be purchased.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="discard seven 7 half cards hand">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>✂️ Discard (Rolling 7)</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">When a 7 is rolled, every player holding <strong>8 or more</strong> resource cards must discard half, rounded down (e.g., 9 cards → discard 4). Players choose which cards to discard. This happens <strong>before</strong> the robber is moved. The discarded cards return to the bank supply stacks.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="distance rule two intersections placement settlement spacing">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>📏 Distance Rule</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">You may only build a settlement at an intersection if <strong>all 3 adjacent intersections are vacant</strong> (no settlements or cities). This means there must be at least 2 road segments between any two settlements/cities. The Distance Rule applies during setup and throughout the game. Cities count the same as settlements for this rule.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="harbor port maritime trade 2:1 3:1 coast">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>⚓ Harbors</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Harbors are on the coast (sea frame). To use a harbor, you must build a settlement or city on a coastal intersection connected to it. <strong>Generic harbors (3:1)</strong>: trade any 3 identical resources for 1 of your choice. <strong>Special harbors (2:1)</strong>: trade 2 of the shown resource for 1 of any type. Without a harbor, bank trades are 4:1.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="initial placement setup first second settlement starting round">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🎬 Initial Placement</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content"><strong>Who goes first:</strong> Each player rolls both dice — highest roll goes first. <strong>Round 1:</strong> Starting with the first player, each places 1 settlement + 1 adjacent road, clockwise. <strong>Round 2:</strong> In reverse order (last player goes first), each places a 2nd settlement + road. You receive 1 resource card from each hex adjacent to your <strong>2nd settlement only</strong>. After setup, the first player begins the game and play continues clockwise.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="knight soldier robber move steal army largest">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>⚔️ Knight Cards</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Playing a knight lets you move the robber to any other hex and steal 1 random <strong>resource</strong> card (not dev cards) from a player adjacent to it. Knights can be played <strong>before rolling</strong>. Players do not discard when a knight is played (unlike rolling a 7). Playing 3+ knights and having the most earns you <strong>Largest Army</strong> (2 VP). Another player must play <strong>more</strong> knights (not equal) to take it.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="number tokens circles letters alphabetical spiral placement setup order">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🔢 Number Tokens</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Each token has a number (2–12) on the front and a letter (A–R) on the back. <strong>Standard placement:</strong> start at any corner hex, place token "A" there, then continue alphabetically in a spiral pattern moving inward. Skip the desert (it gets no token). The dots printed beneath each number indicate probability — more dots means that number is rolled more often. Numbers <strong>6 and 8</strong> are printed in red because they're the most frequently rolled (after 7, which triggers the robber). For beginner games, use the fixed layout shown in the rulebook instead.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="largest army knight cards special card victory points">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🛡️ Largest Army</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">The first player to have <strong>3 or more</strong> face-up knight cards receives this card (worth 2 VP). If another player plays more knights than the current holder, they take the card. Ties do not transfer — you must exceed, not match. If the holder is somehow reduced below 3 (impossible in base game), the card stays with them.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="longest road five segments continuous path break settlement">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🛤️ Longest Road</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">The first player to build a continuous road of <strong>5+ segments</strong> receives this card (2 VP). Only the single longest branch counts (forks don't combine). An opponent's settlement on your road <strong>breaks</strong> it — recalculate from each side. If no player has 5+ after a break, the card is set aside. Another player must build a <strong>longer</strong> road (not equal) to take it.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="monopoly progress card resource steal all">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>💰 Monopoly</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Name 1 resource type. <strong>All other players</strong> must give you every card of that type from their hand. If no one has that resource, you get nothing. This is one of the most powerful cards when timed correctly (e.g., after seeing players stockpile a resource through several rolls).</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="resource cards production collect receive hand public">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🃏 Resource Cards</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">There are 19 cards of each type (95 total): brick, lumber, wool, grain, ore. When a number is rolled, each player with a settlement adjacent to a matching hex gets 1 card; a city gets 2. The <strong>number</strong> of cards in your hand is public information; the <strong>types</strong> are private. If the bank runs out of a resource, no one collects that type for that roll.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="road build connect network path edge">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🛤️ Roads</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Cost: 1 brick + 1 lumber. Roads are placed on edges between hexes. Each road must connect to one of your existing roads, settlements, or cities. Only 1 road per edge. Max 15 roads per player. Roads are worth 0 VP directly, but enable settlement placement and contribute to Longest Road (2 VP).</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="road building progress card free roads two">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🛤️ Road Building (Card)</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Immediately place 2 roads for free following normal placement rules. If you only have 1 road left in your supply, you place just 1. These roads can count toward Longest Road immediately.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="robber thief block steal move seven 7 knight desert">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🦹 Robber</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">The robber starts on the desert. When activated (by rolling 7 or playing a knight), it <strong>must</strong> move to a different hex. While on a hex, that hex <strong>produces no resources</strong>. The player who moved the robber steals 1 random <strong>resource</strong> card (not dev cards) from any one player with a settlement/city adjacent to the robber's new hex. If that player has no cards, you get nothing. You cannot leave the robber on the same hex.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="settlement build place intersection victory point one">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🏠 Settlement</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Cost: 1 brick + 1 lumber + 1 wool + 1 grain. Worth <strong>1 VP</strong>. Must be placed on an intersection connected to your road network, obeying the Distance Rule. Produces 1 resource from each adjacent hex when that number is rolled. Max 5 settlements. If all 5 are placed, you must upgrade one to a city before building another.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="trade domestic player swap exchange offer">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🤝 Trading (Domestic)</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Only the <strong>active player</strong> can trade on their turn. You may propose any rate (e.g., 2-for-1, 1-for-1). Both parties must agree. You <strong>cannot</strong> give away cards for free, trade development cards, or trade with players on someone else's turn. There is no limit to how many trades you can make per turn.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="trade maritime bank harbor port 4:1 3:1 2:1">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🏦 Trading (Maritime)</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Trade with the bank at fixed rates. <strong>Default: 4:1</strong> (4 identical resources for 1 of any type). <strong>Generic harbor: 3:1.</strong> <strong>Special harbor: 2:1</strong> for the shown resource only. You must have a settlement/city on the harbor to use its rate. Maritime trades can be done multiple times per turn.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="turn order phase roll trade build pass dice">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🔄 Turn Order</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Each turn has 3 phases in order: <strong>(1) Roll dice</strong> — all players collect resources from matching hexes. <strong>(2) Trade</strong> — domestic and/or maritime trades. <strong>(3) Build</strong> — spend resources to build. You may play 1 dev card at any point during your turn. After building, pass dice to the left.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="victory point win 10 points game over end">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🏆 Victory Points</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">First player to reach <strong>10 VP on their own turn</strong> wins. Sources: settlement (1), city (2), Longest Road (2), Largest Army (2), VP development cards (1 each). You cannot win on another player's turn — if you reach 10 between turns, the game continues. VP cards are kept secret until you declare victory.</div></div></div>
-    </div>
-
-    <div class="almanac-entry" data-keys="year of plenty progress card free resources bank two">
-      <div class="toggle-card open"><div class="toggle-header" onclick="toggleCard(this)"><span>🎁 Year of Plenty</span><span class="arrow">▼</span></div><div class="toggle-body"><div class="toggle-content">Take any <strong>2 resource cards</strong> from the bank for free. They can be the same type or different. If the bank has only 1 card of a type left, you may still take it and choose a different type for the second card.</div></div></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══ DICE TOOL ═══ -->
-<section id="dice" class="section">
-  <h2 class="section-title">Dice Roller & Probability</h2>
-  <p class="section-subtitle">Practice rolling and see which numbers come up most</p>
-  <div class="card">
-    <h3><span class="icon">🎲</span> Roll the Dice</h3>
-    <p>Click "Roll" to simulate. Numbers closer to 7 come up most often!</p>
-    <div class="dice-demo">
-      <div class="die" id="die1">?</div>
-      <div class="die" id="die2">?</div>
-      <button class="roll-btn" id="rollBtn">Roll!</button>
-      <div class="dice-result" id="diceSum">—</div>
-    </div>
-    <p style="text-align:center;font-size:0.85rem;color:var(--text-light);" id="rollCount">Rolls: 0</p>
-  </div>
-  <div class="card">
-    <h3 style="justify-content:space-between;"><span style="display:flex;align-items:center;gap:10px;"><span class="icon">📊</span> Your Roll History</span><button id="resetRolls" style="background:none;border:1px solid var(--sand-dark);border-radius:8px;padding:4px 12px;font-size:0.78rem;font-family:'DM Sans',sans-serif;color:var(--text-light);cursor:pointer;">Reset</button></h3>
-    <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:12px;">Roll the dice above and watch your personal distribution build up. Compare it against the theoretical probability!</p>
-    <div id="rollHistory"></div>
-    <p id="rollHistoryEmpty" style="text-align:center;color:var(--text-light);font-size:0.9rem;padding:16px 0;">Roll the dice to start tracking your distribution</p>
-  </div>
-  <div class="card">
-    <h3><span class="icon">📊</span> Theoretical Probability</h3>
-    <p>More dots on a number token = more likely to roll. <strong>6 and 8 are the best!</strong></p>
-    <div class="prob-chart" id="probChart"></div>
-  </div>
-  <div class="card" style="background:var(--sand-light);">
-    <h3><span class="icon">🧠</span> Strategy Tip</h3>
-    <p>Place starting settlements next to <strong>6, 8, 5, and 9</strong> tiles. Avoid 2 and 12. A 7 triggers the robber instead of producing resources.</p>
-  </div>
-</section>
-
-</main>
-
+</div>
 <footer class="footer">
   <img src="/favicon-32x32.png" alt="" width="24" height="24" style="vertical-align:middle;margin-right:6px;border-radius:4px;">
-  Catan Rules Guide — <strong>Base Game</strong> | <a href="/seafarers" style="color:var(--ocean);text-decoration:underline;">Seafarers Expansion</a> | Made with ❤️ for board game nights
+  Catan Rules Guide — Made with ❤️ for board game nights
 </footer>
-
-<script>
-const navBtns=document.querySelectorAll('.nav-btn'),sections=document.querySelectorAll('.section');
-navBtns.forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.tab;navBtns.forEach(x=>x.classList.remove('active'));sections.forEach(x=>x.classList.remove('active'));b.classList.add('active');const sec=document.getElementById(t);sec.classList.add('active');const navH=document.querySelector('.nav').offsetHeight;const secTop=sec.getBoundingClientRect().top+window.pageYOffset-navH-8;window.scrollTo({top:secTop,behavior:'smooth'});}));
-function toggleCard(h){h.parentElement.classList.toggle('open');}
-const vt=document.getElementById('vpTracker'),vm=document.getElementById('vpMessage');let vc=0;
-for(let i=1;i<=12;i++){const d=document.createElement('div');d.className='vp-dot';d.textContent=i;d.addEventListener('click',()=>{vc=(i<=vc)?i-1:i;uVP();});vt.appendChild(d);}
-function uVP(){vt.querySelectorAll('.vp-dot').forEach((d,i)=>d.classList.toggle('filled',i<vc));vm.textContent=vc>=10?"🎉 You win with "+vc+" points! Congratulations, settler!":vc>=7?"Almost there! "+(10-vc)+" more to victory...":vc>0?vc+" VP — keep building!":"";}
-const d1=document.getElementById('die1'),d2=document.getElementById('die2'),ds=document.getElementById('diceSum'),rb=document.getElementById('rollBtn'),rc=document.getElementById('rollCount');
-let tr=0;
-const rollHist={};for(let i=2;i<=12;i++)rollHist[i]=0;
-const rhEl=document.getElementById('rollHistory'),rhEmpty=document.getElementById('rollHistoryEmpty');
-
-function renderRollHistory(){
-  if(tr===0){rhEl.innerHTML='';rhEmpty.style.display='block';return;}
-  rhEmpty.style.display='none';
-  const maxCount=Math.max(...Object.values(rollHist),1);
-  let html='';
-  for(let n=2;n<=12;n++){
-    const count=rollHist[n];
-    const pct=tr>0?((count/tr)*100).toFixed(1):'0.0';
-    const w=maxCount>0?(count/maxCount)*100:0;
-    const c=n===7?'var(--brick)':'var(--ocean)';
-    html+=`<div class="prob-row"><div class="prob-label">${n}</div><div class="prob-bar-bg"><div class="prob-bar-fill" style="width:${w}%;background:${c};"></div></div><div class="prob-pct">${count} (${pct}%)</div></div>`;
-  }
-  rhEl.innerHTML=html;
-}
-
-rb.addEventListener('click',()=>{const a=Math.floor(Math.random()*6)+1,b=Math.floor(Math.random()*6)+1;d1.classList.add('rolling');d2.classList.add('rolling');setTimeout(()=>{d1.textContent=a;d2.textContent=b;const s=a+b;ds.textContent="= "+s+(s===7?" 🦹":"");d1.classList.remove('rolling');d2.classList.remove('rolling');tr++;rollHist[s]++;rc.textContent="Rolls: "+tr;renderRollHistory();},400);});
-
-document.getElementById('resetRolls').addEventListener('click',()=>{tr=0;for(let i=2;i<=12;i++)rollHist[i]=0;d1.textContent='?';d2.textContent='?';ds.textContent='—';rc.textContent='Rolls: 0';renderRollHistory();});
-[{n:2,w:1},{n:3,w:2},{n:4,w:3},{n:5,w:4},{n:6,w:5},{n:7,w:6},{n:8,w:5},{n:9,w:4},{n:10,w:3},{n:11,w:2},{n:12,w:1}].forEach(d=>{const p=((d.w/36)*100).toFixed(1),c=d.n===7?'var(--brick)':'var(--ocean)',r=document.createElement('div');r.className='prob-row';r.innerHTML=`<div class="prob-label">${d.n}</div><div class="prob-bar-bg"><div class="prob-bar-fill" style="width:${p}%;background:${c};"></div></div><div class="prob-pct">${p}%</div>`;document.getElementById('probChart').appendChild(r);});
-
-// ── ALMANAC SEARCH ──
-const aSearch=document.getElementById('almanacSearch'),aEntries=document.querySelectorAll('.almanac-entry'),aCount=document.getElementById('almanacCount');
-const totalEntries=aEntries.length;
-aCount.textContent=totalEntries+' entries';
-aSearch.addEventListener('input',()=>{
-  const q=aSearch.value.toLowerCase().trim();
-  let shown=0;
-  aEntries.forEach(e=>{
-    const keys=e.dataset.keys||'';
-    const text=e.textContent.toLowerCase();
-    const match=!q||keys.includes(q)||text.includes(q);
-    e.classList.toggle('hidden',!match);
-    if(match)shown++;
-  });
-  aCount.textContent=q?shown+' of '+totalEntries+' entries':totalEntries+' entries';
-});
-</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
