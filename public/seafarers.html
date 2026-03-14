@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- PRIMARY SEO -->
+<title>Catan Seafarers Rules Explained — Interactive Expansion Guide (2026)</title>
+<meta name="description" content="Learn Catan Seafarers expansion rules in minutes. Ships, pirate, gold hexes, fog tiles, and all 9 scenarios explained with interactive visuals. Free beginner-friendly guide.">
+<meta name="keywords" content="Catan Seafarers rules, Catan Seafarers expansion, how to play Catan Seafarers, Seafarers ships, Catan pirate rules, Catan gold hex, Catan Seafarers scenarios, Catan expansion guide">
+<meta name="author" content="codebykrishna">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://catan-rules-guide.vercel.app/seafarers.html">
+
+<!-- OPEN GRAPH -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Catan Seafarers Rules — Interactive Expansion Guide">
+<meta property="og:description" content="Learn Catan Seafarers rules in minutes. Ships, pirate, gold hexes, and all scenarios explained with interactive visuals.">
+<meta property="og:url" content="https://catan-rules-guide.vercel.app/seafarers.html">
+<meta property="og:site_name" content="Catan Rules Guide">
+<meta property="og:image" content="https://catan-rules-guide.vercel.app/og-image.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Catan Seafarers Rules — Interactive Expansion Guide">
+<meta name="twitter:description" content="Ships, pirate, gold hexes, fog tiles, and all 9 scenarios explained simply.">
+<meta name="twitter:image" content="https://catan-rules-guide.vercel.app/og-image.png">
+
+<!-- FAVICONS -->
+<meta name="theme-color" content="#1a5276">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- STRUCTURED DATA: FAQPage -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","name":"Catan Seafarers Expansion Rules","mainEntity":[{"@type":"Question","name":"What does Catan Seafarers add to the base game?","acceptedAnswer":{"@type":"Answer","text":"Seafarers adds ships (water roads), a pirate that blocks sea routes, gold hex tiles that produce any resource of your choice, fog tiles for exploration, and 9 different scenario maps with multiple islands."}},{"@type":"Question","name":"How much does a ship cost in Catan Seafarers?","acceptedAnswer":{"@type":"Answer","text":"A ship costs 1 wool and 1 lumber to build. Ships are placed on the edges of sea hexes and function like roads on water, connecting your network across islands."}},{"@type":"Question","name":"What is the pirate in Catan Seafarers?","acceptedAnswer":{"@type":"Answer","text":"The pirate is like the robber but for the sea. When you roll a 7 or play a knight, you can move either the robber OR the pirate. The pirate blocks ships from being built or moved on its hex, and you steal a resource from a player with ships on that hex."}},{"@type":"Question","name":"How do gold hex tiles work in Catan Seafarers?","acceptedAnswer":{"@type":"Answer","text":"When a gold hex's number is rolled, players with a settlement adjacent to it choose any 1 resource they want. A city adjacent to a gold hex lets you choose any 2 resources."}},{"@type":"Question","name":"Can you move ships in Catan Seafarers?","acceptedAnswer":{"@type":"Answer","text":"Yes — you can move the last ship in an open shipping route (one that doesn't connect two settlements on both ends). You may move one ship per turn to a new legal position connected to your network. Closed routes (connecting two settlements) cannot have ships moved from them."}},{"@type":"Question","name":"How many victory points do you need to win Catan Seafarers?","acceptedAnswer":{"@type":"Answer","text":"It depends on the scenario — most require between 12-14 victory points. You also earn special victory points for being the first player to settle on a new island."}}]}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sand: #f5e6c8; --sand-light: #faf3e6; --sand-dark: #e8d5a8;
+    --ocean: #1a5276; --ocean-deep: #0e3650; --ocean-light: #2980b9;
+    --brick: #c45a3c; --lumber: #5a8c3c; --wool: #8bc34a; --grain: #f0c040; --ore: #7a7a8a;
+    --gold: #d4a017; --sea: #3498db; --pirate: #2c3e50;
+    --text: #2a2520; --text-light: #6a6560; --white: #fffef9;
+    --card-shadow: 0 4px 24px rgba(42,43,37,0.10); --card-shadow-hover: 0 8px 40px rgba(42,43,37,0.16);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--sand-light); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+
+  .hero { background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean) 40%, var(--ocean-light) 100%); color: var(--white); padding: 48px 24px 36px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(255,255,255,0.04) 0%, transparent 40%); animation: drift 20s ease-in-out infinite; }
+  @keyframes drift { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(-3%,2%); } }
+  .hero-logo { width: 64px; height: 64px; border-radius: 14px; margin: 0 auto 12px; display: block; position: relative; z-index: 1; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
+  .hero h1 { font-family: 'Crimson Pro', serif; font-size: clamp(2rem,5vw,3.2rem); font-weight: 700; letter-spacing: -0.02em; position: relative; z-index: 1; }
+  .hero h1 span { color: var(--sea); }
+  .hero p { font-size: 1rem; opacity: 0.85; margin-top: 6px; position: relative; z-index: 1; }
+  .hero-badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); padding: 4px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 600; margin-top: 12px; position: relative; z-index: 1; }
+  .hero-badge a { color: var(--white); text-decoration: underline; opacity: 0.9; }
+  .hero-board { position: relative; z-index: 1; margin: 24px auto 0; max-width: 380px; }
+
+  .nav { background: var(--white); border-bottom: 2px solid var(--sand-dark); padding: 0 24px; position: sticky; top: 0; z-index: 100; overflow-x: auto; -webkit-overflow-scrolling: touch; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 2px; align-items: center; padding: 6px 0; min-width: max-content; }
+  @media (min-width: 900px) { .nav-inner { justify-content: center; min-width: unset; } }
+  .nav-btn { background: var(--sand-light); border: 1px solid var(--sand-dark); padding: 8px 14px; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--text-light); cursor: pointer; white-space: nowrap; transition: all 0.2s; border-radius: 8px; }
+  .nav-btn:hover { color: var(--ocean); background: rgba(26,82,118,0.08); border-color: var(--ocean-light); }
+  .nav-btn.active { color: var(--white); background: var(--ocean); border-color: var(--ocean); }
+  .nav-brand { display: flex; align-items: center; gap: 6px; font-family: 'Crimson Pro', serif; font-weight: 700; font-size: 0.95rem; color: var(--ocean-deep); padding: 6px 10px; white-space: nowrap; margin-right: 6px; text-decoration: none; background: var(--sand-light); border: 1px solid var(--sand-dark); border-radius: 8px; }
+  .nav-logo { height: 28px; width: 28px; border-radius: 5px; flex-shrink: 0; }
+
+  .container { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+  .section { display: none; padding: 40px 0 60px; animation: fadeIn 0.4s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .section-title { font-family: 'Crimson Pro', serif; font-size: 2rem; font-weight: 700; color: var(--ocean-deep); margin-bottom: 8px; }
+  .section-subtitle { color: var(--text-light); font-size: 1rem; margin-bottom: 32px; }
+
+  .card { background: var(--white); border-radius: 16px; padding: 28px; margin-bottom: 20px; box-shadow: var(--card-shadow); border: 1px solid var(--sand-dark); transition: box-shadow 0.3s; }
+  .card:hover { box-shadow: var(--card-shadow-hover); }
+  .card h3 { font-family: 'Crimson Pro', serif; font-size: 1.3rem; font-weight: 700; color: var(--ocean-deep); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+  .card p { color: var(--text); margin-bottom: 12px; font-size: 0.95rem; }
+  .card p:last-child { margin-bottom: 0; }
+
+  .step-num { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--ocean); color: var(--white); font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  .highlight { background: linear-gradient(135deg, #e0f0f8, #e8f4f0); border-left: 4px solid var(--ocean); border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 16px 0; font-size: 0.93rem; }
+  .highlight strong { color: var(--ocean-deep); }
+  .illustration { margin: 20px auto; display: flex; justify-content: center; border-radius: 14px; overflow: hidden; }
+  .illustration svg { display: block; max-width: 100%; height: auto; }
+
+  .cost-resources { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0; }
+  .cost-pip { min-width: 32px; height: 28px; padding: 0 8px; border-radius: 7px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.72rem; color: white; font-weight: 600; white-space: nowrap; }
+
+  .toggle-card { background: var(--white); border-radius: 14px; margin-bottom: 12px; box-shadow: var(--card-shadow); border: 1px solid var(--sand-dark); overflow: hidden; }
+  .toggle-header { padding: 18px 24px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; font-weight: 600; font-size: 1rem; transition: background 0.2s; user-select: none; }
+  .toggle-header:hover { background: var(--sand-light); }
+  .toggle-header .arrow { transition: transform 0.3s; font-size: 0.8rem; color: var(--text-light); }
+  .toggle-card.open .toggle-header .arrow { transform: rotate(180deg); }
+  .toggle-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .toggle-card.open .toggle-body { max-height: 2000px; }
+  .toggle-content { padding: 0 24px 20px; font-size: 0.93rem; color: var(--text); line-height: 1.75; }
+
+  .scenario-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin: 20px 0; }
+  .scenario-card { background: var(--sand-light); border: 1px solid var(--sand-dark); border-radius: 12px; padding: 18px; }
+  .scenario-card h4 { font-family: 'Crimson Pro', serif; font-size: 1.05rem; color: var(--ocean-deep); margin-bottom: 6px; }
+  .scenario-card p { font-size: 0.85rem; color: var(--text-light); margin: 0; }
+  .scenario-card .sc-vp { font-size: 0.78rem; font-weight: 600; color: var(--ocean); margin-top: 8px; }
+
+  .footer { text-align: center; padding: 40px 24px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--sand-dark); margin-top: 20px; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 40px 20px 28px; }
+    .card { padding: 22px 18px; }
+    .section { padding: 28px 0 40px; }
+    .scenario-grid { grid-template-columns: 1fr; }
+    .nav-brand span { display: none; }
+  }
+
+  /* DARK MODE */
+  @media (prefers-color-scheme: dark) {
+    :root { --sand: #2a2520; --sand-light: #1e1a16; --sand-dark: #3a3530; --text: #e8e4de; --text-light: #a8a4a0; --white: #252220; --card-shadow: 0 4px 24px rgba(0,0,0,0.3); }
+    .nav { background: #1e1a16; border-bottom-color: #3a3530; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+    .nav-btn { background: #2a2520; border-color: #3a3530; color: var(--text-light); }
+    .nav-btn:hover { background: rgba(26,82,118,0.2); color: var(--ocean-light); }
+    .nav-btn.active { background: var(--ocean); color: white; border-color: var(--ocean); }
+    .nav-brand { background: #2a2520; border-color: #3a3530; color: var(--text); }
+    .card { background: var(--white); border-color: #3a3530; }
+    .card h3, .section-title { color: var(--ocean-light); }
+    .highlight { background: linear-gradient(135deg, #1a2a2e, #1e2a20); }
+    .toggle-header:hover { background: #2a2520; }
+    .scenario-card { background: #2a2520; border-color: #3a3530; }
+    .scenario-card h4 { color: var(--ocean-light); }
+    .footer { border-top-color: #3a3530; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <img src="/logo.png" alt="Catan Rules Guide" class="hero-logo" width="64" height="64">
+  <h1>Catan: <span>Seafarers</span></h1>
+  <p>Expansion rules explained simply — ships, islands, and the pirate</p>
+  <div class="hero-badge">Requires <a href="/">Base Game</a> — <a href="/">Read base rules first</a></div>
+
+  <div class="hero-board">
+    <svg viewBox="0 0 380 240" width="380" height="240" xmlns="http://www.w3.org/2000/svg">
+      <defs><filter id="hs"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.2"/></filter></defs>
+      <!-- Sea background -->
+      <rect x="0" y="0" width="380" height="240" rx="12" fill="#2980b9" opacity="0.15"/>
+      <!-- Island 1 (left) -->
+      <g transform="translate(30,50)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#5a8c3c" stroke="#4a7a2e" stroke-width="1.5"/><circle cx="30" cy="45" r="10" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="10" font-weight="700">6</text></g>
+      <g transform="translate(90,50)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#c45a3c" stroke="#a84830" stroke-width="1.5"/><circle cx="30" cy="45" r="10" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="10" font-weight="700">8</text></g>
+      <g transform="translate(60,115)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#f0c040" stroke="#d0a020" stroke-width="1.5"/><circle cx="30" cy="45" r="10" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="10" font-weight="700">9</text></g>
+      <!-- Sea hexes (middle) -->
+      <g transform="translate(155,50)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#3498db" stroke="#2980b9" stroke-width="1" opacity="0.5"/><text x="30" y="40" text-anchor="middle" fill="white" font-size="10" opacity="0.7">🌊</text></g>
+      <g transform="translate(155,115)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#3498db" stroke="#2980b9" stroke-width="1" opacity="0.5"/><text x="30" y="40" text-anchor="middle" fill="white" font-size="10" opacity="0.7">🌊</text></g>
+      <!-- Ship route across sea -->
+      <line x1="150" y1="90" x2="175" y2="90" stroke="#e67e22" stroke-width="4" stroke-linecap="round"/>
+      <line x1="178" y1="88" x2="200" y2="80" stroke="#e67e22" stroke-width="4" stroke-linecap="round"/>
+      <line x1="203" y1="78" x2="230" y2="78" stroke="#e67e22" stroke-width="4" stroke-linecap="round"/>
+      <!-- Pirate -->
+      <g transform="translate(170,120)"><ellipse cx="15" cy="10" rx="14" ry="10" fill="#2c3e50"/><text x="15" y="14" text-anchor="middle" fill="white" font-size="9" font-weight="700">☠️</text></g>
+      <!-- Island 2 (right) -->
+      <g transform="translate(240,30)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#7a7a8a" stroke="#606070" stroke-width="1.5"/><circle cx="30" cy="45" r="10" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="10" font-weight="700">5</text></g>
+      <g transform="translate(300,30)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#d4a017" stroke="#b8860b" stroke-width="1.5"/><circle cx="30" cy="45" r="10" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#d4a017" font-size="10" font-weight="700">4</text><text x="30" y="25" text-anchor="middle" fill="white" font-size="8">GOLD</text></g>
+      <g transform="translate(270,95)" filter="url(#hs)"><polygon points="30,0 60,17 60,52 30,69 0,52 0,17" fill="#8bc34a" stroke="#6fa030" stroke-width="1.5"/><circle cx="30" cy="45" r="10" fill="white" opacity="0.9"/><text x="30" y="49" text-anchor="middle" fill="#333" font-size="10" font-weight="700">10</text></g>
+      <!-- Settlement on new island -->
+      <g transform="translate(293,22)"><polygon points="7,0 14,5 14,14 0,14 0,5" fill="#e67e22" stroke="#c56a12" stroke-width="1.5"/></g>
+      <!-- Settlement VP badge -->
+      <circle cx="310" cy="18" r="8" fill="#2ecc71"/><text x="310" y="22" text-anchor="middle" fill="white" font-size="8" font-weight="700">+1</text>
+      <!-- Labels -->
+      <text x="80" y="205" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="DM Sans, sans-serif">Home Island</text>
+      <text x="300" y="205" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="DM Sans, sans-serif">New Island (+1 VP)</text>
+      <text x="185" y="205" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="9" font-family="DM Sans, sans-serif">Ocean</text>
+    </svg>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav"><div class="nav-inner">
+  <a href="/" class="nav-brand"><img src="/favicon-32x32.png" alt="C" class="nav-logo" width="28" height="28"><span>Base Game</span></a>
+  <button class="nav-btn active" data-tab="overview">Overview</button>
+  <button class="nav-btn" data-tab="whats-new">What's New</button>
+  <button class="nav-btn" data-tab="ships">Ships</button>
+  <button class="nav-btn" data-tab="pirate">The Pirate</button>
+  <button class="nav-btn" data-tab="gold">Gold & Fog</button>
+  <button class="nav-btn" data-tab="building">Building Costs</button>
+  <button class="nav-btn" data-tab="scenarios">Scenarios</button>
+  <button class="nav-btn" data-tab="tips">Strategy Tips</button>
+</div></nav>
+
+<main class="container">
+
+<!-- OVERVIEW -->
+<section id="overview" class="section active">
+  <h2 class="section-title">What is Seafarers?</h2>
+  <p class="section-subtitle">The first and simplest Catan expansion — set sail for new islands</p>
+
+  <div class="card">
+    <h3>⛵ The Big Idea</h3>
+    <p>Seafarers expands Catan from one island to <strong>multiple islands separated by ocean</strong>. You build ships to cross the sea, discover new lands, and settle new territory. Earn bonus victory points for being the first to settle a new island.</p>
+  </div>
+
+  <div class="card">
+    <h3>🎯 Quick Facts</h3>
+    <p><strong>Players:</strong> 3–4 (5–6 with extension) &nbsp;|&nbsp; <strong>Time:</strong> 90–120 min &nbsp;|&nbsp; <strong>VP to win:</strong> Varies by scenario (usually 12–14)</p>
+    <p><strong>Requires:</strong> Catan base game &nbsp;|&nbsp; <strong>Difficulty:</strong> Easy to learn if you know the base game</p>
+  </div>
+
+  <div class="card">
+    <h3>🆕 What Seafarers Adds</h3>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px;">
+      <div style="display:flex;align-items:center;gap:12px;"><span class="step-num">1</span><span><strong>Ships</strong> — water roads that connect islands (1 wool + 1 lumber)</span></div>
+      <div style="display:flex;align-items:center;gap:12px;"><span class="step-num">2</span><span><strong>The Pirate</strong> — like the robber but for the sea, blocks ship building</span></div>
+      <div style="display:flex;align-items:center;gap:12px;"><span class="step-num">3</span><span><strong>Gold Hex Tiles</strong> — produce any resource of your choice</span></div>
+      <div style="display:flex;align-items:center;gap:12px;"><span class="step-num">4</span><span><strong>Fog Tiles</strong> — hidden tiles revealed by exploration</span></div>
+      <div style="display:flex;align-items:center;gap:12px;"><span class="step-num">5</span><span><strong>9 Scenarios</strong> — different island layouts with unique objectives</span></div>
+      <div style="display:flex;align-items:center;gap:12px;"><span class="step-num">6</span><span><strong>Bonus VP</strong> — for first settlement on a new island</span></div>
+    </div>
+  </div>
+
+  <div class="card" style="background:var(--sand-light);">
+    <h3>📋 What Stays the Same</h3>
+    <p>All base game rules still apply — dice rolling, resource production, trading (domestic and maritime), the robber, development cards, Longest Road (now called <strong>Longest Trade Route</strong>), Largest Army, and the Distance Rule. Seafarers only <em>adds</em> new mechanics on top of the base game.</p>
+  </div>
+</section>
+
+<!-- WHAT'S NEW -->
+<section id="whats-new" class="section">
+  <h2 class="section-title">What's New in Seafarers</h2>
+  <p class="section-subtitle">Everything that changes from the base game</p>
+
+  <div class="card">
+    <h3>🗺️ The Board</h3>
+    <p>Instead of one compact island, Seafarers uses a <strong>larger board with multiple islands</strong> separated by sea hexes. The board layout changes depending on which of the 9 scenarios you choose. The frame is bigger (uses both base game and expansion frame pieces), and harbors are placed randomly from tokens.</p>
+    <div class="highlight">
+      <strong>Important:</strong> Flip the base game frame pieces to their all-sea side. Do NOT use the harbors printed on the base game frames — use the harbor tokens from Seafarers instead.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🛤️ Longest Road → Longest Trade Route</h3>
+    <p>"Longest Road" is renamed <strong>Longest Trade Route</strong> in Seafarers. Ships and roads both count toward it, as long as they form a continuous connected path through your settlements/cities. A route can be a mix of roads on land and ships on sea, connected through a shared settlement or city.</p>
+  </div>
+
+  <div class="card">
+    <h3>🏠 Starting Placement</h3>
+    <p>During setup, if you place a starting settlement on the coast, you may place a <strong>ship instead of a road</strong> next to it. This lets you head to sea immediately instead of expanding on land first.</p>
+  </div>
+
+  <div class="card">
+    <h3>⭐ Settling New Islands</h3>
+    <p>In most scenarios, when you build your <strong>first settlement on a new island</strong> (one you didn't start on), you earn a <strong>special victory point token</strong>. This bonus VP stays with you for the rest of the game. Each new island you settle first earns another token.</p>
+  </div>
+</section>
+
+<!-- SHIPS -->
+<section id="ships" class="section">
+  <h2 class="section-title">Ships</h2>
+  <p class="section-subtitle">Your roads across the ocean</p>
+
+  <div class="card">
+    <h3>⛵ Building Ships</h3>
+    <div class="cost-resources" style="margin-bottom:12px;">
+      <div class="cost-pip" style="background:#6a9e30;">🐑 Wool</div>
+      <div class="cost-pip" style="background:var(--lumber);">🌲 Lumber</div>
+    </div>
+    <p>Ships are placed on the <strong>edges of sea hexes</strong> (or coastal edges), just like roads are placed on land edges. A ship must connect to one of your existing ships, settlements, or cities.</p>
+    <div class="highlight">
+      <strong>Key difference from roads:</strong> Ships connect to roads only through a settlement or city. You cannot directly connect a road to a ship on the same edge — there must be a settlement/city at the intersection where they meet.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🔄 Moving Ships</h3>
+    <p>Unlike roads, ships can be <strong>moved</strong>. Once per turn, you may move the <strong>last ship</strong> in an open shipping route to any other legal position connected to your network.</p>
+    <p><strong>Open route:</strong> A shipping route where one end does not connect to a settlement or city. Ships in open routes can be moved.</p>
+    <p><strong>Closed route:</strong> A shipping route connecting two settlements/cities on both ends. Ships in a closed route are <strong>locked</strong> and cannot be moved.</p>
+    <div class="highlight">
+      <strong>Rules for moving:</strong> You can only move 1 ship per turn. The ship must be at the end of the route (not in the middle). You cannot move a ship on the same turn you built it. Ships adjacent to the pirate cannot be moved.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🛤️ Shipping Routes & Trade Routes</h3>
+    <p>A <strong>shipping route</strong> is a continuous line of connected ships. A <strong>trade route</strong> is a continuous path of roads AND ships connected through settlements/cities. Your trade route counts toward the <strong>Longest Trade Route</strong> card (2 VP), replacing Longest Road from the base game.</p>
+  </div>
+</section>
+
+<!-- PIRATE -->
+<section id="pirate" class="section">
+  <h2 class="section-title">The Pirate</h2>
+  <p class="section-subtitle">The robber of the seas</p>
+
+  <div class="card">
+    <h3>☠️ How the Pirate Works</h3>
+    <p>The pirate starts off the board (not on any hex). When you roll a <strong>7</strong> or play a <strong>Knight card</strong>, you now have a choice:</p>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:12px;">
+      <div style="display:flex;align-items:center;gap:12px;"><span class="step-num">A</span><span>Move the <strong>robber</strong> (same as base game — blocks a land hex)</span></div>
+      <div style="display:flex;align-items:center;gap:12px;"><span class="step-num">B</span><span>Move the <strong>pirate</strong> (blocks a sea hex)</span></div>
+    </div>
+    <p style="margin-top:12px;">You must choose one — you cannot move both.</p>
+  </div>
+
+  <div class="card">
+    <h3>🚫 What the Pirate Blocks</h3>
+    <p>While the pirate sits on a sea hex:</p>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
+      <p>• <strong>No ships</strong> can be built on any edge of that hex</p>
+      <p>• <strong>No ships</strong> can be moved away from that hex</p>
+      <p>• The pirate does <strong>NOT</strong> block settlements, cities, or roads from being built</p>
+      <p>• The pirate does <strong>NOT</strong> block harbor trades</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>💰 Stealing with the Pirate</h3>
+    <p>After placing the pirate, you <strong>must</strong> steal 1 random <strong>resource</strong> card from any player who has a ship on the edge of that sea hex. If multiple players have ships there, you choose which one to steal from. Development cards cannot be stolen.</p>
+  </div>
+</section>
+
+<!-- GOLD & FOG -->
+<section id="gold" class="section">
+  <h2 class="section-title">Gold Hexes & Fog Tiles</h2>
+  <p class="section-subtitle">New terrain types in Seafarers</p>
+
+  <div class="card">
+    <h3>✨ Gold Hex Tiles</h3>
+    <p>Gold hexes have a number token like normal terrain. When that number is rolled:</p>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
+      <p>• Each <strong>settlement</strong> adjacent to the gold hex → choose <strong>any 1 resource</strong> you want</p>
+      <p>• Each <strong>city</strong> adjacent to the gold hex → choose <strong>any 2 resources</strong> you want (can be different)</p>
+    </div>
+    <div class="highlight">
+      <strong>Balance note:</strong> Gold hexes are intentionally placed with low-probability numbers (like 2, 3, 11, 12) or far from starting positions because choosing any resource is very powerful.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🌫️ Fog Tiles (Exploration Scenarios)</h3>
+    <p>Some scenarios include <strong>face-down hex tiles</strong>. You discover what's underneath when you build a ship or road that reaches the fog tile's edge. Flip the tile to reveal either:</p>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;">
+      <p>• A <strong>land hex</strong> — place a number token on it; it now produces resources</p>
+      <p>• A <strong>sea hex</strong> — open water, keep exploring</p>
+    </div>
+    <p style="margin-top:12px;">When you reveal a land tile, you receive <strong>1 free resource</strong> of that terrain type as a discovery bonus.</p>
+  </div>
+</section>
+
+<!-- BUILDING COSTS -->
+<section id="building" class="section">
+  <h2 class="section-title">Building Costs</h2>
+  <p class="section-subtitle">Same as base game plus ships</p>
+
+  <div class="card">
+    <h3>⛵ Ship (NEW)</h3>
+    <div class="cost-resources">
+      <div class="cost-pip" style="background:#6a9e30;">🐑 Wool</div>
+      <div class="cost-pip" style="background:var(--lumber);">🌲 Lumber</div>
+    </div>
+    <p>Place on a sea or coastal edge connected to your network. Can be moved (see Ships tab). Max 15 ships per player.</p>
+  </div>
+
+  <div class="card">
+    <h3>🛤️ Road</h3>
+    <div class="cost-resources">
+      <div class="cost-pip" style="background:var(--brick);">🧱 Brick</div>
+      <div class="cost-pip" style="background:var(--lumber);">🌲 Lumber</div>
+    </div>
+    <p>Same as base game. Land edges only.</p>
+  </div>
+
+  <div class="card">
+    <h3>🏠 Settlement</h3>
+    <div class="cost-resources">
+      <div class="cost-pip" style="background:var(--brick);">🧱 Brick</div>
+      <div class="cost-pip" style="background:var(--lumber);">🌲 Lumber</div>
+      <div class="cost-pip" style="background:#6a9e30;">🐑 Wool</div>
+      <div class="cost-pip" style="background:#b8860b;">🌾 Grain</div>
+    </div>
+    <p>Same as base game. Must follow Distance Rule. First settlement on a new island earns a bonus VP in most scenarios.</p>
+  </div>
+
+  <div class="card">
+    <h3>🏙️ City (Upgrade)</h3>
+    <div class="cost-resources">
+      <div class="cost-pip" style="background:#b8860b;">🌾 Grain</div>
+      <div class="cost-pip" style="background:#b8860b;">🌾 Grain</div>
+      <div class="cost-pip" style="background:var(--ore);">⛏️ Ore</div>
+      <div class="cost-pip" style="background:var(--ore);">⛏️ Ore</div>
+      <div class="cost-pip" style="background:var(--ore);">⛏️ Ore</div>
+    </div>
+    <p>Same as base game. Upgrade an existing settlement. Worth 2 VP, produces 2 resources per adjacent hex.</p>
+  </div>
+
+  <div class="card">
+    <h3>🃏 Development Card</h3>
+    <div class="cost-resources">
+      <div class="cost-pip" style="background:#6a9e30;">🐑 Wool</div>
+      <div class="cost-pip" style="background:#b8860b;">🌾 Grain</div>
+      <div class="cost-pip" style="background:var(--ore);">⛏️ Ore</div>
+    </div>
+    <p>Same as base game. The <strong>Road Building</strong> card now lets you place 2 roads, 2 ships, or 1 of each.</p>
+  </div>
+</section>
+
+<!-- SCENARIOS -->
+<section id="scenarios" class="section">
+  <h2 class="section-title">The 9 Scenarios</h2>
+  <p class="section-subtitle">Each scenario is a different island layout with unique rules and victory conditions</p>
+
+  <div class="scenario-grid">
+    <div class="scenario-card">
+      <h4>1. Heading for New Shores</h4>
+      <p>The introductory scenario. Two smaller islands near the main island. Build ships to reach them and settle first for bonus VP.</p>
+      <div class="sc-vp">🏆 12 VP to win</div>
+    </div>
+    <div class="scenario-card">
+      <h4>2. The Four Islands</h4>
+      <p>Four separate islands of roughly equal size. Each player starts on one island and must expand to others via ships.</p>
+      <div class="sc-vp">🏆 13 VP to win</div>
+    </div>
+    <div class="scenario-card">
+      <h4>3. The Fog Islands</h4>
+      <p>Introduces fog tiles — face-down hexes that are revealed as you explore by building ships toward them. Discover land or sea.</p>
+      <div class="sc-vp">🏆 12 VP to win</div>
+    </div>
+    <div class="scenario-card">
+      <h4>4. Through the Desert</h4>
+      <p>A large desert separates the main island from outlying islands. Build around the desert or across the sea to expand.</p>
+      <div class="sc-vp">🏆 12 VP to win</div>
+    </div>
+    <div class="scenario-card">
+      <h4>5. The Forgotten Tribe</h4>
+      <p>Discover a native tribe on a remote island. Connect your shipping route to their settlements to earn special rewards and VP.</p>
+      <div class="sc-vp">🏆 13 VP to win</div>
+    </div>
+    <div class="scenario-card">
+      <h4>6. Cloth for Catan</h4>
+      <p>Build trade routes to the Forgotten Tribe's villages. When their numbers are rolled, earn cloth tokens worth VP in pairs.</p>
+      <div class="sc-vp">🏆 14 VP to win</div>
+    </div>
+    <div class="scenario-card">
+      <h4>7. The Pirate Islands</h4>
+      <p>The pirate has a fixed movement path and attacks nearby settlements. Build warships (using Knight cards on ships) to defend.</p>
+      <div class="sc-vp">🏆 13 VP to win</div>
+    </div>
+    <div class="scenario-card">
+      <h4>8. The Wonders of Catan</h4>
+      <p>Race to build Wonders — massive structures with high resource costs. Each Wonder is unique with special requirements and VP.</p>
+      <div class="sc-vp">🏆 13 VP to win</div>
+    </div>
+    <div class="scenario-card">
+      <h4>9. New World</h4>
+      <p>The entire board is fog tiles — completely unknown. Total exploration. Every hex is a surprise. Most replayable scenario.</p>
+      <div class="sc-vp">🏆 Varies</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📋 Scenario Tips</h3>
+    <p><strong>Start with Scenario 1</strong> (Heading for New Shores) if you're new to Seafarers — it teaches ships and settling new islands without any complex rules.</p>
+    <p><strong>Scenarios 3 and 9</strong> (Fog Islands, New World) are the most replayable because the board is different every time.</p>
+    <p><strong>Scenario 7</strong> (Pirate Islands) changes how the pirate works and adds combat — play this after you're comfortable with the basics.</p>
+  </div>
+</section>
+
+<!-- STRATEGY TIPS -->
+<section id="tips" class="section">
+  <h2 class="section-title">Strategy Tips</h2>
+  <p class="section-subtitle">How to win at Seafarers</p>
+
+  <div class="card">
+    <h3>🐑 Wool and Lumber Are King</h3>
+    <p>Ships cost wool + lumber, and you'll build a lot of them. Prioritize starting settlements near pastures and forests. Brick and ore are less important early on compared to the base game.</p>
+  </div>
+
+  <div class="card">
+    <h3>🏝️ Rush New Islands Early</h3>
+    <p>The bonus VP for being the first to settle a new island is free points. Getting to new islands early also gives you access to resources that other players can't reach yet. Don't wait — build ships immediately.</p>
+  </div>
+
+  <div class="card">
+    <h3>✨ Gold Hexes Are Traps (Sometimes)</h3>
+    <p>Gold hexes are powerful but usually have low-probability numbers (2, 3, 11, 12). A settlement on a regular 6 or 8 hex will produce more often. Only go for gold if it has a decent number or you need the flexibility.</p>
+  </div>
+
+  <div class="card">
+    <h3>☠️ Use the Pirate Strategically</h3>
+    <p>The pirate blocks ship building AND movement on its hex. Place it on a sea hex where your opponent is trying to expand toward a new island. This is often more devastating than the robber, especially in the early game when sea routes are critical.</p>
+  </div>
+
+  <div class="card">
+    <h3>🔄 Move Ships, Don't Waste Them</h3>
+    <p>Remember: you can move 1 open-ended ship per turn for free. If a route isn't working out, redirect your last ship rather than building a new one. Keep routes open (don't connect both ends) until you're sure of your path.</p>
+  </div>
+
+  <div class="card">
+    <h3>🛤️ Longest Trade Route is Easier</h3>
+    <p>With both roads and ships counting, building a long continuous route is more achievable than in the base game. Combine land roads + sea ships through a coastal settlement for a massive trade route.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <img src="/favicon-32x32.png" alt="" width="24" height="24" style="vertical-align:middle;margin-right:6px;border-radius:4px;">
+  Catan Rules Guide — <a href="/" style="color:var(--ocean);text-decoration:underline;">Base Game Rules</a> | <strong>Seafarers</strong> | Made with ❤️ for board game nights
+</footer>
+
+<script>
+const navBtns=document.querySelectorAll('.nav-btn'),sections=document.querySelectorAll('.section');
+navBtns.forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.tab;navBtns.forEach(x=>x.classList.remove('active'));sections.forEach(x=>x.classList.remove('active'));b.classList.add('active');const sec=document.getElementById(t);sec.classList.add('active');const navH=document.querySelector('.nav').offsetHeight;const secTop=sec.getBoundingClientRect().top+window.pageYOffset-navH-8;window.scrollTo({top:secTop,behavior:'smooth'});}));
+function toggleCard(h){h.parentElement.classList.toggle('open');}
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
