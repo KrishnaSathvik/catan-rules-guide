@@ -114,6 +114,8 @@
   .scenario-card p { font-size: 0.85rem; color: var(--text-light); margin: 0; }
   .scenario-card .sc-vp { font-size: 0.78rem; font-weight: 600; color: var(--ocean); margin-top: 8px; }
 
+  .official-rules-card { background: linear-gradient(135deg, #e0f0f8, #e8f4f0); }
+
   .footer { text-align: center; padding: 40px 24px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--sand-dark); margin-top: 20px; }
 
   @media (max-width: 600px) {
@@ -138,6 +140,7 @@
     .toggle-header:hover { background: #2a2520; }
     .scenario-card { background: #2a2520; border-color: #3a3530; }
     .scenario-card h4 { color: var(--ocean-light); }
+    .official-rules-card { background: linear-gradient(135deg, #1a2a2e, #1e2a20); }
     .footer { border-top-color: #3a3530; }
   }
 </style>
@@ -149,7 +152,7 @@
   <img src="/logo.png" alt="Catan Rules Guide" class="hero-logo" width="64" height="64">
   <h1>Catan: <span>Seafarers</span></h1>
   <p>Expansion rules explained simply — ships, islands, and the pirate</p>
-  <div class="hero-badge">Requires <a href="/">Base Game</a> — <a href="/">Read base rules first</a></div>
+  <div class="hero-badge">Requires <a href="/base">Base Game</a> — <a href="/base">Read base rules first</a></div>
 
   <div class="hero-board">
     <svg viewBox="0 0 380 240" width="380" height="240" xmlns="http://www.w3.org/2000/svg">
@@ -259,7 +262,7 @@
 
   <div class="card">
     <h3>⭐ Settling New Islands</h3>
-    <p>In most scenarios, when you build your <strong>first settlement on a new island</strong> (one you didn't start on), you earn a <strong>special victory point token</strong>. This bonus VP stays with you for the rest of the game. Each new island you settle first earns another token.</p>
+    <p>In most scenarios, when you build your <strong>first settlement on a new island</strong> (one you didn't start on), you earn <strong>special victory point token(s)</strong> — typically 1 or 2 VP depending on the scenario. This bonus stays with you for the rest of the game. Place the VP chit under the settlement that earned it so all players can see.</p>
   </div>
 </section>
 
@@ -274,9 +277,9 @@
       <div class="cost-pip" style="background:#6a9e30;">🐑 Wool</div>
       <div class="cost-pip" style="background:var(--lumber);">🌲 Lumber</div>
     </div>
-    <p>Ships are placed on the <strong>edges of sea hexes</strong> (or coastal edges), just like roads are placed on land edges. A ship must connect to one of your existing ships, settlements, or cities.</p>
+    <p>Ships are placed on <strong>edges between two sea hexes</strong> or between <strong>a sea hex and a land hex</strong> (coastal edge). Ships cannot be placed between two land hexes. A ship must connect to one of your existing settlements, cities, or ships — <strong>not roads</strong>. Ships and roads can only connect through a settlement or city at their shared intersection.</p>
     <div class="highlight">
-      <strong>Key difference from roads:</strong> Ships connect to roads only through a settlement or city. You cannot directly connect a road to a ship on the same edge — there must be a settlement/city at the intersection where they meet.
+      <strong>Key rule:</strong> Ships and roads can <strong>never</strong> connect directly on the same edge. They can only link through a settlement or city at a shared intersection. Example: you need a settlement on the coast where your road ends before you can start building ships from that point.
     </div>
   </div>
 
@@ -309,6 +312,9 @@
       <div style="display:flex;align-items:center;gap:12px;"><span class="step-num">B</span><span>Move the <strong>pirate</strong> (blocks a sea hex)</span></div>
     </div>
     <p style="margin-top:12px;">You must choose one — you cannot move both.</p>
+    <div class="highlight">
+      <strong>Note:</strong> In scenarios with no desert hex, both the robber and pirate start off the board. The first time a 7 is rolled or knight played, the player places either one onto the board for the first time.
+    </div>
   </div>
 
   <div class="card">
@@ -367,7 +373,7 @@
       <div class="cost-pip" style="background:#6a9e30;">🐑 Wool</div>
       <div class="cost-pip" style="background:var(--lumber);">🌲 Lumber</div>
     </div>
-    <p>Place on a sea or coastal edge connected to your network. Can be moved (see Ships tab). Max 15 ships per player.</p>
+    <p>Place on an edge between two sea hexes or between a sea and land hex. Must connect to your settlement, city, or another ship (not a road). Can be moved once per turn if in an open route. Max 15 ships per player.</p>
   </div>
 
   <div class="card">
@@ -507,6 +513,13 @@
   <div class="card">
     <h3>🛤️ Longest Trade Route is Easier</h3>
     <p>With both roads and ships counting, building a long continuous route is more achievable than in the base game. Combine land roads + sea ships through a coastal settlement for a massive trade route.</p>
+  </div>
+
+  <div class="card official-rules-card" style="margin-top: 20px;">
+    <h3>📘 Official Rules Reference</h3>
+    <p>This guide covers the Seafarers expansion rules and all 9 scenarios based on the official rulebook. For the complete official rules, including errata and tournament-specific rulings, download the PDF from the publisher:</p>
+    <p><a href="https://www.catan.com/understand-catan/game-rules" target="_blank" rel="noopener" style="color: var(--ocean); font-weight: 600; text-decoration: underline;">📄 Official Catan Rulebooks — catan.com</a></p>
+    <p><a href="https://www.catan.com/faq/seafarers" target="_blank" rel="noopener" style="color: var(--ocean); font-weight: 600; text-decoration: underline;">❓ Official Seafarers FAQ — catan.com</a></p>
   </div>
 </section>
 
