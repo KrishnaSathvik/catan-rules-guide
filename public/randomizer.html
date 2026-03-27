@@ -42,7 +42,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand-light);color:var(--t
 
 .main{max-width:1000px;margin:0 auto;padding:24px;}
 .board-container{display:flex;justify-content:center;margin:0 auto;}
-.board-container svg{max-width:100%;height:auto;}
+.board-container svg{max-width:100%;height:auto;filter:drop-shadow(0 8px 32px rgba(0,0,0,0.18));border-radius:20px;}
 
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:24px;padding:20px;background:var(--white);border-radius:14px;border:1px solid var(--sand-dark);box-shadow:0 4px 16px rgba(0,0,0,0.06);}
 .stat-card{text-align:center;padding:12px 8px;border-radius:10px;background:var(--sand-light);border:1px solid var(--sand-dark);}
@@ -105,12 +105,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand-light);color:var(--t
 // ═══ CATAN MAP RANDOMIZER ENGINE ═══
 
 const TERRAIN = {
-  forest:  {color:'#5a8c3c',stroke:'#4a7a2e',icon:'🌲',resource:'Lumber'},
-  pasture: {color:'#8bc34a',stroke:'#6fa030',icon:'🐑',resource:'Wool'},
-  fields:  {color:'#daa520',stroke:'#b8860b',icon:'🌾',resource:'Grain'},
-  hills:   {color:'#c45a3c',stroke:'#a84830',icon:'🧱',resource:'Brick'},
-  mountains:{color:'#7a7a8a',stroke:'#606070',icon:'⛏️',resource:'Ore'},
-  desert:  {color:'#d4b87a',stroke:'#b89a5a',icon:'🏜️',resource:'None'},
+  forest:  {color:'#5a9c3c',stroke:'#3a6a22',icon:'🌲',resource:'Lumber'},
+  pasture: {color:'#8bc34a',stroke:'#5a8a28',icon:'🐑',resource:'Wool'},
+  fields:  {color:'#e8b830',stroke:'#b89010',icon:'🌾',resource:'Grain'},
+  hills:   {color:'#c45a3c',stroke:'#8a3520',icon:'🧱',resource:'Brick'},
+  mountains:{color:'#808090',stroke:'#505060',icon:'⛰️',resource:'Ore'},
+  desert:  {color:'#d4b87a',stroke:'#a89050',icon:'🏜️',resource:'None'},
 };
 
 // Pip counts for probability display
@@ -289,71 +289,193 @@ function getBalanceLabel(score) {
   return {text:'Unbalanced', cls:'score-bad'};
 }
 
+function terrainIconSVG(terrain) {
+  const f = 'rgba(255,255,255,0.7)';
+  const s = 'rgba(255,255,255,0.85)';
+  switch(terrain) {
+    case 'forest':
+      return `<path d="M-8,8 L-3,-4 L2,8Z" fill="${f}" stroke="${s}" stroke-width="0.8"/>
+        <path d="M0,8 L5,-6 L10,8Z" fill="${f}" stroke="${s}" stroke-width="0.8" opacity="0.85"/>
+        <rect x="-4" y="8" width="2" height="3" rx="0.5" fill="${f}"/>
+        <rect x="4" y="8" width="2" height="2.5" rx="0.5" fill="${f}" opacity="0.8"/>`;
+    case 'pasture':
+      return `<ellipse cx="2" cy="1" rx="8" ry="5.5" fill="${f}"/>
+        <ellipse cx="2" cy="-1" rx="6" ry="3.5" fill="rgba(255,255,255,0.4)"/>
+        <circle cx="-6" cy="-2" r="3.8" fill="${f}"/>
+        <circle cx="-6" cy="-3" r="1.5" fill="rgba(40,30,20,0.4)"/>
+        <circle cx="-6.8" cy="-3.3" r="0.6" fill="rgba(255,255,255,0.7)"/>
+        <line x1="-2" y1="6.5" x2="-2.5" y2="10" stroke="${f}" stroke-width="2" stroke-linecap="round"/>
+        <line x1="2" y1="6.5" x2="1.5" y2="10" stroke="${f}" stroke-width="2" stroke-linecap="round"/>
+        <line x1="5.5" y1="6" x2="5" y2="9.5" stroke="${f}" stroke-width="2" stroke-linecap="round"/>
+        <line x1="8.5" y1="5" x2="8" y2="8.5" stroke="${f}" stroke-width="2" stroke-linecap="round"/>`;
+    case 'fields':
+      return `<path d="M-5,10 L-5,0" stroke="${s}" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M-7.5,2 Q-5,-3 -2.5,2" fill="${f}" stroke="${s}" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M-7,-0.5 Q-5,-5 -3,-0.5" fill="${f}" stroke="${s}" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M0,10 L0,-2" stroke="${s}" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M-2.5,0 Q0,-5 2.5,0" fill="${f}" stroke="${s}" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M-2,-2.5 Q0,-7 2,-2.5" fill="${f}" stroke="${s}" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M5,10 L5,0" stroke="${s}" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M2.5,2 Q5,-3 7.5,2" fill="${f}" stroke="${s}" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M3,-0.5 Q5,-5 7,-0.5" fill="${f}" stroke="${s}" stroke-width="1.2" stroke-linecap="round"/>`;
+    case 'hills':
+      return `<rect x="-8" y="-4" width="7" height="4" rx="0.6" fill="${f}" stroke="${s}" stroke-width="0.5"/>
+        <rect x="1" y="-4" width="7" height="4" rx="0.6" fill="${f}" stroke="${s}" stroke-width="0.5"/>
+        <rect x="-5" y="1" width="7" height="4" rx="0.6" fill="${f}" stroke="${s}" stroke-width="0.5"/>
+        <rect x="4" y="1" width="5" height="4" rx="0.6" fill="${f}" stroke="${s}" stroke-width="0.5"/>
+        <rect x="-8" y="6" width="6" height="4" rx="0.6" fill="${f}" stroke="${s}" stroke-width="0.5"/>
+        <rect x="0" y="6" width="6" height="4" rx="0.6" fill="${f}" stroke="${s}" stroke-width="0.5"/>
+        <rect x="7" y="6" width="3" height="4" rx="0.6" fill="${f}" stroke="${s}" stroke-width="0.5"/>`;
+    case 'mountains':
+      return `<path d="M-11,9 L-3,-7 L0,2 L5,-9 L13,9Z" fill="${f}" stroke="${s}" stroke-width="0.8"/>
+        <path d="M-3,-7 L-1.5,-3 L0,2" fill="rgba(255,255,255,0.45)"/>
+        <path d="M5,-9 L6.5,-4 L8,0" fill="rgba(255,255,255,0.45)"/>`;
+    case 'desert':
+      return `<circle cx="6" cy="-7" r="4" fill="${f}"/>
+        <line x1="6" y1="-12.5" x2="6" y2="-14" stroke="${f}" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="10.5" y1="-8.5" x2="12" y2="-9.2" stroke="${f}" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="10" y1="-4" x2="11.5" y2="-3.2" stroke="${f}" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="1.5" y1="-8.5" x2="0" y2="-9.2" stroke="${f}" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="2" y1="-4" x2="0.5" y2="-3.2" stroke="${f}" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M-11,5 Q-6,0 0,5 Q6,0 11,5" fill="none" stroke="${s}" stroke-width="1.8"/>
+        <path d="M-9,9 Q-4,4 2,9 Q7,5 12,9" fill="none" stroke="${f}" stroke-width="1.5"/>`;
+  }
+  return '';
+}
+
+function hexPoints(cx, cy, s) {
+  const pts = [];
+  for (let i = 0; i < 6; i++) {
+    const a = Math.PI / 180 * (60 * i - 30);
+    pts.push(`${cx + s * Math.cos(a)},${cy + s * Math.sin(a)}`);
+  }
+  return pts.join(' ');
+}
+
 function renderBoard(board) {
-  const size = mode === 4 ? 42 : 32;
+  const size = mode === 4 ? 50 : 38;
   const hexes = Object.values(board);
-  
+  const hexSet = new Set(Object.keys(board));
+
   // Calculate bounds
   let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity;
   hexes.forEach(h => {
     const p = axialToPixel(h.q, h.r, size);
-    minX = Math.min(minX, p.x - size);
-    maxX = Math.max(maxX, p.x + size);
-    minY = Math.min(minY, p.y - size);
-    maxY = Math.max(maxY, p.y + size);
+    minX = Math.min(minX, p.x - size * 1.2);
+    maxX = Math.max(maxX, p.x + size * 1.2);
+    minY = Math.min(minY, p.y - size * 1.2);
+    maxY = Math.max(maxY, p.y + size * 1.2);
   });
-  
-  const pad = 20;
+
+  const pad = size * 1.6;
   const w = maxX - minX + pad*2;
   const h2 = maxY - minY + pad*2;
   const offX = -minX + pad;
   const offY = -minY + pad;
 
-  let svg = `<svg viewBox="0 0 ${w} ${h2}" width="${Math.min(w, 700)}" xmlns="http://www.w3.org/2000/svg">`;
-  
-  // Sea background
-  svg += `<rect width="${w}" height="${h2}" rx="16" fill="#2980b9" opacity="0.08"/>`;
+  let svg = `<svg viewBox="0 0 ${w.toFixed(1)} ${h2.toFixed(1)}" width="${Math.min(w, 800).toFixed(0)}" xmlns="http://www.w3.org/2000/svg">`;
 
+  // ── Defs: gradients, filters ──
+  svg += `<defs>`;
+  // Ocean gradient
+  svg += `<radialGradient id="seaGrad" cx="50%" cy="45%" r="60%">
+    <stop offset="0%" stop-color="#4aa3d4"/>
+    <stop offset="60%" stop-color="#2a7ab5"/>
+    <stop offset="100%" stop-color="#1a4a6a"/>
+  </radialGradient>`;
+  // Terrain gradients
+  const grads = {
+    forest:['#6aaf4c','#3d7a28'],pasture:['#a8d860','#72a830'],fields:['#f2d04a','#c8a018'],
+    hills:['#d87050','#a04028'],mountains:['#9898aa','#5a5a6a'],desert:['#e8d0a0','#c0a868']
+  };
+  Object.entries(grads).forEach(([n,[c1,c2]]) => {
+    svg += `<linearGradient id="tg_${n}" x1="0%" y1="0%" x2="40%" y2="100%"><stop offset="0%" stop-color="${c1}"/><stop offset="100%" stop-color="${c2}"/></linearGradient>`;
+  });
+  // Token shadow
+  svg += `<filter id="tkSh"><feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/></filter>`;
+  // Token radial for cream look
+  svg += `<radialGradient id="tokenFill" cx="45%" cy="40%" r="55%"><stop offset="0%" stop-color="#fef8e8"/><stop offset="100%" stop-color="#e8d8b0"/></radialGradient>`;
+  svg += `</defs>`;
+
+  // ── Ocean background ──
+  svg += `<rect width="${w.toFixed(1)}" height="${h2.toFixed(1)}" rx="20" fill="url(#seaGrad)"/>`;
+
+  // ── Water hex ring: draw blue hexes in empty neighbor slots ──
+  const waterSlots = new Set();
+  hexes.forEach(h => {
+    getNeighbors(h.q, h.r).forEach(([nq,nr]) => {
+      const k = hexKey(nq,nr);
+      if (!hexSet.has(k)) waterSlots.add(k);
+    });
+  });
+  waterSlots.forEach(k => {
+    const [q,r] = k.split(',').map(Number);
+    const p = axialToPixel(q, r, size);
+    const cx = p.x + offX, cy = p.y + offY;
+    svg += `<polygon points="${hexPoints(cx,cy,size)}" fill="#2a80b0" opacity="0.25" stroke="#2a80b0" stroke-width="1" stroke-opacity="0.3"/>`;
+  });
+
+  // ── Coast outline: thicker border on island edge ──
   hexes.forEach(hex => {
     const p = axialToPixel(hex.q, hex.r, size);
-    const cx = p.x + offX;
-    const cy = p.y + offY;
-    const t = TERRAIN[hex.terrain];
-    
-    // Hex polygon (flat-top)
-    const points = [];
+    const cx = p.x + offX, cy = p.y + offY;
+    const neighbors = getNeighbors(hex.q, hex.r);
     for (let i = 0; i < 6; i++) {
-      const angle = Math.PI / 180 * (60 * i - 30);
-      points.push(`${cx + size * Math.cos(angle)},${cy + size * Math.sin(angle)}`);
-    }
-    
-    svg += `<polygon points="${points.join(' ')}" fill="${t.color}" stroke="${t.stroke}" stroke-width="2"/>`;
-    
-    // Icon
-    const iconY = hex.number ? cy - size*0.15 : cy + 2;
-    svg += `<text x="${cx}" y="${iconY}" text-anchor="middle" font-size="${size*0.38}" dominant-baseline="middle">${t.icon}</text>`;
-    
-    // Number token
-    if (hex.number) {
-      const numY = cy + size*0.22;
-      const numR = size * 0.28;
-      const isRed = [6,8].includes(hex.number);
-      svg += `<circle cx="${cx}" cy="${numY}" r="${numR}" fill="white" opacity="0.92"/>`;
-      svg += `<text x="${cx}" y="${numY + 1}" text-anchor="middle" dominant-baseline="middle" font-size="${numR*1.2}" font-weight="700" fill="${isRed ? '#c0392b' : '#333'}" font-family="DM Sans,sans-serif">${hex.number}</text>`;
-      
-      // Pip dots
-      const pips = PIPS[hex.number] || 0;
-      const dotY = numY + numR*0.7;
-      const dotSpacing = 3.5;
-      const dotStart = cx - (pips-1)*dotSpacing/2;
-      for (let d=0; d<pips; d++) {
-        svg += `<circle cx="${dotStart + d*dotSpacing}" cy="${dotY}" r="1.3" fill="${isRed ? '#c0392b' : '#888'}"/>`;
+      const [nq, nr] = neighbors[i];
+      if (!hexSet.has(hexKey(nq,nr))) {
+        // This edge borders water — draw a sandy coast edge
+        const a1 = Math.PI / 180 * (60 * i - 30);
+        const a2 = Math.PI / 180 * (60 * ((i+1)%6) - 30);
+        const x1 = cx + size * Math.cos(a1), y1 = cy + size * Math.sin(a1);
+        const x2 = cx + size * Math.cos(a2), y2 = cy + size * Math.sin(a2);
+        svg += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#d4a850" stroke-width="3.5" stroke-linecap="round"/>`;
       }
     }
-    
-    // Desert label
+  });
+
+  // ── Terrain hexes ──
+  hexes.forEach(hex => {
+    const p = axialToPixel(hex.q, hex.r, size);
+    const cx = p.x + offX, cy = p.y + offY;
+    const t = TERRAIN[hex.terrain];
+
+    svg += `<polygon points="${hexPoints(cx,cy,size)}" fill="url(#tg_${hex.terrain})" stroke="${t.stroke}" stroke-width="1.5"/>`;
+
+    // Terrain illustration (SVG icons)
+    const iconScale = size * 0.028;
+    const iconY = hex.number ? cy - size*0.22 : cy - size*0.05;
+    svg += `<g transform="translate(${cx},${iconY}) scale(${iconScale})">${terrainIconSVG(hex.terrain)}</g>`;
+
+    // Number token
+    if (hex.number) {
+      const tokY = cy + size*0.26;
+      const tokR = size * 0.32;
+      const isRed = [6,8].includes(hex.number);
+
+      // Token circle with shadow
+      svg += `<circle cx="${cx}" cy="${tokY}" r="${tokR}" fill="url(#tokenFill)" filter="url(#tkSh)"/>`;
+      svg += `<circle cx="${cx}" cy="${tokY}" r="${tokR}" fill="none" stroke="#c0a050" stroke-width="0.8" opacity="0.5"/>`;
+
+      // Number
+      const fontSize = tokR * 1.15;
+      svg += `<text x="${cx}" y="${tokY}" text-anchor="middle" dominant-baseline="central" font-size="${fontSize}" font-weight="700" fill="${isRed ? '#c0392b' : '#2a2520'}" font-family="'Crimson Pro',serif">${hex.number}</text>`;
+
+      // Pip dots
+      const pips = PIPS[hex.number] || 0;
+      const dotY = tokY + tokR * 0.62;
+      const dotSpacing = size * 0.09;
+      const dotStart = cx - (pips-1)*dotSpacing/2;
+      for (let d=0; d<pips; d++) {
+        svg += `<circle cx="${dotStart + d*dotSpacing}" cy="${dotY}" r="${size*0.035}" fill="${isRed ? '#c0392b' : '#6a6560'}"/>`;
+      }
+    }
+
+    // Desert — robber piece
     if (hex.terrain === 'desert' && !hex.number) {
-      svg += `<text x="${cx}" y="${cy + size*0.35}" text-anchor="middle" font-size="${size*0.18}" font-weight="600" fill="#8a7050" font-family="DM Sans,sans-serif">DESERT</text>`;
+      const rY = cy + size*0.3;
+      const rs = size * 0.06;
+      svg += `<circle cx="${cx}" cy="${rY - rs*3}" r="${rs*1.8}" fill="rgba(40,30,20,0.35)"/>`;
+      svg += `<path d="M${cx-rs*1.5},${rY} L${cx-rs*1.2},${rY-rs*1.5} Q${cx},${rY-rs*2.5} ${cx+rs*1.2},${rY-rs*1.5} L${cx+rs*1.5},${rY}Z" fill="rgba(40,30,20,0.35)"/>`;
     }
   });
 
