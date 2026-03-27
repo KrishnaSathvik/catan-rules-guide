@@ -49,12 +49,22 @@
   .guide-card-cta{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-top:1px solid var(--sand-dark);font-size:0.88rem;font-weight:600;color:var(--ocean);}
   .guide-card-cta span{font-size:1.1rem;transition:transform 0.2s;}
   .guide-card:hover .guide-card-cta span{transform:translateX(4px);}
+  .coming-soon-bar{background:var(--ocean-deep);overflow:hidden;white-space:nowrap;position:relative;}
+  .coming-soon-bar::before,.coming-soon-bar::after{content:'';position:absolute;top:0;bottom:0;width:60px;z-index:2;}
+  .coming-soon-bar::before{left:0;background:linear-gradient(to right,var(--ocean-deep),transparent);}
+  .coming-soon-bar::after{right:0;background:linear-gradient(to left,var(--ocean-deep),transparent);}
+  .coming-soon-track{display:inline-flex;animation:scroll-left 20s linear infinite;padding:10px 0;}
+  .coming-soon-track span{font-family:'Crimson Pro',serif;font-size:0.92rem;color:rgba(255,255,255,0.75);margin:0 24px;letter-spacing:0.02em;}
+  .coming-soon-track .cs-label{font-weight:700;color:#f0c040;text-transform:uppercase;font-size:0.78rem;font-family:'DM Sans',sans-serif;letter-spacing:0.08em;}
+  .coming-soon-track .cs-sep{opacity:0.3;font-weight:300;}
+  @keyframes scroll-left{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
   .footer{text-align:center;padding:40px 24px;color:var(--text-light);font-size:0.82rem;border-top:1px solid var(--sand-dark);margin-top:40px;}
   @media(max-width:600px){.hero{padding:48px 20px 36px;}.guides-grid{grid-template-columns:1fr;}}
   @media(prefers-color-scheme:dark){
     :root{--sand:#2a2520;--sand-light:#1e1a16;--sand-dark:#3a3530;--text:#e8e4de;--text-light:#a8a4a0;--white:#252220;}
     .guide-card{border-color:#3a3530;}.guide-card-body h2{color:var(--ocean-light);}.guide-card-cta{border-top-color:#3a3530;color:var(--ocean-light);}
     .tag-green{background:#1b3a1e;color:#81c784;}.tag-blue{background:#1a2a3a;color:#64b5f6;}.tag-orange{background:#3a2510;color:#ffb74d;}.tag-purple{background:#2a1a2e;color:#ce93d8;}
+    .coming-soon-bar{background:#1a1510;}.coming-soon-bar::before{background:linear-gradient(to right,#1a1510,transparent);}.coming-soon-bar::after{background:linear-gradient(to left,#1a1510,transparent);}
     .section-label{color:var(--ocean-light);}.footer{border-top-color:#3a3530;}
   }
 </style>
@@ -65,6 +75,18 @@
   <h1>Catan <span>Rules Guide</span></h1>
   <p>Free interactive guides for the base game and every expansion. Pick one to start learning.</p>
 </header>
+<div class="coming-soon-bar" aria-label="Coming soon expansions">
+  <div class="coming-soon-track">
+    <span class="cs-label">Coming Soon</span><span class="cs-sep">|</span><span>⚔️ Cities & Knights</span><span class="cs-sep">|</span><span>🐫 Traders & Barbarians</span><span class="cs-sep">|</span><span>🏴‍☠️ Explorers & Pirates</span>
+    <span class="cs-sep">·</span>
+    <span class="cs-label">Coming Soon</span><span class="cs-sep">|</span><span>⚔️ Cities & Knights</span><span class="cs-sep">|</span><span>🐫 Traders & Barbarians</span><span class="cs-sep">|</span><span>🏴‍☠️ Explorers & Pirates</span>
+    <span class="cs-sep">·</span>
+    <span class="cs-label">Coming Soon</span><span class="cs-sep">|</span><span>⚔️ Cities & Knights</span><span class="cs-sep">|</span><span>🐫 Traders & Barbarians</span><span class="cs-sep">|</span><span>🏴‍☠️ Explorers & Pirates</span>
+    <span class="cs-sep">·</span>
+    <span class="cs-label">Coming Soon</span><span class="cs-sep">|</span><span>⚔️ Cities & Knights</span><span class="cs-sep">|</span><span>🐫 Traders & Barbarians</span><span class="cs-sep">|</span><span>🏴‍☠️ Explorers & Pirates</span>
+    <span class="cs-sep">·</span>
+  </div>
+</div>
 <div class="container">
   <div class="section-label">📘 Start Here</div>
   <div class="guides-grid">
