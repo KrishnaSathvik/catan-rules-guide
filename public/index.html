@@ -139,7 +139,7 @@
 <header class="hero">
   <img src="/logo.png" alt="Catan Rules Guide" class="hero-logo" width="80" height="80">
   <h1>Catan <span>Rules Guide</span></h1>
-  <p>Free interactive guides for the base game and every expansion. Pick one to start learning.</p>
+  <p>The beginner-friendly way to learn Catan — free interactive guides for the base game and every expansion.</p>
 </header>
 <div class="coming-soon-bar" aria-label="Coming soon expansions">
   <div class="coming-soon-track">
@@ -158,7 +158,10 @@
   <div class="guides-grid">
     <a href="/base" class="guide-card">
       <div class="guide-card-hero" style="background:#1a4a57;height:auto;padding:0;">
-        <img src="/img-base-box.jpeg" alt="Catan Base Game" style="width:100%;height:auto;display:block;">
+        <picture>
+          <source srcset="/img-base-box.webp" type="image/webp">
+          <img src="/img-base-box.jpeg" alt="Catan Base Game" loading="lazy" style="width:100%;height:auto;display:block;">
+        </picture>
       </div>
       <div class="guide-card-body">
         <h2><i class="ph ph-island"></i> Catan — Base Game</h2>
@@ -176,7 +179,10 @@
   <div class="guides-grid">
     <a href="/seafarers" class="guide-card">
       <div class="guide-card-hero" style="background:#0e3650;height:auto;padding:0;">
-        <img src="/img-seafarers-box.jpg" alt="Catan Seafarers Expansion" style="width:100%;height:auto;display:block;">
+        <picture>
+          <source srcset="/img-seafarers-box.webp" type="image/webp">
+          <img src="/img-seafarers-box.jpg" alt="Catan Seafarers Expansion" loading="lazy" style="width:100%;height:auto;display:block;">
+        </picture>
       </div>
       <div class="guide-card-body">
         <h2><i class="ph ph-sailboat"></i> Seafarers</h2>
@@ -220,6 +226,7 @@
 <footer class="footer">
   <img src="/favicon-32x32.png" alt="" width="24" height="24" style="vertical-align:middle;margin-right:6px;border-radius:4px;">
   Catan Rules Guide — Made with <i class="ph ph-heart" style="color:#e57373;"></i> for board game nights
+  <br><span style="font-size:0.72rem;opacity:0.6;">Last updated: April 2026</span>
 </footer>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>

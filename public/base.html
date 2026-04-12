@@ -49,12 +49,17 @@
 
 <!-- STRUCTURED DATA: WebPage + Game -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"Catan Rules — The Simple Interactive Guide","description":"Learn how to play Catan in minutes with this free interactive guide covering setup, resources, building costs, trading, the robber, development cards, and winning strategies.","url":"https://catanrulesguide.com/","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Catan Rules Guide","url":"https://catanrulesguide.com/"},"about":{"@type":"Game","name":"Catan","alternateName":["Settlers of Catan","Die Siedler von Catan"],"numberOfPlayers":{"@type":"QuantitativeValue","minValue":3,"maxValue":4},"audience":{"@type":"PeopleAudience","suggestedMinAge":10},"genre":["Strategy","Board Game","Resource Management"]},"datePublished":"2026-03-12","dateModified":"2026-03-12"}
+{"@context":"https://schema.org","@type":"WebPage","name":"Catan Rules — The Simple Interactive Guide","description":"Learn how to play Catan in minutes with this free interactive guide covering setup, resources, building costs, trading, the robber, development cards, and winning strategies.","url":"https://catanrulesguide.com/","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Catan Rules Guide","url":"https://catanrulesguide.com/"},"about":{"@type":"Game","name":"Catan","alternateName":["Settlers of Catan","Die Siedler von Catan"],"numberOfPlayers":{"@type":"QuantitativeValue","minValue":3,"maxValue":4},"audience":{"@type":"PeopleAudience","suggestedMinAge":10},"genre":["Strategy","Board Game","Resource Management"]},"datePublished":"2026-03-12","dateModified":"2026-04-12"}
+</script>
+
+<!-- STRUCTURED DATA: HowTo -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"How to Play Catan — Step-by-Step for Beginners","description":"Learn how to play the Catan board game in 7 simple steps. Covers setup, rolling dice, collecting resources, trading, building, the robber, and how to win.","totalTime":"PT60M","step":[{"@type":"HowToStep","name":"Set Up the Board","text":"Place the hex terrain tiles in the frame, add number tokens, place the robber on the desert. Each player places 2 settlements and 2 roads on intersections following the distance rule (at least 2 edges apart).","url":"https://catanrulesguide.com/base#setup"},{"@type":"HowToStep","name":"Roll the Dice","text":"On your turn, roll two dice. Every hex tile with the matching number produces resources for all players with settlements or cities on its corners.","url":"https://catanrulesguide.com/base#turn"},{"@type":"HowToStep","name":"Collect Resources","text":"If a hex adjacent to your settlement matches the dice roll, take 1 resource card of that type. Cities produce 2 resource cards. The 5 resources are brick, lumber, wool, grain, and ore.","url":"https://catanrulesguide.com/base#turn"},{"@type":"HowToStep","name":"Trade with Players or the Bank","text":"Trade resource cards with other players at any agreed rate. You can also trade with the bank at 4:1, or better rates (3:1 or 2:1) if you have a settlement on a harbor.","url":"https://catanrulesguide.com/base#trading"},{"@type":"HowToStep","name":"Build Roads, Settlements, and Cities","text":"Spend resources to build: Road (1 brick + 1 lumber), Settlement (1 brick + 1 lumber + 1 wool + 1 grain), City upgrade (3 ore + 2 grain), or buy a Development Card (1 wool + 1 grain + 1 ore).","url":"https://catanrulesguide.com/base#building"},{"@type":"HowToStep","name":"Handle the Robber on a 7","text":"When a 7 is rolled, no resources are produced. Players with more than 7 cards discard half. The roller moves the robber to any hex (blocking it) and steals 1 resource from an adjacent player.","url":"https://catanrulesguide.com/base#robber"},{"@type":"HowToStep","name":"Reach 10 Victory Points to Win","text":"Earn points from settlements (1 VP), cities (2 VP), Longest Road (2 VP), Largest Army (2 VP), and VP development cards. First player to reach 10 VP on their turn wins.","url":"https://catanrulesguide.com/base#winning"}]}
 </script>
 
 <!-- STRUCTURED DATA: BreadcrumbList -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Catan Rules Guide","item":"https://catanrulesguide.com/"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Catan Rules Guide","item":"https://catanrulesguide.com/"},{"@type":"ListItem","position":2,"name":"Base Game Rules","item":"https://catanrulesguide.com/base"}]}
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -264,9 +269,12 @@
 <header class="hero">
   <img src="/logo.png" alt="Catan Rules Guide — Hexagonal C Logo" class="hero-logo" width="80" height="80">
   <h1>The Island of <span>Catan</span></h1>
-  <p>A simple, interactive guide to learn the game in minutes</p>
+  <p>A beginner's guide to learn the game in minutes</p>
   <div class="hero-board">
-    <img src="/img-base-board.jpg" alt="Catan base game board with hex tiles, number tokens, and harbors" style="width:100%;max-width:400px;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
+    <picture>
+      <source srcset="/img-base-board.webp" type="image/webp">
+      <img src="/img-base-board.jpg" alt="Catan base game board with hex tiles, number tokens, and harbors" loading="lazy" style="width:100%;max-width:400px;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
+    </picture>
   </div>
 </header>
 
@@ -299,6 +307,7 @@
   <div class="card">
     <h3><span class="icon"><i class="ph ph-crosshair"></i></span> Quick Facts</h3>
     <p><strong>Players:</strong> 3–4 (6 with expansion) &nbsp;|&nbsp; <strong>Time:</strong> 60–90 min &nbsp;|&nbsp; <strong>Age:</strong> 10+ &nbsp;|&nbsp; <strong>Goal:</strong> First to 10 VP</p>
+    <p style="margin-top:8px;font-size:0.88rem;">Ready for more? Try the <a href="/seafarers" style="color:var(--ocean);font-weight:600;">Seafarers expansion</a> or generate a balanced board with the <a href="/randomizer" style="color:var(--ocean);font-weight:600;">Map Randomizer</a>.</p>
   </div>
   <div class="card">
     <h3><span class="icon"><i class="ph ph-cards"></i></span> The 5 Resource Cards</h3>
@@ -907,9 +916,23 @@
 
 </main>
 
+<div style="max-width:800px;margin:32px auto 0;padding:0 24px;">
+  <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+    <a href="/seafarers" style="flex:1;min-width:240px;padding:16px 20px;background:var(--white);border:1px solid var(--sand-dark);border-radius:12px;text-decoration:none;color:var(--text);display:flex;align-items:center;gap:12px;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <i class="ph ph-sailboat" style="font-size:1.5rem;color:var(--ocean);"></i>
+      <div><strong style="color:var(--ocean);">Seafarers Expansion</strong><br><span style="font-size:0.82rem;color:var(--text-light);">Ships, pirate, gold hexes & 9 scenarios</span></div>
+    </a>
+    <a href="/randomizer" style="flex:1;min-width:240px;padding:16px 20px;background:var(--white);border:1px solid var(--sand-dark);border-radius:12px;text-decoration:none;color:var(--text);display:flex;align-items:center;gap:12px;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <i class="ph ph-dice-five" style="font-size:1.5rem;color:var(--ocean);"></i>
+      <div><strong style="color:var(--ocean);">Map Randomizer</strong><br><span style="font-size:0.82rem;color:var(--text-light);">Generate balanced boards instantly</span></div>
+    </a>
+  </div>
+</div>
+
 <footer class="footer">
   <img src="/favicon-32x32.png" alt="" width="24" height="24" style="vertical-align:middle;margin-right:6px;border-radius:4px;">
   <a href="/" style="color:var(--ocean);text-decoration:underline;font-weight:600;"><i class="ph ph-arrow-left"></i> All Catan Guides</a> &nbsp;|&nbsp; Made with <i class="ph ph-heart" style="color:#e57373;"></i> for board game nights
+  <br><span style="font-size:0.72rem;opacity:0.6;">Last updated: April 2026</span>
 </footer>
 
 <script>

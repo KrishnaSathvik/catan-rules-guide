@@ -42,6 +42,11 @@
 {"@context":"https://schema.org","@type":"FAQPage","name":"Catan Seafarers Expansion Rules","mainEntity":[{"@type":"Question","name":"What does Catan Seafarers add to the base game?","acceptedAnswer":{"@type":"Answer","text":"Seafarers adds ships (water roads), a pirate that blocks sea routes, gold hex tiles that produce any resource of your choice, fog tiles for exploration, and 9 different scenario maps with multiple islands."}},{"@type":"Question","name":"How much does a ship cost in Catan Seafarers?","acceptedAnswer":{"@type":"Answer","text":"A ship costs 1 wool and 1 lumber to build. Ships are placed on the edges of sea hexes and function like roads on water, connecting your network across islands."}},{"@type":"Question","name":"What is the pirate in Catan Seafarers?","acceptedAnswer":{"@type":"Answer","text":"The pirate is like the robber but for the sea. When you roll a 7 or play a knight, you can move either the robber OR the pirate. The pirate blocks ships from being built or moved on its hex, and you steal a resource from a player with ships on that hex."}},{"@type":"Question","name":"How do gold hex tiles work in Catan Seafarers?","acceptedAnswer":{"@type":"Answer","text":"When a gold hex's number is rolled, players with a settlement adjacent to it choose any 1 resource they want. A city adjacent to a gold hex lets you choose any 2 resources."}},{"@type":"Question","name":"Can you move ships in Catan Seafarers?","acceptedAnswer":{"@type":"Answer","text":"Yes — you can move the last ship in an open shipping route (one that doesn't connect two settlements on both ends). You may move one ship per turn to a new legal position connected to your network. Closed routes (connecting two settlements) cannot have ships moved from them."}},{"@type":"Question","name":"How many victory points do you need to win Catan Seafarers?","acceptedAnswer":{"@type":"Answer","text":"It depends on the scenario — most require between 12-14 victory points. You also earn special victory points for being the first player to settle on a new island."}}]}
 </script>
 
+<!-- STRUCTURED DATA: BreadcrumbList -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Catan Rules Guide","item":"https://catanrulesguide.com/"},{"@type":"ListItem","position":2,"name":"Seafarers Expansion","item":"https://catanrulesguide.com/seafarers"}]}
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css"/>
 <style>
@@ -160,7 +165,10 @@
   <div class="hero-badge">Requires <a href="/base">Base Game</a> — <a href="/base">Read base rules first</a></div>
 
   <div class="hero-board">
-    <img src="/img-seafarers-board.jpg" alt="Catan Seafarers board with multiple islands, ships, and sea hexes" style="width:100%;max-width:420px;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
+    <picture>
+      <source srcset="/img-seafarers-board.webp" type="image/webp">
+      <img src="/img-seafarers-board.jpg" alt="Catan Seafarers board with multiple islands, ships, and sea hexes" loading="lazy" style="width:100%;max-width:420px;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
+    </picture>
   </div>
 </header>
 
@@ -521,9 +529,23 @@
 
 </main>
 
+<div style="max-width:800px;margin:32px auto 0;padding:0 24px;">
+  <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+    <a href="/base" style="flex:1;min-width:240px;padding:16px 20px;background:var(--white);border:1px solid var(--sand-dark);border-radius:12px;text-decoration:none;color:var(--text);display:flex;align-items:center;gap:12px;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <i class="ph ph-island" style="font-size:1.5rem;color:var(--ocean);"></i>
+      <div><strong style="color:var(--ocean);">Base Game Guide</strong><br><span style="font-size:0.82rem;color:var(--text-light);">Setup, trading, building & all the rules</span></div>
+    </a>
+    <a href="/randomizer" style="flex:1;min-width:240px;padding:16px 20px;background:var(--white);border:1px solid var(--sand-dark);border-radius:12px;text-decoration:none;color:var(--text);display:flex;align-items:center;gap:12px;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 16px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <i class="ph ph-dice-five" style="font-size:1.5rem;color:var(--ocean);"></i>
+      <div><strong style="color:var(--ocean);">Map Randomizer</strong><br><span style="font-size:0.82rem;color:var(--text-light);">Generate balanced boards instantly</span></div>
+    </a>
+  </div>
+</div>
+
 <footer class="footer">
   <img src="/favicon-32x32.png" alt="" width="24" height="24" style="vertical-align:middle;margin-right:6px;border-radius:4px;">
   <a href="/" style="color:var(--ocean);text-decoration:underline;font-weight:600;"><i class="ph ph-arrow-left"></i> All Catan Guides</a> &nbsp;|&nbsp; Made with <i class="ph ph-heart" style="color:#e57373;"></i> for board game nights
+  <br><span style="font-size:0.72rem;opacity:0.6;">Last updated: April 2026</span>
 </footer>
 
 <script>
