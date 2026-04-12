@@ -174,7 +174,7 @@ This project is fully SEO-optimized out of the box. Here's what's included and w
 ### After Deploying — Do These 5 Things
 
 **1. Update the canonical URL**
-Replace `catan-rules-guide.vercel.app` with your actual domain in `index.html` (search for it — appears in canonical, OG, Twitter, and schema tags).
+Replace `catanrulesguide.com` with your actual domain in `index.html` (search for it — appears in canonical, OG, Twitter, and schema tags).
 
 **2. Submit to Google Search Console**
 - Go to [search.google.com/search-console](https://search.google.com/search-console)
