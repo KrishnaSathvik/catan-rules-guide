@@ -1,254 +1,104 @@
-# 🏝️ Catan Rules — The Interactive Guide
+# Catan Rules Guide
 
-An interactive, beautifully illustrated guide to the **Catan** board game and its expansions — simple enough for anyone to learn in minutes. Built as a multi-page static site with pure HTML, CSS, and JavaScript.
+**Learn Catan in minutes, not hours.** A free, interactive guide that makes Catan's rules actually easy to understand — with visual diagrams, not walls of text.
+
+**[catanrulesguide.com](https://catanrulesguide.com)**
 
 ![Catan Rules Guide](https://img.shields.io/badge/Catan-Rules%20Guide-f0c040?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJMMyA3djEwbDkgNSA5LTV2LTEweiIgZmlsbD0id2hpdGUiLz48L3N2Zz4=)
 ![License](https://img.shields.io/badge/license-MIT-2a6b7c?style=for-the-badge)
-![Deploy](https://img.shields.io/badge/deploy-Vercel-000?style=for-the-badge&logo=vercel)
 
 ---
 
-## ✨ Features
+## The Problem
 
-### Guides
-- **Base Game Guide** — 9 interactive sections: Overview, Setup, Your Turn, Building, Trading, Robber, Dev Cards, Winning, and Searchable Almanac
-- **Seafarers Expansion Guide** — Ships, pirate, gold hexes, fog tiles, 9 scenarios, building costs, and strategy tips
-- **Coming Soon** — Cities & Knights, Traders & Barbarians, Explorers & Pirates (announced via scrolling ticker on homepage)
+You just bought Catan. You open the rulebook and it's 20 pages of dense text, tiny diagrams, and rules scattered everywhere. Someone at the table asks "wait, what happens when you roll a 7?" and you're flipping through pages for 5 minutes. Or you're teaching a new player and they're lost after 30 seconds.
 
-### Map Randomizer Tool
-- **Balanced Board Generator** — Generate random Catan boards for 3–4 and 5–6 player games
-- **Balance Rules** — Toggle constraints: no adjacent 6/8, no adjacent same terrain, no adjacent 2/12
-- **Rich Map Rendering** — Ocean water frame, terrain gradient hexes, sandy coastline border, game-like cream number tokens with drop shadows, pip dots
-- **Custom SVG Terrain Icons** — Hand-crafted vector icons for each terrain type (pine trees, sheep, wheat stalks, brick stacks, mountain peaks, sand dunes) — no emojis
-- **Resource Stats Dashboard** — Pip distribution bar chart per resource with balance score rating
+The official rulebook is complete, but it's not built for quick learning or mid-game lookups.
 
-### Visual Design
-- **Custom SVG Terrain Illustrations** — All hex tiles across every page use hand-drawn SVG icons instead of emojis for a game-like feel
-- **Rich SVG Diagrams** — Hex board, game pieces, resource cards, robber scenes, dev card fan, harbor trades, VP breakdowns — all pure SVG
-- **Interactive Dice Roller** — Roll animation with shake effect, running roll counter, and a 7 triggers the robber indicator
-- **Probability Chart** — Visual bar chart showing dice roll distributions (why 6 and 8 are the best tiles)
-- **Victory Point Tracker** — Click circles to track your VP from 1–10 with celebration message
+## The Solution
 
-### Technical
-- **Mobile-First Responsive** — Works perfectly on phones, tablets, and desktops
-- **Zero Dependencies** — Pure HTML/CSS/JS, no frameworks, no build step
-- **Dark Mode Support** — Automatic dark mode based on system preference
-- **Sticky Navigation** — Tabbed interface with smooth scroll, always accessible
+An interactive web guide that breaks Catan's rules into visual, tab-based sections you can navigate in seconds. Every rule has a diagram. Every concept has an illustration. And there's a searchable almanac so you can look up any rule mid-game in one tap.
 
-## 📸 What's Inside
+**No app to install. No account to create. Just open the link and learn.**
 
-### Landing Page (`/`)
-- Guide cards with real board game photos for Base Game and Seafarers
-- Scrolling "Coming Soon" ticker announcing upcoming expansion guides
-- Map Randomizer tool card
+---
 
-### Base Game Guide (`/base`)
-| Section | Visual Highlights |
-|---------|------------------|
-| **Overview** | 5 resource cards with SVG terrain icons, core game loop |
-| **Setup** | 6 component cards, board assembly diagram, distance rule visual |
-| **Your Turn** | Dice → hex → resource flow, player trade & bank trade diagrams |
-| **Building** | Game piece showcase with cost grid |
-| **Trading** | 3 harbor rate cards (4:1, 3:1, 2:1) |
-| **Robber** | Robbery scene with blocked hex, steal card illustration |
-| **Dev Cards** | Fanned card spread showing all 5 types with counts |
-| **Winning** | VP sources illustrated, interactive tracker |
-| **Almanac** | Searchable A–Z rules reference (40+ entries) |
-| **Dice Tool** | Animated roller + probability bar chart |
+## What's Inside
 
-### Seafarers Guide (`/seafarers`)
-| Section | Visual Highlights |
-|---------|------------------|
-| **Overview** | What's new, what stays the same, terrain hex legend with SVG icons |
-| **What's New** | Board changes, trade routes, settling new islands |
-| **Ships** | Building, moving, open vs closed routes |
-| **Special Tiles** | Gold hexes, fog tiles, pirate mechanics |
-| **Building Costs** | Ship + all base costs |
-| **Scenarios** | All 9 official scenarios with VP targets |
-| **Strategy** | 6 expansion-specific tips |
+### Base Game Guide
+Everything you need to play your first game — broken into 9 clear sections:
 
-### Map Randomizer (`/randomizer`)
-| Feature | Details |
-|---------|---------|
-| **Board Rendering** | Ocean frame, gradient terrain hexes, sandy coastline, water hex ring |
-| **Number Tokens** | Cream radial gradient with drop shadows, red 6/8 highlighting, pip dots |
-| **Terrain Icons** | SVG pine trees, sheep, wheat, bricks, mountains, sand dunes |
-| **Controls** | 3–4 / 5–6 player toggle, balance rule checkboxes |
-| **Stats** | Resource pip distribution bars + balance score |
+- **Setup** — Board assembly diagram, component cards, distance rule explained visually
+- **Your Turn** — Roll, collect, trade, build — the full flow with diagrams
+- **Building & Costs** — Every game piece with its resource cost at a glance
+- **Trading** — How player trades and harbor trades work (4:1, 3:1, 2:1)
+- **The Robber** — What happens when you roll a 7, step by step
+- **Development Cards** — All 5 types with counts and when to play them
+- **Winning** — Every way to earn victory points, with an interactive VP tracker
+- **Almanac** — Searchable A–Z rules reference (40+ entries) for mid-game lookups
+- **Dice Roller** — Animated roller with a probability chart showing why 6 and 8 matter
 
-## 🚀 Quick Start
+### Seafarers Expansion
+The most popular expansion, fully covered:
 
-### Run Locally
+- Ships, pirate, gold hexes, fog tiles
+- All 9 official scenarios with victory point targets
+- Building costs including ships
+- 6 expansion-specific strategy tips
 
-```bash
-# Clone the repo
-git clone https://github.com/YOUR_USERNAME/catan-rules-guide.git
-cd catan-rules-guide
+### Map Randomizer
+Generate balanced Catan boards before your game:
 
-# Open directly in browser
-open public/index.html
+- **3–4 and 5–6 player** layouts
+- **Balance rules** you can toggle — no adjacent 6/8, no terrain clustering, no adjacent 2/12
+- **Resource stats** — see pip distribution per resource with a balance score
+- Beautiful rendered board with terrain icons, number tokens, and ocean frame
 
-# Or serve locally
-npx serve public
-```
+### Coming Soon
+- Cities & Knights
+- Traders & Barbarians
+- Explorers & Pirates
 
-### Deploy to Vercel
+---
 
-#### Option 1: One-Click Deploy
+## Why Use This Over the Rulebook?
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/catan-rules-guide)
+| | Official Rulebook | This Guide |
+|---|---|---|
+| **Learning time** | 20+ min reading | 5 min browsing |
+| **Mid-game lookup** | Flip through pages | Search or tap a tab |
+| **Visual aids** | Small black & white diagrams | Full-color interactive SVGs |
+| **Mobile friendly** | PDF or paper | Built for phones |
+| **Expansions** | Separate rulebooks | All in one place |
+| **Dark mode** | No | Yes |
+| **Dice roller** | No | Yes, with probability chart |
+| **Board randomizer** | No | Yes, with balance rules |
 
-#### Option 2: CLI Deploy
+---
 
-```bash
-# Install Vercel CLI (if not installed)
-npm i -g vercel
+## Works Everywhere
 
-# Deploy from project root
-cd catan-rules-guide
-vercel
+- Open it on your phone at the table during game night
+- Pull it up on a laptop to teach new players
+- Works on any device — phones, tablets, desktops
+- Dark mode follows your system preference
+- No loading spinners — it's instant
 
-# For production deployment
-vercel --prod
-```
+---
 
-#### Option 3: GitHub Integration
+## Rules Source
 
-1. Push this repo to GitHub
-2. Go to [vercel.com/new](https://vercel.com/new)
-3. Import your GitHub repository
-4. Vercel auto-detects the `vercel.json` config
-5. Click **Deploy** — done!
-
-No build step, no environment variables, no configuration needed.
-
-## 📁 Project Structure
-
-```
-catan-rules-guide/
-├── public/
-│   ├── index.html          # Landing page — guide cards + coming soon ticker
-│   ├── base.html           # Base game guide (9 tabs + almanac + dice tool)
-│   ├── seafarers.html      # Seafarers expansion guide
-│   ├── randomizer.html     # Map randomizer tool (balanced board generator)
-│   ├── img-base-box.jpeg   # Base game card image
-│   ├── img-seafarers-box.jpg # Seafarers card image
-│   ├── logo.png            # Site logo
-│   ├── og-image.png        # Open Graph social sharing image (1200×630)
-│   ├── sitemap.xml         # XML sitemap for Google Search Console
-│   ├── robots.txt          # Crawler directives + sitemap reference
-│   └── favicon.*           # Favicons (SVG, PNG, ICO)
-├── vercel.json              # Vercel config (caching, headers, security)
-├── package.json             # Project metadata & scripts
-├── .gitignore
-├── LICENSE
-└── README.md
-```
-
-## 🔍 SEO — Getting Found on Google
-
-This project is fully SEO-optimized out of the box. Here's what's included and what you need to do after deploying:
-
-### What's Already Built In
-
-| SEO Feature | Status |
-|---|---|
-| Optimized `<title>` tag (keyword-first, 55 chars) | ✅ |
-| Meta description (155 chars, action-oriented) | ✅ |
-| Target keywords meta tag | ✅ |
-| Canonical URL | ✅ |
-| Open Graph tags (Facebook, LinkedIn, Discord) | ✅ |
-| Twitter Card (large image summary) | ✅ |
-| OG image (1200×630 PNG) | ✅ |
-| FAQPage structured data (7 Q&As — rich results eligible) | ✅ |
-| WebPage + Game schema.org markup | ✅ |
-| BreadcrumbList schema | ✅ |
-| XML Sitemap | ✅ |
-| robots.txt | ✅ |
-| Semantic HTML (`<header>`, `<main>`, `<nav>`, `<footer>`) | ✅ |
-| Mobile-responsive (viewport meta) | ✅ |
-| Emoji favicon | ✅ |
-| Fast load (zero JS deps, inline CSS, no external calls except fonts) | ✅ |
-| Security headers (via vercel.json) | ✅ |
-
-### After Deploying — Do These 5 Things
-
-**1. Update the canonical URL**
-Replace `catanrulesguide.com` with your actual domain in `index.html` (search for it — appears in canonical, OG, Twitter, and schema tags).
-
-**2. Submit to Google Search Console**
-- Go to [search.google.com/search-console](https://search.google.com/search-console)
-- Add your site as a property
-- Submit your sitemap: `https://YOUR-DOMAIN/sitemap.xml`
-- Use "URL Inspection" to request indexing of your homepage
-
-**3. Validate Structured Data**
-- Test at [Google Rich Results Test](https://search.google.com/test/rich-results)
-- Paste your URL — should show FAQPage, WebPage, and BreadcrumbList as valid
-- FAQ rich results can appear as expandable dropdowns in Google search
-
-**4. Submit to Bing Webmaster Tools**
-- Go to [bing.com/webmasters](https://www.bing.com/webmasters)
-- Add your site and submit the sitemap
-
-**5. Build Backlinks (The Real SEO Juice)**
-- Share on Reddit (r/boardgames, r/catan)
-- Post on BoardGameGeek forums
-- Share on X/Twitter, LinkedIn, and Facebook board game groups
-- Submit to board game resource directories
-- Write a Medium article linking to your guide
-
-### Target Keywords
-
-The page is optimized for these search terms:
-- `catan rules` / `catan rules explained`
-- `how to play catan`
-- `catan board game rules`
-- `settlers of catan rules`
-- `catan beginner guide`
-- `catan building costs`
-- `catan robber rules`
-- `catan development cards`
-- `what happens when you roll a 7 in catan`
-
-## 🎨 Design Details
-
-- **Typography** — Crimson Pro (serif headings) + DM Sans (body) from Google Fonts
-- **Color Palette** — Ocean blues (`#2a6b7c`), warm sand (`#f5e6c8`), and resource-matched colors (brick red, forest green, grain gold, ore gray, pasture lime)
-- **Aesthetic** — Warm, island-themed with card-based layout, soft shadows, and subtle hover effects
-- **Animations** — Tab transitions, dice shake, card expand/collapse, VP tracker fill, resource card hover lift
-
-## 📖 Rules Source
-
-All game rules are based on the **Catan 5th Edition** official rulebook and the **Seafarers** expansion rulebook by Klaus Teuber, cross-referenced with multiple established board game rules sources including catan.com, UltraBoardGames, BoardGameArena, and colonist.io.
+All rules are based on the **Catan 5th Edition** official rulebook and the **Seafarers** expansion rulebook by Klaus Teuber, cross-referenced with catan.com, UltraBoardGames, BoardGameArena, and colonist.io.
 
 > **Disclaimer:** This is an unofficial fan-made guide. CATAN is a registered trademark of Catan GmbH. This project is not affiliated with or endorsed by Catan GmbH or Catan Studio.
 
-## 🛠️ Customization
+## License
 
-Each page is a standalone HTML file — easy to modify:
-
-- **Colors** — Edit the CSS variables in `:root` at the top of each HTML file
-- **Content** — Sections are labeled with HTML comments (`<!-- ═══ SETUP ═══ -->`)
-- **Add sections** — Add a new `nav-btn` + matching `section` element; the JS handles the rest
-- **SVG illustrations** — All inline, editable directly in the HTML
-- **Terrain icons** — Defined in `terrainIconSVG()` function (randomizer) and auto-injected via script (base game)
-
-## 📱 Browser Support
-
-- Chrome 80+
-- Firefox 78+
-- Safari 14+
-- Edge 80+
-- Mobile browsers (iOS Safari, Chrome Android)
-
-## 📄 License
-
-MIT — see [LICENSE](LICENSE) for details. Use it, fork it, share it at your next game night.
+MIT — free to use, fork, and share.
 
 ---
 
 <p align="center">
-  Made with ❤️ for board game nights<br>
-  <strong>🧱 🪵 🐑 🌾 ⛏️</strong>
+  <strong><a href="https://catanrulesguide.com">catanrulesguide.com</a></strong><br>
+  Made for board game nights
 </p>
