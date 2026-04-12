@@ -122,6 +122,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand-light);color:var(--t
     <button class="ctrl-btn" id="btn6" onclick="setMode(6)">5–6</button>
   </div>
   <label class="ctrl-toggle"><input type="checkbox" id="chkRed" checked> No adjacent 6 & 8</label>
+  <label class="ctrl-toggle"><input type="checkbox" id="chkSameNum" checked> No adjacent same number</label>
   <label class="ctrl-toggle"><input type="checkbox" id="chkTerrain"> No adjacent same terrain</label>
   <label class="ctrl-toggle"><input type="checkbox" id="chkLowAdj"> No adjacent 2 & 12</label>
   <button class="generate-btn" onclick="generate()"><i class="ph ph-dice-five"></i> Randomize</button>
@@ -174,6 +175,19 @@ const BASE_NUMBERS = [2,3,3,4,4,5,5,6,6,8,8,9,9,10,10,11,11,12];
 const EXP_TERRAINS = ['forest','forest','forest','forest','forest','forest','pasture','pasture','pasture','pasture','pasture','pasture','fields','fields','fields','fields','fields','fields','hills','hills','hills','hills','hills','mountains','mountains','mountains','mountains','mountains','desert','desert'];
 const EXP_NUMBERS = [2,2,3,3,3,4,4,4,5,5,5,6,6,6,8,8,8,9,9,9,10,10,10,11,11,11,12,12];
 
+// Port pools
+const BASE_PORTS = ['3:1','3:1','3:1','3:1','lumber 2:1','wool 2:1','grain 2:1','brick 2:1','ore 2:1'];
+const EXP_PORTS = ['3:1','3:1','3:1','3:1','3:1','3:1','lumber 2:1','wool 2:1','grain 2:1','brick 2:1','ore 2:1'];
+
+const PORT_STYLES = {
+  '3:1':       { bg:'#e8d8b0', text:'#5a5040', label:'3:1' },
+  'lumber 2:1':{ bg:'#6aaf4c', text:'#fff',    label:'2:1 \u{1F332}' },
+  'wool 2:1':  { bg:'#a8d860', text:'#fff',    label:'2:1 \u{1F411}' },
+  'grain 2:1': { bg:'#f2d04a', text:'#5a4010', label:'2:1 \u{1F33E}' },
+  'brick 2:1': { bg:'#d87050', text:'#fff',    label:'2:1 \u{1F9F1}' },
+  'ore 2:1':   { bg:'#9898aa', text:'#fff',    label:'2:1 \u26F0\uFE0F' },
+};
+
 // Hex grid layouts using axial coordinates [q, r]
 const BASE_HEXES = [
   [-2,0],[-2,1],[-2,2],
@@ -194,6 +208,8 @@ const EXP_HEXES = [
 
 let mode = 4;
 let currentBoard = null;
+let currentPorts = null;
+let lastGenerateUsedFallback = false;
 
 function setMode(m) {
   mode = m;
@@ -223,82 +239,183 @@ function getNeighbors(q, r) {
 
 function hexKey(q,r) { return q+','+r; }
 
+function getPortPositions(hexCoords, count) {
+  const hexSet = new Set(hexCoords.map(([q,r]) => hexKey(q,r)));
+  // Collect coast edges: land hex + direction index toward water
+  const coastEdges = [];
+  const size = 1; // unit size; we only need relative geometry
+  hexCoords.forEach(([q,r]) => {
+    const neighbors = getNeighbors(q,r);
+    for (let dir = 0; dir < 6; dir++) {
+      const [nq,nr] = neighbors[dir];
+      if (!hexSet.has(hexKey(nq,nr))) {
+        // edge midpoint in pixel space (unit size)
+        const center = axialToPixel(q,r,size);
+        const a1 = Math.PI/180*(60*dir - 30);
+        const a2 = Math.PI/180*(60*((dir+1)%6) - 30);
+        const mx = center.x + size*(Math.cos(a1)+Math.cos(a2))/2;
+        const my = center.y + size*(Math.sin(a1)+Math.sin(a2))/2;
+        coastEdges.push({q, r, dir, mx, my});
+      }
+    }
+  });
+  // Sort clockwise by angle from board center
+  const avgX = coastEdges.reduce((s,e)=>s+e.mx,0)/coastEdges.length;
+  const avgY = coastEdges.reduce((s,e)=>s+e.my,0)/coastEdges.length;
+  coastEdges.sort((a,b) => {
+    const aa = Math.atan2(a.my - avgY, a.mx - avgX);
+    const ab = Math.atan2(b.my - avgY, b.mx - avgX);
+    return aa - ab;
+  });
+  // Evenly pick count positions
+  const total = coastEdges.length;
+  const picked = [];
+  for (let i = 0; i < count; i++) {
+    picked.push(coastEdges[Math.floor(i * total / count)]);
+  }
+  return picked;
+}
+
+// Backtracking terrain placement — guarantees no adjacent same terrain
+function placeTerrainsBT(hexCoords, terrainPool) {
+  const counts = {};
+  terrainPool.forEach(t => { counts[t] = (counts[t] || 0) + 1; });
+  const types = Object.keys(counts);
+  const placed = {}; // hexKey -> terrain
+
+  function backtrack(idx) {
+    if (idx === hexCoords.length) return true;
+    const [q, r] = hexCoords[idx];
+    const key = hexKey(q, r);
+
+    const shuffled = shuffle(types.filter(t => counts[t] > 0));
+    for (const terrain of shuffled) {
+      if (terrain !== 'desert') {
+        let conflict = false;
+        for (const [nq, nr] of getNeighbors(q, r)) {
+          const nk = hexKey(nq, nr);
+          if (placed[nk] && placed[nk] !== 'desert' && placed[nk] === terrain) {
+            conflict = true; break;
+          }
+        }
+        if (conflict) continue;
+      }
+      placed[key] = terrain;
+      counts[terrain]--;
+      if (backtrack(idx + 1)) return true;
+      delete placed[key];
+      counts[terrain]++;
+    }
+    return false;
+  }
+
+  if (backtrack(0)) {
+    return hexCoords.map(([q, r]) => placed[hexKey(q, r)]);
+  }
+  return null;
+}
+
+// Backtracking number placement — guarantees no adjacent same/red/low numbers
+function placeNumbersBT(nonDesertCoords, numberPool, hexSet, opts) {
+  const coords = shuffle(nonDesertCoords);
+  const counts = {};
+  numberPool.forEach(n => { counts[n] = (counts[n] || 0) + 1; });
+  const nums = Object.keys(counts).map(Number);
+  const placed = {}; // hexKey -> number
+  let nodes = 0;
+  const nodeLimit = 50000;
+
+  function conflicts(q, r, num) {
+    for (const [nq, nr] of getNeighbors(q, r)) {
+      const nk = hexKey(nq, nr);
+      if (!(nk in placed)) continue;
+      if (!hexSet.has(nk)) continue;
+      const nn = placed[nk];
+      if (opts.noSameNumAdj && num === nn) return true;
+      if (opts.noRedAdj && [6,8].includes(num) && [6,8].includes(nn)) return true;
+      if (opts.noLowAdj && [2,12].includes(num) && [2,12].includes(nn)) return true;
+    }
+    return false;
+  }
+
+  function backtrack(idx) {
+    if (++nodes > nodeLimit) return false;
+    if (idx === coords.length) return true;
+    const [q, r] = coords[idx];
+    const key = hexKey(q, r);
+    const shuffled = shuffle(nums.filter(n => counts[n] > 0));
+    for (const num of shuffled) {
+      if (conflicts(q, r, num)) continue;
+      placed[key] = num;
+      counts[num]--;
+      if (backtrack(idx + 1)) return true;
+      delete placed[key];
+      counts[num]++;
+    }
+    return false;
+  }
+
+  if (backtrack(0)) {
+    return placed;
+  }
+  return null;
+}
+
 function generateBoard() {
   const hexCoords = mode === 4 ? BASE_HEXES : EXP_HEXES;
   const terrainPool = mode === 4 ? BASE_TERRAINS : EXP_TERRAINS;
   const numberPool = mode === 4 ? BASE_NUMBERS : EXP_NUMBERS;
-  
+
   const noRedAdj = document.getElementById('chkRed').checked;
+  const noSameNumAdj = document.getElementById('chkSameNum').checked;
   const noTerrainAdj = document.getElementById('chkTerrain').checked;
   const noLowAdj = document.getElementById('chkLowAdj').checked;
+  const needNumBT = noRedAdj || noSameNumAdj || noLowAdj;
 
   let best = null;
   let bestScore = Infinity;
 
-  for (let attempt = 0; attempt < 500; attempt++) {
-    const terrains = shuffle(terrainPool);
+  const maxAttempts = hexCoords.length > 20 ? 500 : 200;
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    // Phase 1: Place terrains
+    const terrains = noTerrainAdj ? placeTerrainsBT(hexCoords, terrainPool) : shuffle(terrainPool);
+    if (!terrains) break;
+
     const board = {};
-    
-    // Place terrains
     hexCoords.forEach((coord, i) => {
       board[hexKey(coord[0],coord[1])] = { q:coord[0], r:coord[1], terrain:terrains[i], number:null };
     });
 
-    // Assign numbers to non-desert hexes
+    // Phase 2: Assign numbers to non-desert hexes
     const nonDesert = hexCoords.filter((c,i) => terrains[i] !== 'desert');
-    const numbers = shuffle(numberPool).slice(0, nonDesert.length);
-    nonDesert.forEach((coord, i) => {
-      board[hexKey(coord[0],coord[1])].number = numbers[i];
-    });
-
-    // Check constraints
-    let valid = true;
-    
-    for (const key in board) {
-      const hex = board[key];
-      const neighbors = getNeighbors(hex.q, hex.r);
-      
-      for (const [nq, nr] of neighbors) {
-        const nk = hexKey(nq, nr);
-        if (!board[nk]) continue;
-        const neighbor = board[nk];
-        
-        // No adjacent 6 & 8
-        if (noRedAdj && hex.number && neighbor.number) {
-          if ([6,8].includes(hex.number) && [6,8].includes(neighbor.number)) {
-            valid = false; break;
-          }
-        }
-        
-        // No adjacent same terrain (excluding desert)
-        if (noTerrainAdj && hex.terrain !== 'desert' && neighbor.terrain !== 'desert') {
-          if (hex.terrain === neighbor.terrain) {
-            valid = false; break;
-          }
-        }
-        
-        // No adjacent 2 & 12
-        if (noLowAdj && hex.number && neighbor.number) {
-          if ([2,12].includes(hex.number) && [2,12].includes(neighbor.number)) {
-            valid = false; break;
-          }
-        }
-      }
-      if (!valid) break;
+    const hexSet = new Set(nonDesert.map(([q,r]) => hexKey(q,r)));
+    if (needNumBT) {
+      const numMap = placeNumbersBT(nonDesert, numberPool, hexSet, {noRedAdj, noSameNumAdj, noLowAdj});
+      if (!numMap) continue; // backtrack failed for this ordering, try another
+      nonDesert.forEach(([q,r]) => {
+        board[hexKey(q,r)].number = numMap[hexKey(q,r)];
+      });
+    } else {
+      const numbers = shuffle(numberPool).slice(0, nonDesert.length);
+      nonDesert.forEach((coord, i) => {
+        board[hexKey(coord[0],coord[1])].number = numbers[i];
+      });
     }
 
-    if (valid) {
-      const score = calcBalanceScore(board);
-      if (score < bestScore) {
-        bestScore = score;
-        best = {...board};
-      }
-      // Good enough after finding a few valid ones
-      if (attempt > 50 && best) break;
+    const score = calcBalanceScore(board);
+    if (score < bestScore) {
+      bestScore = score;
+      best = JSON.parse(JSON.stringify(board));
     }
+    if (attempt > 50 && best) break;
   }
 
-  return best || generateFallback(hexCoords, terrainPool, numberPool);
+  if (!best) {
+    lastGenerateUsedFallback = true;
+    return generateFallback(hexCoords, terrainPool, numberPool);
+  }
+  lastGenerateUsedFallback = false;
+  return best;
 }
 
 function generateFallback(hexCoords, terrainPool, numberPool) {
@@ -313,6 +430,12 @@ function generateFallback(hexCoords, terrainPool, numberPool) {
     board[hexKey(coord[0],coord[1])].number = numbers[i];
   });
   return board;
+}
+
+function generatePorts(hexCoords, portPool) {
+  const positions = getPortPositions(hexCoords, portPool.length);
+  const types = shuffle([...portPool]);
+  return positions.map((pos, i) => ({ ...pos, type: types[i] }));
 }
 
 function calcBalanceScore(board) {
@@ -402,7 +525,7 @@ function hexPoints(cx, cy, s) {
   return pts.join(' ');
 }
 
-function renderBoard(board) {
+function renderBoard(board, ports) {
   const size = mode === 4 ? 50 : 38;
   const hexes = Object.values(board);
   const hexSet = new Set(Object.keys(board));
@@ -417,7 +540,7 @@ function renderBoard(board) {
     maxY = Math.max(maxY, p.y + size * 1.2);
   });
 
-  const pad = size * 1.6;
+  const pad = size * 2.0;
   const w = maxX - minX + pad*2;
   const h2 = maxY - minY + pad*2;
   const offX = -minX + pad;
@@ -482,6 +605,37 @@ function renderBoard(board) {
       }
     }
   });
+
+  // ── Ports ──
+  if (ports && ports.length) {
+    ports.forEach(port => {
+      const center = axialToPixel(port.q, port.r, size);
+      const cx = center.x + offX, cy = center.y + offY;
+      const a1 = Math.PI/180*(60*port.dir - 30);
+      const a2 = Math.PI/180*(60*((port.dir+1)%6) - 30);
+      // Two vertices of the coast edge
+      const vx1 = cx + size*Math.cos(a1), vy1 = cy + size*Math.sin(a1);
+      const vx2 = cx + size*Math.cos(a2), vy2 = cy + size*Math.sin(a2);
+      // Edge midpoint
+      const emx = (vx1+vx2)/2, emy = (vy1+vy2)/2;
+      // Outward direction from hex center through edge midpoint
+      const dx = emx - cx, dy = emy - cy;
+      const len = Math.sqrt(dx*dx + dy*dy);
+      const ux = dx/len, uy = dy/len;
+      // Badge center offset outward
+      const bx = emx + ux*size*0.45, by = emy + uy*size*0.45;
+      const style = PORT_STYLES[port.type];
+      const bw = size*0.7, bh = size*0.4, br = size*0.12;
+      // Prong lines from edge vertices toward badge
+      svg += `<line x1="${vx1}" y1="${vy1}" x2="${bx - ux*bw*0.2}" y2="${by - uy*bw*0.2}" stroke="${style.bg}" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>`;
+      svg += `<line x1="${vx2}" y1="${vy2}" x2="${bx - ux*bw*0.2}" y2="${by - uy*bw*0.2}" stroke="${style.bg}" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>`;
+      // Badge pill
+      svg += `<rect x="${bx - bw/2}" y="${by - bh/2}" width="${bw}" height="${bh}" rx="${br}" fill="${style.bg}" stroke="#8a7a5a" stroke-width="1" filter="url(#tkSh)"/>`;
+      // Label
+      const fontSize = size*0.22;
+      svg += `<text x="${bx}" y="${by}" text-anchor="middle" dominant-baseline="central" font-size="${fontSize}" font-weight="700" fill="${style.text}" font-family="'DM Sans',sans-serif">${style.label}</text>`;
+    });
+  }
 
   // ── Terrain hexes ──
   hexes.forEach(hex => {
@@ -567,13 +721,34 @@ function renderStats(board) {
 function generate() {
   const board = generateBoard();
   currentBoard = board;
-  
-  document.getElementById('boardContainer').innerHTML = renderBoard(board);
+  const hexCoords = mode === 4 ? BASE_HEXES : EXP_HEXES;
+  const portPool = mode === 4 ? BASE_PORTS : EXP_PORTS;
+  currentPorts = generatePorts(hexCoords, portPool);
+
+  document.getElementById('boardContainer').innerHTML = renderBoard(board, currentPorts);
   document.getElementById('stats').innerHTML = renderStats(board);
   
   const score = calcBalanceScore(board);
   const label = getBalanceLabel(score);
-  document.getElementById('balanceScore').innerHTML = `<span class="label">Balance Score:</span> <span class="score ${label.cls}">${label.text}</span> <span class="label">(${score.toFixed(1)} variance)</span>`;
+  const balanceEl = document.getElementById('balanceScore');
+  balanceEl.textContent = '';
+
+  const labelSpan = document.createElement('span');
+  labelSpan.className = 'label';
+  labelSpan.textContent = 'Balance Score: ';
+  balanceEl.appendChild(labelSpan);
+
+  const scoreSpan = document.createElement('span');
+  scoreSpan.className = 'score ' + label.cls;
+  scoreSpan.textContent = label.text;
+  balanceEl.appendChild(scoreSpan);
+
+  if (lastGenerateUsedFallback) {
+    const warn = document.createElement('div');
+    warn.style.cssText = 'margin-top:8px;padding:8px 12px;background:#fff3cd;border:1px solid #ffc107;border-radius:8px;font-size:0.8rem;color:#856404;';
+    warn.textContent = 'Could not satisfy all constraints after 1000 attempts. Some rules may be violated.';
+    balanceEl.appendChild(warn);
+  }
 }
 
 // Initial generate
