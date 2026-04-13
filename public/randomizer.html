@@ -93,9 +93,35 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand-light);color:var(--t
 .balance-score .score{font-size:1.6rem;font-weight:700;font-family:'Crimson Pro',serif;}
 .score-great{color:#27ae60;} .score-good{color:var(--ocean);} .score-ok{color:#f39c12;} .score-bad{color:var(--hills);}
 
+.score-breakdown{display:flex;gap:10px;justify-content:center;margin-top:6px;flex-wrap:wrap;}
+.breakdown-item{font-size:0.72rem;color:var(--text-light);background:var(--sand-light);padding:3px 10px;border-radius:6px;border:1px solid var(--sand-dark);}
+.breakdown-warn{color:#856404;background:#fff3cd;border-color:#ffc107;}
+
+.vertex-stats{margin-top:12px;padding:16px 20px;background:var(--white);border-radius:14px;border:1px solid var(--sand-dark);box-shadow:0 4px 16px rgba(0,0,0,0.06);}
+.vertex-stats h3{font-family:'Crimson Pro',serif;font-size:1rem;font-weight:600;color:var(--ocean-deep);margin-bottom:10px;}
+.vertex-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;}
+.vertex-stat{text-align:center;padding:10px 6px;border-radius:8px;background:var(--sand-light);border:1px solid var(--sand-dark);}
+.vertex-stat .vs-label{font-size:0.68rem;font-weight:600;color:var(--text-light);text-transform:uppercase;letter-spacing:0.03em;}
+.vertex-stat .vs-value{font-size:1.1rem;font-weight:700;color:var(--ocean-deep);margin-top:2px;}
+.vertex-stat .vs-value.vs-warn{color:#e67e22;}
+
+.port-analysis{margin-top:12px;padding:10px 14px;background:var(--sand-light);border-radius:8px;border:1px solid var(--sand-dark);text-align:center;}
+.port-label{font-size:0.68rem;font-weight:600;color:var(--text-light);text-transform:uppercase;letter-spacing:0.03em;margin-bottom:6px;}
+.port-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.port-chip{font-size:0.75rem;font-weight:600;padding:4px 10px;border-radius:6px;border:1px solid var(--sand-dark);}
+.port-good{color:#27ae60;background:#eafaf1;border-color:#a3d9b1;}
+.port-bad{color:var(--text-light);background:var(--white);}
+.port-note{font-size:0.68rem;color:var(--text-light);margin-bottom:6px;text-align:center;}
+
+.balance-tip{position:relative;display:inline-block;cursor:help;margin-left:6px;vertical-align:middle;}
+.balance-tip .tip-icon{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--sand-dark);color:var(--text-light);font-size:0.68rem;font-weight:700;}
+.balance-tip .tip-text{visibility:hidden;opacity:0;position:absolute;bottom:130%;left:50%;transform:translateX(-50%);width:280px;padding:12px 14px;background:var(--ocean-deep);color:white;font-size:0.75rem;line-height:1.5;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:opacity 0.2s;z-index:100;text-align:left;font-weight:400;}
+.balance-tip .tip-text::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--ocean-deep);}
+.balance-tip:hover .tip-text{visibility:visible;opacity:1;}
+
 .footer{text-align:center;padding:32px 24px;color:var(--text-light);font-size:0.82rem;border-top:1px solid var(--sand-dark);margin-top:32px;}
 
-@media(max-width:600px){.controls{gap:8px;padding:12px 16px;}.main{padding:16px;}.stats{grid-template-columns:repeat(3,1fr);gap:6px;padding:12px;}.stat-card{padding:8px 4px;}}
+@media(max-width:600px){.controls{gap:8px;padding:12px 16px;}.main{padding:16px;}.stats{grid-template-columns:repeat(3,1fr);gap:6px;padding:12px;}.stat-card{padding:8px 4px;}.vertex-grid{grid-template-columns:repeat(3,1fr);gap:6px;}.vertex-stat{padding:8px 4px;}.balance-tip .tip-text{width:220px;font-size:0.7rem;}}
 @media(prefers-color-scheme:dark){
   :root{--sand:#2a2520;--sand-light:#1e1a16;--sand-dark:#3a3530;--text:#e8e4de;--text-light:#a8a4a0;--white:#252220;}
   .controls{background:#1e1a16;border-bottom-color:#3a3530;box-shadow:0 2px 12px rgba(0,0,0,0.3);}
@@ -103,6 +129,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand-light);color:var(--t
   .ctrl-btn.active{background:var(--ocean);color:white;}
   .stats,.balance-score{background:var(--white);border-color:#3a3530;}
   .stat-card{background:#2a2520;border-color:#3a3530;}
+  .vertex-stats{background:var(--white);border-color:#3a3530;}
+  .vertex-stat{background:#2a2520;border-color:#3a3530;}
+  .port-analysis{background:#2a2520;border-color:#3a3530;}
+  .port-good{background:#1a3a25;border-color:#2a5a35;}
+  .port-bad{background:#252220;}
+  .breakdown-item{background:#2a2520;border-color:#3a3530;}
+  .balance-tip .tip-text{background:#1a4a57;}
+  .balance-tip .tip-text::after{border-top-color:#1a4a57;}
+  .balance-tip .tip-icon{background:#3a3530;}
   .footer{border-top-color:#3a3530;}
 }
 </style>
@@ -125,6 +160,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand-light);color:var(--t
   <label class="ctrl-toggle"><input type="checkbox" id="chkSameNum" checked> No adjacent same number</label>
   <label class="ctrl-toggle"><input type="checkbox" id="chkTerrain"> No adjacent same terrain</label>
   <label class="ctrl-toggle"><input type="checkbox" id="chkLowAdj"> No adjacent 2 & 12</label>
+  <label class="ctrl-toggle" title="Adjusts balance to prioritize grain and ore (used more often) over wool (used least)"><input type="checkbox" id="chkWeighted"> Weighted resources</label>
   <button class="generate-btn" onclick="generate()"><i class="ph ph-dice-five"></i> Randomize</button>
 </div>
 
@@ -132,6 +168,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand-light);color:var(--t
   <div class="board-container" id="boardContainer"></div>
   <div class="balance-score" id="balanceScore"></div>
   <div class="stats" id="stats"></div>
+  <div class="vertex-stats" id="vertexStats"></div>
 </div>
 
 <div style="max-width:800px;margin:32px auto 0;padding:0 24px;">
@@ -166,6 +203,17 @@ const TERRAIN = {
 
 // Pip counts for probability display
 const PIPS = {2:1,3:2,4:3,5:4,6:5,8:5,9:4,10:3,11:2,12:1};
+
+// Resource importance weights based on usage frequency in Catan.
+// Grain is used in settlements, cities, and dev cards (3 of 4 build actions).
+// Ore is needed for cities and dev cards. Brick/Lumber are early-game only.
+const RESOURCE_WEIGHTS = {
+  fields: 1.25,     // Grain
+  mountains: 1.15,  // Ore
+  hills: 1.0,       // Brick
+  forest: 1.0,      // Lumber
+  pasture: 0.9,     // Wool
+};
 
 // Base game (19 hexes)
 const BASE_TERRAINS = ['forest','forest','forest','forest','pasture','pasture','pasture','pasture','fields','fields','fields','fields','hills','hills','hills','mountains','mountains','mountains','desert'];
@@ -238,6 +286,77 @@ function getNeighbors(q, r) {
 }
 
 function hexKey(q,r) { return q+','+r; }
+
+// ═══ VERTEX ANALYSIS ═══
+// Each vertex is the meeting point of up to 3 hexes (settlement spot).
+// In axial coords, a hex (q,r) has 6 vertices, each shared by a triple of hexes.
+// We enumerate unique vertices by canonical sorted triples.
+
+function getVertices(board) {
+  const boardKeys = new Set(Object.keys(board));
+  const vertexMap = {};
+
+  const vertexTriples = (q, r) => [
+    [[q,r],[q+1,r-1],[q+1,r]],
+    [[q,r],[q+1,r],[q,r+1]],
+    [[q,r],[q,r+1],[q-1,r+1]],
+    [[q,r],[q-1,r+1],[q-1,r]],
+    [[q,r],[q-1,r],[q,r-1]],
+    [[q,r],[q,r-1],[q+1,r-1]],
+  ];
+
+  for (const key in board) {
+    const hex = board[key];
+    const triples = vertexTriples(hex.q, hex.r);
+    for (const triple of triples) {
+      const sorted = triple.map(([q,r]) => hexKey(q,r)).sort();
+      const vKey = sorted.join('|');
+      if (vertexMap[vKey]) continue;
+
+      const onBoard = triple
+        .map(([q,r]) => ({key: hexKey(q,r), q, r}))
+        .filter(h => boardKeys.has(h.key));
+
+      if (onBoard.length < 2) continue;
+
+      let pips = 0;
+      const resources = [];
+      for (const h of onBoard) {
+        const bh = board[h.key];
+        if (bh.terrain !== 'desert' && bh.number) {
+          pips += PIPS[bh.number] || 0;
+          resources.push(bh.terrain);
+        }
+      }
+
+      vertexMap[vKey] = {
+        hexes: onBoard,
+        pips,
+        resources,
+        resourceCount: new Set(resources).size,
+      };
+    }
+  }
+  return Object.values(vertexMap);
+}
+
+function calcVertexScore(board) {
+  const vertices = getVertices(board);
+  if (vertices.length === 0) return { spread: 0, min: 0, max: 0, avg: 0, deadZones: 0, diverseVertices: 0, total: 0, vertices };
+
+  const pipValues = vertices.map(v => v.pips);
+  const min = Math.min(...pipValues);
+  const max = Math.max(...pipValues);
+  const avg = pipValues.reduce((a,b) => a+b, 0) / pipValues.length;
+  const variance = pipValues.reduce((a,v) => a + Math.pow(v - avg, 2), 0) / pipValues.length;
+
+  // Dead zones: vertices touching 3 hexes but with very low pips (<=3)
+  const deadZones = vertices.filter(v => v.hexes.length >= 3 && v.pips <= 3).length;
+  // Resource diversity: vertices offering 3 different resources
+  const diverseVertices = vertices.filter(v => v.resourceCount >= 3).length;
+
+  return { spread: variance, min, max, avg, deadZones, diverseVertices, total: vertices.length, vertices };
+}
 
 function getPortPositions(hexCoords, count) {
   const hexSet = new Set(hexCoords.map(([q,r]) => hexKey(q,r)));
@@ -402,9 +521,9 @@ function generateBoard() {
       });
     }
 
-    const score = calcBalanceScore(board);
-    if (score < bestScore) {
-      bestScore = score;
+    const scoreObj = calcBalanceScore(board);
+    if (scoreObj.total < bestScore) {
+      bestScore = scoreObj.total;
       best = JSON.parse(JSON.stringify(board));
     }
     if (attempt > 50 && best) break;
@@ -439,26 +558,38 @@ function generatePorts(hexCoords, portPool) {
 }
 
 function calcBalanceScore(board) {
-  // Score based on resource probability distribution evenness
+  const useWeights = document.getElementById('chkWeighted').checked;
+
+  // Component 1: Resource pip variance
   const resourcePips = {};
   for (const key in board) {
     const hex = board[key];
     if (hex.terrain === 'desert' || !hex.number) continue;
     const res = hex.terrain;
     if (!resourcePips[res]) resourcePips[res] = 0;
-    resourcePips[res] += PIPS[hex.number] || 0;
+    const weight = useWeights ? (RESOURCE_WEIGHTS[res] || 1.0) : 1.0;
+    resourcePips[res] += (PIPS[hex.number] || 0) * weight;
   }
   const values = Object.values(resourcePips);
-  if (values.length === 0) return 100;
-  const avg = values.reduce((a,b)=>a+b,0) / values.length;
-  const variance = values.reduce((a,v) => a + Math.pow(v - avg, 2), 0) / values.length;
-  return variance;
+  if (values.length === 0) return { total: 100, resourceVariance: 100, vertexSpread: 0, resourcePips };
+  const avg = values.reduce((a,b) => a+b, 0) / values.length;
+  const resourceVariance = values.reduce((a,v) => a + Math.pow(v - avg, 2), 0) / values.length;
+
+  // Component 2: Vertex pip spread (normalized to similar scale)
+  const vertexData = calcVertexScore(board);
+  const vertexSpread = vertexData.spread / 3;
+
+  // Composite: 65% resource balance, 35% vertex balance
+  const total = resourceVariance * 0.65 + vertexSpread * 0.35;
+
+  return { total, resourceVariance, vertexSpread: vertexData.spread, vertexData, resourcePips };
 }
 
 function getBalanceLabel(score) {
-  if (score < 1.5) return {text:'Excellent', cls:'score-great'};
-  if (score < 3) return {text:'Good', cls:'score-good'};
-  if (score < 5) return {text:'Fair', cls:'score-ok'};
+  const s = typeof score === 'object' ? score.total : score;
+  if (s < 2) return {text:'Excellent', cls:'score-great'};
+  if (s < 4) return {text:'Good', cls:'score-good'};
+  if (s < 6) return {text:'Fair', cls:'score-ok'};
   return {text:'Unbalanced', cls:'score-bad'};
 }
 
@@ -718,6 +849,75 @@ function renderStats(board) {
   return html;
 }
 
+function renderVertexStats(board) {
+  const vs = calcVertexScore(board);
+  if (vs.total === 0) return '';
+
+  const el = document.createElement('div');
+
+  const h3 = document.createElement('h3');
+  h3.textContent = 'Settlement Spot Analysis';
+  el.appendChild(h3);
+
+  const grid = document.createElement('div');
+  grid.className = 'vertex-grid';
+
+  const items = [
+    {label: 'Best Spot', value: vs.max + ' pips', warn: false},
+    {label: 'Worst Spot', value: vs.min + ' pips', warn: vs.min <= 2},
+    {label: 'Average', value: vs.avg.toFixed(1) + ' pips', warn: false},
+    {label: 'Weak Spots', value: String(vs.deadZones), warn: vs.deadZones > 0},
+    {label: 'Diverse Spots', value: String(vs.diverseVertices), warn: false},
+  ];
+
+  for (const item of items) {
+    const card = document.createElement('div');
+    card.className = 'vertex-stat';
+    const lbl = document.createElement('div');
+    lbl.className = 'vs-label';
+    lbl.textContent = item.label;
+    const val = document.createElement('div');
+    val.className = 'vs-value' + (item.warn ? ' vs-warn' : '');
+    val.textContent = item.value;
+    card.appendChild(lbl);
+    card.appendChild(val);
+    grid.appendChild(card);
+  }
+
+  el.appendChild(grid);
+  return el.innerHTML;
+}
+
+function analyzePortProximity(board, ports) {
+  if (!ports || !ports.length) return [];
+  const terrainMap = {lumber:'forest', wool:'pasture', grain:'fields', brick:'hills', ore:'mountains'};
+  const results = [];
+  for (const port of ports) {
+    if (port.type === '3:1') continue;
+    const resourceType = port.type.split(' ')[0];
+    const terrain = terrainMap[resourceType];
+    if (!terrain) continue;
+
+    const attachedHex = board[hexKey(port.q, port.r)];
+    const neighbors = getNeighbors(port.q, port.r);
+    const nearbyHexes = [attachedHex, ...neighbors.map(function(n) { return board[hexKey(n[0],n[1])]; })].filter(Boolean);
+    const matchingNearby = nearbyHexes.filter(function(h) { return h.terrain === terrain; });
+    const bestPips = matchingNearby.length > 0
+      ? Math.max.apply(null, matchingNearby.map(function(h) { return PIPS[h.number] || 0; }))
+      : 0;
+
+    results.push({
+      port: port.type,
+      resourceType: resourceType,
+      terrain: terrain,
+      matchingNearby: matchingNearby.length,
+      bestPips: bestPips,
+      useful: matchingNearby.length > 0 && bestPips >= 3,
+    });
+  }
+  return results;
+}
+
 function generate() {
   const board = generateBoard();
   currentBoard = board;
@@ -727,7 +927,8 @@ function generate() {
 
   document.getElementById('boardContainer').innerHTML = renderBoard(board, currentPorts);
   document.getElementById('stats').innerHTML = renderStats(board);
-  
+  document.getElementById('vertexStats').innerHTML = renderVertexStats(board);
+
   const score = calcBalanceScore(board);
   const label = getBalanceLabel(score);
   const balanceEl = document.getElementById('balanceScore');
@@ -743,6 +944,69 @@ function generate() {
   scoreSpan.textContent = label.text;
   balanceEl.appendChild(scoreSpan);
 
+  // Dice disclaimer tooltip
+  const tip = document.createElement('span');
+  tip.className = 'balance-tip';
+  const tipIcon = document.createElement('span');
+  tipIcon.className = 'tip-icon';
+  tipIcon.textContent = '?';
+  const tipText = document.createElement('span');
+  tipText.className = 'tip-text';
+  tipText.textContent = 'This score measures how evenly resources and settlement spots are distributed across the board. It combines resource pip variance (how equal each resource\u2019s total probability is) with vertex analysis (how fair individual settlement locations are). Actual gameplay will vary due to dice rolls, player strategy, and trading.';
+  tip.appendChild(tipIcon);
+  tip.appendChild(tipText);
+  balanceEl.appendChild(tip);
+
+  // Score breakdown chips — show sub-ratings instead of raw numbers
+  function subLabel(v, thresholds) {
+    if (v < thresholds[0]) return 'Even';
+    if (v < thresholds[1]) return 'Slight spread';
+    return 'Uneven';
+  }
+  const breakdown = document.createElement('div');
+  breakdown.className = 'score-breakdown';
+  const resItem = document.createElement('span');
+  resItem.className = 'breakdown-item';
+  resItem.textContent = 'Resource spread: ' + subLabel(score.resourceVariance, [1.5, 4]);
+  breakdown.appendChild(resItem);
+  const vtxItem = document.createElement('span');
+  vtxItem.className = 'breakdown-item';
+  vtxItem.textContent = 'Settlement quality: ' + subLabel(score.vertexSpread, [6, 12]);
+  breakdown.appendChild(vtxItem);
+  if (score.vertexData && score.vertexData.deadZones > 0) {
+    const dzItem = document.createElement('span');
+    dzItem.className = 'breakdown-item breakdown-warn';
+    dzItem.textContent = score.vertexData.deadZones + ' weak spot' + (score.vertexData.deadZones > 1 ? 's' : '');
+    breakdown.appendChild(dzItem);
+  }
+  balanceEl.appendChild(breakdown);
+
+  // Port proximity analysis
+  const portAnalysis = analyzePortProximity(board, currentPorts);
+  if (portAnalysis.length > 0) {
+    const portDiv = document.createElement('div');
+    portDiv.className = 'port-analysis';
+    const portLabel = document.createElement('div');
+    portLabel.className = 'port-label';
+    portLabel.textContent = '2:1 Port Placement';
+    portDiv.appendChild(portLabel);
+    const portNote = document.createElement('div');
+    portNote.className = 'port-note';
+    portNote.textContent = '3:1 ports work with any resource so placement doesn\u2019t matter';
+    portDiv.appendChild(portNote);
+    const portChips = document.createElement('div');
+    portChips.className = 'port-chips';
+    const iconMap = {lumber:'\u{1F332}', wool:'\u{1F411}', grain:'\u{1F33E}', brick:'\u{1F9F1}', ore:'\u26F0\uFE0F'};
+    for (const p of portAnalysis) {
+      const chip = document.createElement('span');
+      chip.className = 'port-chip' + (p.useful ? ' port-good' : ' port-bad');
+      chip.textContent = (iconMap[p.resourceType] || '') + ' ' + (p.useful ? 'Nearby' : 'Far');
+      portChips.appendChild(chip);
+    }
+    portDiv.appendChild(portChips);
+    document.getElementById('vertexStats').appendChild(portDiv);
+  }
+
   if (lastGenerateUsedFallback) {
     const warn = document.createElement('div');
     warn.style.cssText = 'margin-top:8px;padding:8px 12px;background:#fff3cd;border:1px solid #ffc107;border-radius:8px;font-size:0.8rem;color:#856404;';
@@ -750,6 +1014,8 @@ function generate() {
     balanceEl.appendChild(warn);
   }
 }
+
+document.getElementById('chkWeighted').addEventListener('change', generate);
 
 // Initial generate
 generate();
