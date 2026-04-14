@@ -360,24 +360,30 @@ function calcVertexScore(board) {
 
 function getPortPositions(hexCoords, count) {
   const hexSet = new Set(hexCoords.map(([q,r]) => hexKey(q,r)));
-  // Collect coast edges: land hex + direction index toward water
-  const coastEdges = [];
+  // Collect all coast edges with land-neighbor counts for the water hex
+  const allEdges = [];
   const size = 1; // unit size; we only need relative geometry
   hexCoords.forEach(([q,r]) => {
     const neighbors = getNeighbors(q,r);
     for (let dir = 0; dir < 6; dir++) {
       const [nq,nr] = neighbors[dir];
       if (!hexSet.has(hexKey(nq,nr))) {
-        // edge midpoint in pixel space (unit size)
+        const waterNeighbors = getNeighbors(nq, nr);
+        const landCount = waterNeighbors.filter(([wq,wr]) => hexSet.has(hexKey(wq,wr))).length;
         const center = axialToPixel(q,r,size);
         const a1 = Math.PI/180*(60*dir - 30);
         const a2 = Math.PI/180*(60*((dir+1)%6) - 30);
         const mx = center.x + size*(Math.cos(a1)+Math.cos(a2))/2;
         const my = center.y + size*(Math.sin(a1)+Math.sin(a2))/2;
-        coastEdges.push({q, r, dir, mx, my});
+        allEdges.push({q, r, dir, mx, my, landCount});
       }
     }
   });
+  // Prefer outer edges (water hex has fewer land neighbors)
+  // Use strictest filter that still provides enough edges for ports
+  let coastEdges = allEdges.filter(e => e.landCount < 3);
+  if (coastEdges.length < count * 2) coastEdges = allEdges.filter(e => e.landCount < 4);
+  if (coastEdges.length < count * 2) coastEdges = allEdges;
   // Sort clockwise by angle from board center
   const avgX = coastEdges.reduce((s,e)=>s+e.mx,0)/coastEdges.length;
   const avgY = coastEdges.reduce((s,e)=>s+e.my,0)/coastEdges.length;
@@ -737,37 +743,6 @@ function renderBoard(board, ports) {
     }
   });
 
-  // ── Ports ──
-  if (ports && ports.length) {
-    ports.forEach(port => {
-      const center = axialToPixel(port.q, port.r, size);
-      const cx = center.x + offX, cy = center.y + offY;
-      const a1 = Math.PI/180*(60*port.dir - 30);
-      const a2 = Math.PI/180*(60*((port.dir+1)%6) - 30);
-      // Two vertices of the coast edge
-      const vx1 = cx + size*Math.cos(a1), vy1 = cy + size*Math.sin(a1);
-      const vx2 = cx + size*Math.cos(a2), vy2 = cy + size*Math.sin(a2);
-      // Edge midpoint
-      const emx = (vx1+vx2)/2, emy = (vy1+vy2)/2;
-      // Outward direction from hex center through edge midpoint
-      const dx = emx - cx, dy = emy - cy;
-      const len = Math.sqrt(dx*dx + dy*dy);
-      const ux = dx/len, uy = dy/len;
-      // Badge center offset outward
-      const bx = emx + ux*size*0.45, by = emy + uy*size*0.45;
-      const style = PORT_STYLES[port.type];
-      const bw = size*0.7, bh = size*0.4, br = size*0.12;
-      // Prong lines from edge vertices toward badge
-      svg += `<line x1="${vx1}" y1="${vy1}" x2="${bx - ux*bw*0.2}" y2="${by - uy*bw*0.2}" stroke="${style.bg}" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>`;
-      svg += `<line x1="${vx2}" y1="${vy2}" x2="${bx - ux*bw*0.2}" y2="${by - uy*bw*0.2}" stroke="${style.bg}" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>`;
-      // Badge pill
-      svg += `<rect x="${bx - bw/2}" y="${by - bh/2}" width="${bw}" height="${bh}" rx="${br}" fill="${style.bg}" stroke="#8a7a5a" stroke-width="1" filter="url(#tkSh)"/>`;
-      // Label
-      const fontSize = size*0.22;
-      svg += `<text x="${bx}" y="${by}" text-anchor="middle" dominant-baseline="central" font-size="${fontSize}" font-weight="700" fill="${style.text}" font-family="'DM Sans',sans-serif">${style.label}</text>`;
-    });
-  }
-
   // ── Terrain hexes ──
   hexes.forEach(hex => {
     const p = axialToPixel(hex.q, hex.r, size);
@@ -813,6 +788,21 @@ function renderBoard(board, ports) {
       svg += `<path d="M${cx-rs*1.5},${rY} L${cx-rs*1.2},${rY-rs*1.5} Q${cx},${rY-rs*2.5} ${cx+rs*1.2},${rY-rs*1.5} L${cx+rs*1.5},${rY}Z" fill="rgba(40,30,20,0.35)"/>`;
     }
   });
+
+  // ── Ports (drawn last so they appear on top of terrain hexes) ──
+  if (ports && ports.length) {
+    ports.forEach(port => {
+      // Place badge at the center of the adjacent water hex (guaranteed outside island)
+      const waterNeighbor = getNeighbors(port.q, port.r)[port.dir];
+      const waterPos = axialToPixel(waterNeighbor[0], waterNeighbor[1], size);
+      const bx = waterPos.x + offX, by = waterPos.y + offY;
+      const style = PORT_STYLES[port.type];
+      const bw = size*0.7, bh = size*0.4, br = size*0.12;
+      svg += `<rect x="${bx - bw/2}" y="${by - bh/2}" width="${bw}" height="${bh}" rx="${br}" fill="${style.bg}" stroke="#8a7a5a" stroke-width="1" filter="url(#tkSh)"/>`;
+      const fontSize = size*0.22;
+      svg += `<text x="${bx}" y="${by}" text-anchor="middle" dominant-baseline="central" font-size="${fontSize}" font-weight="700" fill="${style.text}" font-family="'DM Sans',sans-serif">${style.label}</text>`;
+    });
+  }
 
   svg += '</svg>';
   return svg;
