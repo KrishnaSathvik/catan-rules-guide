@@ -3,31 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Catan Map Randomizer — Balanced Board Generator for 4 & 6 Players</title>
-<meta name="description" content="Free Catan board randomizer. Generate balanced hex maps for 3-4 and 5-6 player games. Enforces official balance rules — no adjacent 6/8, resource distribution, pip limits. Save and share boards.">
+<title>Catan Board Randomizer for 3–4 and 5–6 Players</title>
+<meta name="description" content="Generate a Catan board for 3–4 players or the 5–6 player extension. Shuffle terrain, number tokens, and ports, and choose optional balance settings.">
 <meta name="keywords" content="Catan randomizer, Catan board generator, Catan map generator, Catan balanced board, Catan 6 player map, Catan setup tool">
 <meta name="author" content="codebykrishna">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://catanrulesguide.com/randomizer">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Catan Map Randomizer — Balanced Board Generator">
-<meta property="og:description" content="Generate balanced Catan boards for 4 and 6 player games. Free tool with balance rules.">
+<meta property="og:title" content="Catan Board Randomizer for 3–4 and 5–6 Players">
+<meta property="og:description" content="Generate a Catan board for 3–4 players or the 5–6 player extension. Shuffle terrain, number tokens, and ports, and choose optional balance settings.">
 <meta property="og:url" content="https://catanrulesguide.com/randomizer">
 <meta property="og:site_name" content="Catan Rules Guide">
 <meta property="og:image" content="https://catanrulesguide.com/og-image.png">
 <meta property="og:image:width" content="1024">
 <meta property="og:image:height" content="1024">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Catan Map Randomizer — Balanced Board Generator for 4 & 6 Players">
-<meta name="twitter:description" content="Generate balanced Catan boards instantly. Free tool with toggleable balance rules.">
+<meta name="twitter:title" content="Catan Board Randomizer for 3–4 and 5–6 Players">
+<meta name="twitter:description" content="Generate a Catan board for 3–4 players or the 5–6 player extension. Shuffle terrain, number tokens, and ports, and choose optional balance settings.">
 <meta name="twitter:image" content="https://catanrulesguide.com/og-image.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Catan Map Randomizer",
+  "name": "Catan Board Randomizer",
   "url": "https://catanrulesguide.com/randomizer",
-  "description": "Free Catan board randomizer. Generate balanced hex maps for 3-4 and 5-6 player games with official balance rules.",
+  "description": "Generate a Catan board for 3–4 players or the 5–6 player extension. Shuffle terrain, number tokens, and ports, and choose optional balance settings.",
   "applicationCategory": "GameApplication",
   "operatingSystem": "Web",
   "offers": {
@@ -44,7 +44,7 @@
 </script>
 <!-- STRUCTURED DATA: BreadcrumbList -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Catan Rules Guide","item":"https://catanrulesguide.com/"},{"@type":"ListItem","position":2,"name":"Map Randomizer","item":"https://catanrulesguide.com/randomizer"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Catan Rules Guide","item":"https://catanrulesguide.com/"},{"@type":"ListItem","position":2,"name":"Catan Board Randomizer","item":"https://catanrulesguide.com/randomizer"}]}
 </script>
 <meta name="theme-color" content="#2a6b7c">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -146,8 +146,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand-light);color:var(--t
 
 <header class="header">
   <a href="/" class="header-back"><i class="ph ph-arrow-left"></i> All Catan Guides</a>
-  <h1>Catan Map <span>Randomizer</span></h1>
-  <p>Generate balanced boards for 3-4 and 5-6 player games</p>
+  <h1>Catan Board <span>Randomizer</span></h1>
+  <p>Generate a board for the 3–4 player base game or the 5–6 player extension.</p>
 </header>
 
 <div class="controls" id="controls">
@@ -170,6 +170,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand-light);color:var(--t
   <div class="stats" id="stats"></div>
   <div class="vertex-stats" id="vertexStats"></div>
 </div>
+
+<section aria-labelledby="setup-help" style="max-width:800px;margin:32px auto 0;padding:0 24px;">
+  <h2 id="setup-help">How to set up a randomized Catan board</h2>
+  <p>Choose your player count and select <strong>Randomize</strong>. Copy the terrain hexes, number tokens, and ports from the generated map to your physical board. Use the <a href="/base">Catan base game rules</a> for starting settlements, roads, and resources.</p>
+  <p>Use the optional balance settings to avoid patterns such as adjacent red numbers (6s and 8s). If the tool cannot find a layout that meets your settings, it shows a warning with the fallback board.</p>
+</section>
 
 <div style="max-width:800px;margin:32px auto 0;padding:0 24px;">
   <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
